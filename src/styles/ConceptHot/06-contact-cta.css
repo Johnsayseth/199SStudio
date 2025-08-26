@@ -1,0 +1,571 @@
+/* Concept Hot Page Styles - Contact CTA Section */
+
+/* ===== CONTACT CTA SECTION ===== */
+.contact-cta-section {
+  background: #123f31;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/phaohoa/Final 199S-3218.JPG") center center;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.contact-cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== CONTACT CTA CARD ===== */
+.contact-cta-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-cta-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(18, 63, 49, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.contact-cta-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== CONTACT CTA TITLE ===== */
+.contact-cta-title {
+  color: #ffffff;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #123f31 50%, #ffffff 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.contact-cta-title:hover {
+  background: linear-gradient(135deg, #123f31 0%, #ffffff 50%, #123f31 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 2s ease-in-out infinite;
+}
+
+/* ===== CONTACT CTA DESCRIPTION ===== */
+.contact-cta-description {
+  color: var(--text-white-80);
+  font-size: var(--font-size-base);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* ===== CONTACT CTA BUTTONS ===== */
+.contact-cta-buttons {
+  margin-bottom: 2rem;
+}
+
+/* Facebook Button - Gradient xanh 65% + trắng 35% */
+.btn-facebook {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+
+  /* Gradient xanh 65% + trắng 35% */
+  background: linear-gradient(135deg, #123f31 0%, #123f31 65%, #ffffff 100%);
+  color: white;
+  font-size: var(--font-size-base);
+
+  /* 3D Effect giống Hero Section */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(18, 63, 49, 0.4), 0 8px 25px rgba(18, 63, 49, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Text Enhancement */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  margin-bottom: 1rem;
+}
+
+.btn-facebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-facebook:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #123f31 35%, #123f31 100%);
+  border-color: #ffffff;
+  color: #123f31;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(18, 63, 49, 0.5),
+    0 15px 35px rgba(18, 63, 49, 0.3), 0 0 20px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(18, 63, 49, 0.4);
+}
+
+.btn-facebook:hover::before {
+  left: 100%;
+}
+
+.btn-facebook:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(18, 63, 49, 0.3);
+}
+
+/* Divider */
+.contact-cta-divider {
+  position: relative;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.contact-cta-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+.contact-cta-divider span {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 0 1rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Messenger Buttons Container */
+.contact-cta-messenger {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Facebook Messenger Button - Gradient xanh 65% + trắng 35% */
+.btn-messenger {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+
+  /* Gradient xanh 65% + trắng 35% */
+  background: linear-gradient(135deg, #123f31 0%, #123f31 65%, #ffffff 100%);
+  color: white;
+  font-size: var(--font-size-sm);
+
+  /* 3D Effect giống Hero Section */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(18, 63, 49, 0.4), 0 6px 20px rgba(18, 63, 49, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Text Enhancement */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  flex: 1;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.btn-messenger::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-messenger:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #123f31 35%, #123f31 100%);
+  border-color: #ffffff;
+  color: #123f31;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.5),
+    0 12px 30px rgba(18, 63, 49, 0.3), 0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 25px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(18, 63, 49, 0.4);
+}
+
+.btn-messenger:hover::before {
+  left: 100%;
+}
+
+.btn-messenger:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 0 8px rgba(18, 63, 49, 0.3);
+}
+
+/* Zalo Button - Gradient xanh 65% + trắng 35% */
+.btn-zalo {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+
+  /* Gradient xanh 65% + trắng 35% */
+  background: linear-gradient(135deg, #123f31 0%, #123f31 65%, #ffffff 100%);
+  color: white;
+  font-size: var(--font-size-sm);
+
+  /* 3D Effect giống Hero Section */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(18, 63, 49, 0.4), 0 6px 20px rgba(18, 63, 49, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Text Enhancement */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  flex: 1;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.btn-zalo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-zalo:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #123f31 35%, #123f31 100%);
+  border-color: #ffffff;
+  color: #123f31;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.5),
+    0 12px 30px rgba(18, 63, 49, 0.3), 0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 25px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(18, 63, 49, 0.4);
+}
+
+.btn-zalo:hover::before {
+  left: 100%;
+}
+
+.btn-zalo:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 0 8px rgba(18, 63, 49, 0.3);
+}
+
+/* ===== CONTACT CTA INFO ===== */
+.contact-cta-info {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact-cta-phone,
+.contact-cta-address {
+  color: var(--text-white-80);
+  font-size: var(--font-size-sm);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-cta-phone:last-child,
+.contact-cta-address:last-child {
+  margin-bottom: 0;
+}
+
+.contact-cta-phone strong {
+  color: #ffffff;
+  font-weight: var(--font-weight-bold);
+}
+
+.contact-cta-phone-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 2px 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-phone-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.contact-cta-phone-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.contact-cta-phone-link:hover::before {
+  left: 100%;
+}
+
+.contact-cta-phone-link:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.15);
+}
+
+.contact-cta-phone i,
+.contact-cta-address i {
+  color: var(--secondary-color);
+  font-size: 1em;
+  margin-right: 0.5rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .contact-cta-card {
+    padding: 1.5rem 1rem;
+    max-width: 400px;
+  }
+
+  .contact-cta-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .contact-cta-description {
+    font-size: var(--font-size-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-facebook {
+    padding: 10px 20px;
+    font-size: var(--font-size-sm);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-cta-divider {
+    margin: 1rem 0;
+  }
+
+  .contact-cta-messenger {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-messenger,
+  .btn-zalo {
+    min-width: auto;
+    width: 100%;
+    padding: 8px 16px;
+  }
+
+  .contact-cta-info {
+    padding: 0.75rem;
+  }
+
+  .contact-cta-phone-link {
+    padding: 1px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-cta-card {
+    padding: 1rem 0.75rem;
+    max-width: 320px;
+    border-radius: 16px;
+  }
+
+  .contact-cta-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-cta-description {
+    font-size: var(--font-size-xs);
+    margin-bottom: 1rem;
+  }
+
+  .btn-facebook {
+    padding: 8px 16px;
+    font-size: var(--font-size-xs);
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-messenger,
+  .btn-zalo {
+    padding: 8px 16px;
+    font-size: var(--font-size-xs);
+    min-width: 140px;
+  }
+
+  .contact-cta-info {
+    padding: 0.5rem;
+  }
+
+  .contact-cta-phone,
+  .contact-cta-address {
+    font-size: var(--font-size-xs);
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .contact-cta-phone-link {
+    padding: 1px 3px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== HOVER EFFECTS ===== */
+/* Bỏ hover effect cho card */
+.contact-cta-card:hover {
+  /* Không có transform hay box-shadow thay đổi */
+}
+
+/* ===== ACCESSIBILITY ===== */
+.btn-facebook:focus,
+.btn-messenger:focus,
+.btn-zalo:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+.contact-cta-phone-link:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== TOUCH OPTIMIZATION ===== */
+@media (hover: none) and (pointer: coarse) {
+  .contact-cta-phone-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: none;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  }
+
+  .contact-cta-phone-link:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.contact-cta-section {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.contact-cta-card {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

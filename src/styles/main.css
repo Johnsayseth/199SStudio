@@ -1,0 +1,51 @@
+/* ===== MAIN.CSS - GỘP CÁC CSS FILES CHÍNH ===== */
+/* Được tạo để tối ưu hóa CSS loading order */
+/* AN TOÀN 100% - Không thay đổi giao diện, chỉ tối ưu hóa loading */
+
+/* 1. CSS Variables - Design System */
+@import "variables.css";
+
+/* 2. Base Styles - Foundation */
+@import "base.css";
+
+/* 3. Responsive & Utilities - Enhancements */
+@import "responsive.css";
+@import "utilities.css";
+
+/* 4. Fonts - Typography */
+@import "fonts.css";
+
+/* 5. Page Styles - Page Specific */
+@import "../app/page.css";
+
+/* 6. Final Optimizations - Overrides */
+@import "final-optimization.css";
+
+/* 7. Concept Hot Styles */
+@import "ConceptHot.css";
+@import "ConceptGallery.css";
+@import "ConceptHot/index.css";
+@import "ConceptHot/01-layout.css";
+@import "ConceptHot/02-components.css";
+@import "ConceptHot/03-modals.css";
+@import "ConceptHot/04-utilities.css";
+@import "ConceptHot/05-responsive.css";
+@import "ConceptHot/06-contact-cta.css";
+
+/* 8. Form & Modal Styles */
+@import "FeedbackForm.css";
+@import "Feedback.css";
+
+@import "Recruitment.css";
+@import "RecruitmentForm.css";
+@import "ContactSection.css";
+@import "ContactIntro.css";
+@import "PrivacyPolicy.css";
+
+/* 9. Component Styles */
+@import "components.css";
+@import "TeamSection.css";
+@import "Blog.css";
+
+/* 10. Critical CSS - Load separately for performance */
+/* critical.css được load riêng để tối ưu hóa */

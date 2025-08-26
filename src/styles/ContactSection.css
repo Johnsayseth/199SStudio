@@ -1,0 +1,1105 @@
+/* Import Font AgencyFB-Regular */
+@font-face {
+  font-family: "AgencyFB";
+  src: url("/fonts/AgencyFB-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ContactSection Custom Styles - HIGH PRIORITY */
+.contact-header-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--section-padding) 0;
+}
+
+.contact-header-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/Final 199S-1817.JPG") center/cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.contact-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-logo {
+  display: inline-block;
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-normal);
+}
+
+.contact-logo:hover {
+  transform: scale(1.05);
+  border-color: var(--secondary-color);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+}
+
+.contact-logo-img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: var(--transition-normal);
+}
+
+.company-title {
+  font-family: "AgencyFB", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-white);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.company-description {
+  font-family: "AgencyFB", sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-white-80);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.header-divider {
+  width: 100px;
+  height: 4px;
+  background: var(--secondary-color);
+  margin: 0 auto;
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
+}
+
+/* Company info section cũ - giữ lại để tránh lỗi */
+.company-info-section-custom {
+  background: var(--primary-color);
+  background-color: var(--primary-color);
+  background-image: none;
+  position: relative;
+  z-index: var(--z-navbar);
+}
+
+.company-info-section-custom * {
+  position: relative;
+  z-index: var(--z-overlay);
+}
+
+/* Ensure company info card is visible */
+.company-info-card {
+  background: var(--bg-white-95);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--bg-white-20);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Company header text colors */
+.company-header h3 {
+  color: var(--text-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.company-header p {
+  color: var(--text-white-80);
+}
+
+/* Company details styling */
+.detail-item h6 {
+  color: #123f31 !important;
+  font-weight: 700 !important;
+}
+
+.detail-item p {
+  color: #6c757d !important;
+}
+
+/* Logo wrapper styling */
+.company-logo-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary-light),
+    var(--bg-primary-light)
+  );
+  border-radius: var(--border-radius-xl);
+  border: 2px dashed var(--bg-primary-dark);
+  padding: var(--spacing-md);
+}
+
+/* Mã số thuế styling - FIXED */
+.detail-item .icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.detail-item .icon-wrapper i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Mã số thuế text styling */
+.detail-item h6 {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+}
+
+.detail-item p {
+  color: #6c757d;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Mã số thuế number styling */
+.detail-item strong {
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family-mono);
+  background: var(--bg-primary-light);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--bg-primary-dark);
+  display: inline-block;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .detail-item {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .detail-item .icon-wrapper {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .detail-item .icon-wrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ContactSection Form Styling */
+
+/* Form Labels - White color for better visibility */
+.contact-form .form-label strong {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+/* Form Icons - White color to match labels */
+.contact-form .form-label i {
+  color: #ffffff;
+}
+
+/* Required field indicator - Keep red for emphasis */
+.contact-form .text-danger {
+  color: #dc3545;
+}
+
+/* Form inputs - Keep existing styling */
+.contact-form .form-control {
+  border: 2px solid #123f31;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(18, 63, 49, 0.2);
+  background: rgba(18, 63, 49, 0.1);
+  color: #ffffff;
+}
+
+.contact-form .form-control:focus {
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #123f31;
+  transform: translateY(-2px);
+}
+
+.contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Submit button styling */
+.contact-form button[type="submit"] {
+  background: #123f31;
+  border: 2px solid #4ecdc4;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+}
+
+.contact-form button[type="submit"]:hover {
+  background: #4ecdc4;
+  border-color: #4ecdc4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+}
+
+.contact-form button[type="submit"]:disabled {
+  background: #6c757d;
+  border-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Form section background */
+.contact-section {
+  background: rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/Final 199S-1817.JPG") center/cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-form .form-label strong {
+    font-size: 1rem;
+  }
+
+  .contact-form .form-control {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .contact-form button[type="submit"] {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
+
+/* Testimonials Tab Styling */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.2);
+  border-color: rgba(78, 205, 196, 0.3);
+}
+
+.avatar-circle {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .avatar-circle {
+  transform: scale(1.1);
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-rating i {
+  font-size: 1.1rem;
+  margin-right: 2px;
+}
+
+.cta-section {
+  transition: all 0.3s ease;
+}
+
+.cta-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(78, 205, 196, 0.3);
+}
+
+/* Responsive testimonials */
+@media (max-width: 768px) {
+  .testimonial-card {
+    margin-bottom: 1rem;
+  }
+
+  .avatar-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .testimonial-header h6 {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Form Labels Styling - FIXED */
+.custom-form .form-label {
+  color: var(--text-white);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.custom-form .form-label strong {
+  color: var(--text-white);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.custom-form .form-label i {
+  color: var(--text-white);
+  margin-right: var(--spacing-xs);
+}
+
+/* Form Inputs Styling */
+.custom-form .form-control {
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-md);
+  padding: 12px 15px;
+  font-size: 16px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-primary-light);
+  transition: var(--transition-normal);
+}
+
+.custom-form .form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #123f31;
+  transform: translateY(-2px);
+}
+
+/* Responsive CSS cho Contact Header */
+@media (max-width: 991.98px) {
+  .company-title {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .company-description {
+    font-size: 1.3rem;
+  }
+
+  .contact-logo {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .company-title {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .company-description {
+    font-size: 1.1rem;
+  }
+
+  .contact-logo {
+    padding: var(--spacing-xs);
+  }
+
+  .contact-logo-img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .company-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .company-description {
+    font-size: 1rem;
+  }
+
+  .contact-logo-img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .header-divider {
+    width: 80px;
+    height: 3px;
+  }
+}
+
+/* ===== FOCUS STATE FIXES - SỬA BẢNG TRẮNG ===== */
+/* Loại bỏ hoàn toàn bảng màu trắng khó chịu */
+.contact-form .form-control:focus,
+.custom-form .form-control:focus,
+.contact-section input:focus,
+.contact-section textarea:focus,
+.contact-section select:focus,
+.contact-section .form-control:focus,
+.contact-section .form-select:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-color: #4ecdc4 !important;
+  box-shadow: 0 0 0 0.15rem rgba(78, 205, 196, 0.3) !important;
+  outline: none !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Override Bootstrap focus styles */
+.contact-section .form-control:focus,
+.contact-section .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: #4ecdc4 !important;
+  box-shadow: 0 0 0 0.15rem rgba(78, 205, 196, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* Loại bỏ hoàn toàn màu trắng khi hover */
+.contact-form .form-control:hover,
+.custom-form .form-control:hover,
+.contact-section input:hover,
+.contact-section textarea:hover,
+.contact-section select:hover,
+.contact-section .form-control:hover,
+.contact-section .form-select:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #4ecdc4 !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Đảm bảo chữ người dùng viết luôn có màu trắng */
+.contact-section .form-control,
+.contact-section .form-select,
+.contact-section input,
+.contact-section textarea,
+.contact-section select {
+  color: #ffffff !important;
+}
+
+.contact-section .form-control::placeholder,
+.contact-section .form-select::placeholder,
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Đảm bảo placeholder text vẫn hiển thị rõ ràng */
+.contact-form .form-control:focus::placeholder,
+.custom-form .form-control:focus::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ===== OVERRIDE BOOTSTRAP COMPLETELY - SỬA BẢNG TRẮNG ===== */
+/* Loại bỏ hoàn toàn tất cả màu trắng từ Bootstrap */
+.contact-section .form-control:hover,
+.contact-section .form-control:focus,
+.contact-section .form-control:active,
+.contact-section .form-select:hover,
+.contact-section .form-select:focus,
+.contact-section .form-select:active {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: #4ecdc4 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.15rem rgba(78, 205, 196, 0.3) !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Đảm bảo input text luôn có màu trắng */
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section input[type="tel"],
+.contact-section input[type="number"],
+.contact-section textarea {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.contact-section input[type="text"]:focus,
+.contact-section input[type="email"]:focus,
+.contact-section input[type="tel"]:focus,
+.contact-section input[type="number"]:focus,
+.contact-section textarea:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-color: #4ecdc4 !important;
+  box-shadow: 0 0 0 0.15rem rgba(78, 205, 196, 0.3) !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* URL Input Fields Styling */
+.form-control[type="url"] {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+.form-control[type="url"]:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+}
+
+.form-control[type="url"]::placeholder {
+  color: var(--text-white-50);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* URL Validation States */
+.form-control[type="url"].is-valid {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control[type="url"].is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Social Media Icons - Removed conflicts */
+
+/* URL Field Hover Effects */
+.form-control[type="url"]:hover {
+  border-color: var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Social Media Input Fields Styling */
+.form-control[name="instagram"],
+.form-control[name="facebook"] {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  border-left: 4px solid #123f31;
+  transition: all 0.3s ease;
+}
+
+.form-control[name="instagram"]:focus,
+.form-control[name="facebook"]:focus {
+  border-color: #123f31;
+  border-left-color: #1a5a47;
+  box-shadow: 0 0 0 0.2rem rgba(18, 63, 49, 0.25);
+  transform: translateX(2px);
+}
+
+.form-control[name="instagram"]::placeholder,
+.form-control[name="facebook"]::placeholder {
+  color: var(--text-white-60);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Instagram Field Special Styling */
+.form-control[name="instagram"] {
+  border-left-color: #e4405f;
+}
+
+.form-control[name="instagram"]:focus {
+  border-left-color: #f56040;
+  box-shadow: 0 0 0 0.2rem rgba(228, 64, 95, 0.25);
+}
+
+/* Facebook Field Special Styling */
+.form-control[name="facebook"] {
+  border-left-color: #1877f2;
+}
+
+.form-control[name="facebook"]:focus {
+  border-left-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(24, 119, 242, 0.25);
+}
+
+/* Social Media Fields Hover Effects */
+.form-control[name="instagram"]:hover,
+.form-control[name="facebook"]:hover {
+  border-color: var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Social Media Fields Validation States */
+.form-control[name="instagram"].is-valid,
+.form-control[name="facebook"].is-valid {
+  border-color: #28a745;
+  border-left-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control[name="instagram"].is-invalid,
+.form-control[name="facebook"].is-invalid {
+  border-color: #dc3545;
+  border-left-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Social Media Fields Animation */
+.form-control[name="instagram"],
+.form-control[name="facebook"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-control[name="instagram"]::after,
+.form-control[name="facebook"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(18, 63, 49, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.form-control[name="instagram"]:focus::after,
+.form-control[name="facebook"]:focus::after {
+  left: 100%;
+}
+
+/* Form Section Background */
+.contact-form-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: var(--z-base);
+}
+
+.contact-form-section * {
+  position: relative;
+  z-index: var(--z-dropdown);
+}
+
+/* Form Icons Styling - Màu xanh #123f31 với hiệu ứng đặc sắc */
+.form-label i {
+  color: #123f31 !important;
+  font-size: 1.1em;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* Icon Hover Effects */
+.form-label:hover i {
+  transform: scale(1.2) rotate(5deg);
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(18, 63, 49, 0.8);
+}
+
+/* Icon Focus Effects - Simplified */
+
+/* Specific Icon Colors - Removed conflicts */
+
+/* Icon Effects - Simplified */
+
+.form-label:hover i {
+  filter: drop-shadow(0 4px 8px rgba(18, 63, 49, 0.6));
+}
+
+/* Icon Color Transitions */
+.form-label i {
+  background: linear-gradient(135deg, #123f31 0%, #1a5a47 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-label:hover i {
+  background: linear-gradient(135deg, #ffffff 0%, #e8f5e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== LOẠI BỎ BROWSER DEFAULT STYLING ===== */
+/* Loại bỏ autocomplete dropdown styling */
+.contact-section input:-webkit-autofill,
+.contact-section input:-webkit-autofill:hover,
+.contact-section input:-webkit-autofill:focus,
+.contact-section input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Loại bỏ browser default focus outline */
+.contact-section .form-control:focus,
+.contact-section .form-select:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+/* Loại bỏ browser default selection color */
+.contact-section .form-control::selection,
+.contact-section .form-control::-moz-selection {
+  background: rgba(78, 205, 196, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* Loại bỏ browser default input styling */
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section input[type="tel"],
+.contact-section input[type="number"],
+.contact-section textarea {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  border-radius: 8px !important;
+}
+
+/* ===== ICON ANIMATIONS - HIỆU ỨNG ĐỘC ĐÁO ===== */
+
+/* Header Icons */
+.icon-pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+  color: #4ecdc4;
+}
+
+.icon-bounce {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #4ecdc4;
+}
+
+.icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+  color: #4ecdc4;
+}
+
+/* Form Label Icons */
+.icon-glow {
+  animation: iconGlow 2s ease-in-out infinite;
+  color: #123f31;
+}
+
+.icon-spin {
+  animation: iconSpin 3s linear infinite;
+  color: #123f31;
+}
+
+.icon-wave {
+  animation: iconWave 2s ease-in-out infinite;
+  color: #123f31;
+}
+
+.icon-ring {
+  animation: iconRing 2s ease-in-out infinite;
+  color: #123f31;
+}
+
+.icon-heartbeat {
+  animation: iconHeartbeat 1.5s ease-in-out infinite;
+  color: #e4405f;
+}
+
+.icon-shake {
+  animation: iconShake 2s ease-in-out infinite;
+  color: #1877f2;
+}
+
+.icon-typing {
+  animation: iconTyping 2s ease-in-out infinite;
+  color: #123f31;
+}
+
+.icon-rocket {
+  animation: iconRocket 2s ease-in-out infinite;
+  color: #ffffff;
+}
+
+/* Info Icons */
+.bi-info-circle {
+  color: #4ecdc4;
+  animation: iconInfo 2s ease-in-out infinite;
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+
+/* Pulse Effect */
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Bounce Effect */
+@keyframes iconBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Float Effect */
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Glow Effect */
+@keyframes iconGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(18, 63, 49, 0.5);
+    color: #123f31;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(18, 63, 49, 1);
+    color: #4ecdc4;
+  }
+}
+
+/* Spin Effect */
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Wave Effect */
+@keyframes iconWave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* Ring Effect */
+@keyframes iconRing {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(90deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(270deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Heartbeat Effect */
+@keyframes iconHeartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Shake Effect */
+@keyframes iconShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Typing Effect */
+@keyframes iconTyping {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Rocket Effect */
+@keyframes iconRocket {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Info Effect */
+@keyframes iconInfo {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ===== HOVER EFFECTS ===== */
+.form-label:hover .icon-glow,
+.form-label:hover .icon-spin,
+.form-label:hover .icon-wave,
+.form-label:hover .icon-ring,
+.form-label:hover .icon-typing {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  color: #4ecdc4;
+}
+
+.form-label:hover .icon-heartbeat {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  color: #ff6b9d;
+}
+
+.form-label:hover .icon-shake {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  color: #4dabf7;
+}
+
+/* ===== RESPONSIVE ANIMATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .icon-pulse,
+  .icon-bounce,
+  .icon-float,
+  .icon-glow,
+  .icon-spin,
+  .icon-wave,
+  .icon-ring,
+  .icon-heartbeat,
+  .icon-shake,
+  .icon-typing,
+  .icon-rocket,
+  .bi-info-circle {
+    animation: none;
+  }
+}

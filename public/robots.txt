@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://199sstudio.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin area
+Disallow: /admin/
+Disallow: /admin/*
+
+# Allow important pages
+Allow: /
+Allow: /concept-hot
+Allow: /blog
+Allow: /blog/*
+Allow: /datlichkyyeu
+
+# Allow assets
+Allow: /images/
+Allow: /videos/
+Allow: /css/
+Allow: /js/
+
+# Block unnecessary files
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+Disallow: /_next/
+Disallow: /api/

@@ -1,0 +1,228 @@
+/* Contact Intro Section - Professional Styling */
+.contact-intro-section {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 63, 49, 0.95),
+    rgba(26, 90, 74, 0.9)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-intro-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/Final 199S-1817.JPG") center/cover;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.contact-intro-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== TITLE STYLING - NỔI BẬT VỚI MÀU #123f31 ===== */
+.contact-intro-section h2 {
+  font-family: "AgencyFB", sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #123f31 0%, #ffffff 50%, #123f31 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(18, 63, 49, 0.3);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  animation: gradientShift 3s ease-in-out infinite;
+  position: relative;
+}
+
+.contact-intro-section h2::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #123f31, #ffffff, #123f31);
+  border-radius: 2px;
+  animation: widthPulse 2s ease-in-out infinite;
+}
+
+.contact-intro-section h2::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ===== SUBTITLE STYLING ===== */
+.contact-intro-section em {
+  font-family: "AgencyFB", sans-serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== DESCRIPTION STYLING ===== */
+.contact-intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BUTTON STYLING - HIỆU ỨNG KHI ẤN ===== */
+.contact-intro-section .btn,
+.contact-intro-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #123f31, #0f2f26);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 25px rgba(18, 63, 49, 0.4);
+}
+
+.contact-intro-section .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.contact-intro-section .btn:hover {
+  background: linear-gradient(135deg, #0f2f26, #123f31);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(18, 63, 49, 0.6);
+}
+
+.contact-intro-section .btn:hover::before {
+  left: 100%;
+}
+
+.contact-intro-section .btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.5);
+  transition: all 0.1s ease;
+}
+
+/* ===== BUTTON ICON STYLING ===== */
+.contact-intro-section .btn i {
+  transition: transform 0.3s ease;
+}
+
+.contact-intro-section .btn:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes widthPulse {
+  0%,
+  100% {
+    width: 80px;
+    opacity: 1;
+  }
+  50% {
+    width: 120px;
+    opacity: 0.8;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .contact-intro-section h2 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .contact-intro-section em {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .contact-intro-section p {
+    font-size: 1rem;
+  }
+
+  .contact-intro-section .btn {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-intro-section h2 {
+    font-size: 2rem;
+  }
+
+  .contact-intro-section .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ===== HOVER EFFECTS FOR INTERACTIVITY ===== */
+.contact-intro-section:hover h2 {
+  animation-play-state: paused;
+}
+
+.contact-intro-section:hover h2::before {
+  animation-play-state: paused;
+}
+
+.contact-intro-section:hover h2::after {
+  animation-play-state: paused;
+}

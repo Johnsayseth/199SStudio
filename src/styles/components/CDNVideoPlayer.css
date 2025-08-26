@@ -1,0 +1,310 @@
+/**
+ * CDN Video Player Styles for 199S Studio
+ * Styling cho enhanced video player với CDN support
+ * 
+ * IMPORTANT: CSS mới, không ảnh hưởng đến styling hiện tại
+ */
+
+.cdn-video-player {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cdn-video-element {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+}
+
+/* CDN Status Indicator */
+.cdn-status-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.status-badge,
+.health-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.status-badge.text-gray-500 {
+  color: #6b7280;
+}
+.status-badge.text-green-500 {
+  color: #10b981;
+}
+.status-badge.text-yellow-500 {
+  color: #f59e0b;
+}
+.status-badge.text-red-500 {
+  color: #ef4444;
+}
+
+.health-badge.text-green-500 {
+  color: #10b981;
+}
+.health-badge.text-yellow-500 {
+  color: #f59e0b;
+}
+.health-badge.text-red-500 {
+  color: #ef4444;
+}
+
+/* Loading Indicator */
+.video-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  z-index: 5;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.video-loading span {
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Error Display */
+.video-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  background: rgba(239, 68, 68, 0.9);
+  padding: 16px;
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+.error-icon {
+  font-size: 24px;
+}
+
+.error-message {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 200px;
+}
+
+/* Quality Selector */
+.cdn-quality-selector {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 12px;
+  border-radius: 6px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.quality-label {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quality-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 40px;
+}
+
+.quality-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.quality-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.quality-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Video Info */
+.video-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 6px 10px;
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.video-info span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cdn-status-indicator {
+    top: 5px;
+    right: 5px;
+  }
+
+  .status-badge,
+  .health-badge {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .cdn-quality-selector {
+    bottom: 50px;
+    right: 5px;
+    padding: 6px 8px;
+  }
+
+  .quality-btn {
+    padding: 3px 6px;
+    font-size: 10px;
+    min-width: 35px;
+  }
+
+  .video-info {
+    bottom: 5px;
+    left: 5px;
+    padding: 4px 8px;
+    gap: 8px;
+  }
+
+  .video-info span {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cdn-quality-selector {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .quality-label {
+    font-size: 10px;
+  }
+
+  .video-info {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+  .cdn-video-player {
+    background: #111;
+  }
+
+  .status-badge,
+  .health-badge {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .cdn-quality-selector,
+  .video-info {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .cdn-video-player {
+    border: 2px solid #000;
+  }
+
+  .status-badge,
+  .health-badge,
+  .cdn-quality-selector,
+  .video-info {
+    border: 1px solid #fff;
+  }
+
+  .quality-btn {
+    border-width: 2px;
+  }
+}

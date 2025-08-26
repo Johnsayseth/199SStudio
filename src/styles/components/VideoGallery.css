@@ -1,0 +1,1107 @@
+/* Video Gallery Section - Horizontal Layout */
+.video-gallery-section {
+  background: var(--primary-color);
+  background-color: var(--primary-color);
+  background-image: none;
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--section-padding) 0;
+  font-family: var(--font-family-primary);
+  /* Navbar safety - ensure content is visible */
+  scroll-margin-top: 120px;
+  /* Uniform spacing like Concept page */
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+/* Video Strip Container */
+.video-strip-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn:hover {
+  background: #123f31;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.4);
+}
+
+.nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.nav-prev {
+  left: 10px;
+}
+
+.nav-next {
+  right: 10px;
+}
+
+/* Hide navigation buttons on mobile */
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none;
+  }
+}
+
+/* Horizontal Video Strip */
+.video-strip {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto; /* ← THAY ĐỔI TỪ smooth SANG auto ĐỂ TRÁNH XUNG ĐỘT */
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 0;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Đảm bảo items không bị wrap */
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.video-strip::-webkit-scrollbar {
+  height: 8px;
+}
+
+.video-strip::-webkit-scrollbar-track {
+  background: rgba(18, 63, 49, 0.3);
+  border-radius: 4px;
+}
+
+.video-strip::-webkit-scrollbar-thumb {
+  background: var(--bg-primary-60);
+  border-radius: 4px;
+}
+
+.video-strip::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-primary);
+}
+
+/* Video Items */
+.video-item {
+  flex: 0 0 auto;
+  width: 380px; /* Tăng chiều rộng từ 320px */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Đảm bảo layout dọc */
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+.video-item:hover {
+  transform: translateY(-8px);
+}
+
+/* Video Thumbnail */
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-black-40);
+  border: 2px solid var(--bg-white-12);
+  transition: all 0.3s ease;
+  margin-bottom: 16px; /* Khoảng cách với info bên dưới */
+  /* Đảm bảo thumbnail không bị stretch */
+  flex-shrink: 0;
+}
+
+.video-item:hover .video-thumbnail {
+  border-color: var(--bg-primary-60);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Video Preview (Autoplay) */
+.video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-preview {
+  transform: scale(1.05);
+}
+
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-item:hover .video-overlay {
+  opacity: 1;
+}
+
+/* Play Button */
+.play-button {
+  width: 80px; /* Tăng kích thước từ 70px */
+  height: 80px;
+  background: var(--bg-primary-80);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 3px solid var(--bg-white-20);
+}
+
+.play-button i {
+  font-size: 32px; /* Tăng font size từ 28px */
+  color: #123f31;
+  margin-left: 4px;
+}
+
+.video-item:hover .play-button {
+  transform: scale(1.1);
+  background: var(--bg-primary);
+  border-color: var(--bg-white-40);
+}
+
+/* Video Info Below Video */
+.video-info-below {
+  text-align: center;
+  color: #123f31;
+  width: 100%;
+  padding: 0 8px;
+  /* Đảm bảo info ở dưới video */
+  margin-top: auto;
+  flex-shrink: 0;
+  /* Tối ưu spacing */
+  padding-top: 8px;
+}
+
+.video-title {
+  font-size: 18px; /* Tăng font size từ 16px */
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  font-family: var(--font-family-secondary);
+  color: #123f31;
+  /* Đảm bảo title hiển thị đúng */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.video-description {
+  font-size: 14px; /* Tăng font size từ 13px */
+  line-height: 1.5;
+  margin: 0;
+  color: #123f31;
+  opacity: 0.9;
+  /* Đảm bảo description hiển thị đúng */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  /* Tối ưu spacing */
+  margin-top: 4px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.scroll-text {
+  display: inline-flex;
+  align-items: center;
+  color: #123f31;
+  font-size: 14px;
+  padding: 8px 16px;
+  background: rgba(18, 63, 49, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(18, 63, 49, 0.5);
+}
+
+.scroll-text i {
+  font-size: 16px;
+}
+
+/* Skeleton Loading */
+.video-strip-skeleton {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.video-item-skeleton {
+  flex: 0 0 auto;
+  width: 380px; /* Tăng từ 320px */
+  height: 240px; /* Tăng từ 200px */
+  background: linear-gradient(
+    90deg,
+    var(--bg-white-08) 25%,
+    var(--bg-white-18) 37%,
+    var(--bg-white-08) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 16px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Enhanced Modal */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video-modal {
+  background: var(--bg-black-90);
+  border-radius: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--bg-white-20);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--bg-white-12);
+}
+
+.modal-title {
+  color: #123f31;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  font-family: var(--font-family-secondary);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #123f31;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: rgba(18, 63, 49, 0.4);
+  color: #123f31;
+}
+
+/* Modal Video Container */
+.modal-video-container {
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--bg-black-40);
+}
+
+/* ===== External Video Grid (TikTok & Facebook) ===== */
+.external-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.external-video-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.external-video-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.external-video-card .external-video-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  color: #123f31;
+}
+
+.external-video-card.tiktok .external-video-icon {
+  background: #010101;
+}
+.external-video-card.facebook .external-video-icon {
+  background: #1877f2;
+}
+
+.external-video-info .platform-label {
+  font-size: 12px;
+  color: #123f31;
+}
+
+.external-video-title {
+  font-size: 14px;
+  color: #123f31;
+}
+
+/* Embed containers for aspect ratio */
+.embed-aspect-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+  min-height: 315px; /* Fallback height */
+}
+
+.embed-aspect-9x16 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 aspect ratio */
+  background: #000;
+  min-height: 400px; /* Fallback height cho TikTok */
+}
+
+.embed-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+/* Specific styling for TikTok videos */
+.external-video-strip .embed-aspect-9x16 {
+  min-height: 400px;
+  max-height: 600px;
+}
+
+.external-video-strip .embed-iframe {
+  min-height: 400px;
+  max-height: 600px;
+}
+
+/* Specific override for YouTube container */
+.youtube-video-container .embed-aspect-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  min-height: 315px; /* Fallback height */
+}
+
+.youtube-video-container .embed-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+  min-height: 315px; /* Fallback height */
+}
+
+/* Modal Description */
+.modal-description {
+  padding: 20px 24px;
+  border-top: 1px solid var(--bg-white-12);
+}
+
+/* ===== External Sections Header ===== */
+.external-section {
+  margin-top: 28px;
+}
+.external-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.external-section-header .badge.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: #123f31;
+}
+.badge.brand.tiktok {
+  background: #010101;
+}
+.badge.brand.facebook {
+  background: #1877f2;
+}
+.external-title {
+  color: #123f31;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+.external-section-header .spacer {
+  flex: 1;
+}
+.cta-link {
+  color: #123f31;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.cta-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+.cta-tiktok {
+  background: rgba(1, 1, 1, 0.35);
+  border-color: rgba(1, 1, 1, 0.5);
+}
+.cta-facebook {
+  background: rgba(24, 119, 242, 0.25);
+  border-color: rgba(24, 119, 242, 0.5);
+}
+
+.modal-description p {
+  color: #123f31;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 16px 24px 24px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--bg-white-12);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-strip {
+    gap: 16px;
+    padding: 16px 0;
+    /* Enhanced mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* scroll-snap-type: x mandatory; ← LOẠI BỎ ĐỂ GIẢI QUYẾT GIẬT CỤC */
+    scroll-behavior: auto; /* ← THAY ĐỔI TỪ smooth SANG auto ĐỂ TRÁNH XUNG ĐỘT */
+  }
+
+  .video-item {
+    width: 320px; /* Tăng từ 280px */
+    /* scroll-snap-align: start; ← LOẠI BỎ ĐỂ TRÁNH XUNG ĐỘT VỚI AUTO-SCROLL */
+    /* Đảm bảo layout dọc trên mobile */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .video-title {
+    font-size: 16px; /* Tăng từ 14px */
+  }
+
+  .video-description {
+    font-size: 13px; /* Tăng từ 12px */
+  }
+
+  .play-button {
+    width: 70px; /* Tăng từ 60px */
+    height: 70px;
+  }
+
+  .play-button i {
+    font-size: 28px; /* Tăng từ 24px */
+  }
+
+  .modal-header {
+    padding: 20px 20px 16px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-video-container {
+    padding: 0 20px;
+  }
+
+  .modal-description {
+    padding: 16px 20px;
+  }
+
+  .modal-footer {
+    padding: 16px 20px 20px;
+  }
+
+  /* Enhanced external video strips for mobile */
+  .external-video-strip {
+    -webkit-overflow-scrolling: touch;
+    /* scroll-snap-type: x mandatory; ← LOẠI BỎ ĐỂ GIẢI QUYẾT GIẬT CỤC */
+    scroll-behavior: auto; /* ← THAY ĐỔI TỪ smooth SANG auto ĐỂ TRÁNH XUNG ĐỘT */
+    touch-action: pan-x; /* Enable horizontal touch scrolling */
+    -webkit-user-select: none; /* Safari support */
+    user-select: none; /* Prevent text selection during swipe */
+  }
+
+  .external-video-strip .embed-tile {
+    /* scroll-snap-align: start; ← LOẠI BỎ ĐỂ TRÁNH XUNG ĐỘT VỚI AUTO-SCROLL */
+    touch-action: pan-x; /* Enable horizontal touch scrolling for tiles */
+  }
+}
+
+@media (max-width: 576px) {
+  .video-item {
+    width: 300px; /* Tăng từ 260px */
+    /* Đảm bảo layout dọc trên small mobile */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .video-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 16px 16px 12px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-video-container {
+    padding: 0 16px;
+  }
+
+  .modal-description {
+    padding: 12px 16px;
+  }
+
+  .modal-footer {
+    padding: 12px 16px 16px;
+  }
+}
+
+/* Dark theme enhancements */
+@media (prefers-color-scheme: dark) {
+  .video-thumbnail {
+    background: var(--bg-black-60);
+    border-color: var(--bg-white-16);
+  }
+
+  .video-item:hover .video-thumbnail {
+    border-color: var(--bg-primary-80);
+  }
+}
+
+/* Focus states for accessibility */
+.video-item:focus-visible {
+  outline: 2px solid var(--bg-primary);
+  outline-offset: 2px;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid var(--bg-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for touch devices */
+@media (hover: none) {
+  .video-strip {
+    scroll-behavior: auto;
+  }
+}
+
+/* Enhanced touch support for mobile devices */
+@media (max-width: 768px) {
+  /* Touch-friendly scrollbars */
+  .video-strip::-webkit-scrollbar,
+  .external-video-strip::-webkit-scrollbar {
+    height: 12px; /* Thicker scrollbar for touch */
+  }
+
+  .video-strip::-webkit-scrollbar-thumb,
+  .external-video-strip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .video-strip::-webkit-scrollbar-thumb:hover,
+  .external-video-strip::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Touch gesture indicators */
+  .video-strip::before,
+  .external-video-strip::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .video-strip:hover::before,
+  .external-video-strip:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Touch gesture support for all devices */
+.video-strip,
+.external-video-strip {
+  touch-action: pan-x; /* Enable horizontal touch scrolling */
+  -ms-user-select: none; /* Prevent text selection during touch */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Ensure touch events work properly */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* External Video Sections */
+.external-section {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* External Video Strip Container with Navigation */
+.external-video-strip-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Ẩn overflow của container */
+}
+
+/* External Video Navigation Buttons */
+.nav-external {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-external:hover {
+  background: #123f31;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.4);
+}
+
+.nav-external:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.nav-external.nav-prev {
+  left: 10px;
+}
+
+.nav-external.nav-next {
+  right: 10px;
+}
+
+/* Hide external navigation buttons on mobile */
+@media (max-width: 768px) {
+  .nav-external {
+    display: none;
+  }
+}
+
+.external-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.external-section-header .badge.brand {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.external-section-header .badge.tiktok {
+  background: linear-gradient(45deg, #ff0050, #00f2ea);
+  color: #123f31;
+}
+
+.external-section-header .badge.facebook {
+  background: linear-gradient(45deg, #1877f2, #42a5f5);
+  color: #123f31;
+}
+
+.external-title {
+  color: #123f31;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cta-tiktok {
+  background: linear-gradient(45deg, #ff0050, #00f2ea);
+  color: #123f31;
+}
+
+.cta-tiktok:hover {
+  background: linear-gradient(45deg, #e6004c, #00d4cc);
+  color: #123f31;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 80, 0.3);
+}
+
+.cta-facebook {
+  background: linear-gradient(45deg, #1877f2, #42a5f5);
+  color: #123f31;
+}
+
+.cta-facebook:hover {
+  background: linear-gradient(45deg, #1565c0, #1976d2);
+  color: #123f31;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+}
+
+/* Horizontal Video Strips */
+.external-video-strip {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto; /* Thay đổi từ scroll sang auto */
+  overflow-y: hidden;
+  padding: 1rem 0;
+  scroll-behavior: auto; /* ← THAY ĐỔI TỪ smooth SANG auto ĐỂ TRÁNH XUNG ĐỘT */
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+  cursor: grab; /* Thêm cursor grab */
+  -webkit-user-select: none; /* Safari support */
+  user-select: none; /* Prevent text selection */
+  touch-action: pan-x; /* Enable horizontal touch scrolling */
+  /* Đảm bảo scroll hoạt động */
+  position: relative;
+  width: 100%;
+}
+
+/* Force flex items to not shrink */
+.external-video-strip .embed-tile {
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 280px;
+  width: 280px; /* Đảm bảo width cố định */
+}
+
+/* Scrollbar styling for all external video strips */
+.external-video-strip::-webkit-scrollbar {
+  height: 8px;
+}
+
+.external-video-strip::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.external-video-strip::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.external-video-strip::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Specific styling for TikTok video strip */
+.tiktok-video-strip {
+  /* Cho phép scroll thay vì max-content */
+  min-width: auto;
+  width: 100%;
+}
+
+/* Specific styling for Facebook video strip */
+.facebook-video-strip {
+  /* Cho phép scroll thay vì max-content */
+  min-width: auto;
+  width: 100%;
+}
+
+.embed-tile {
+  flex: 0 0 auto;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.embed-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.embed-aspect-16x9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+}
+
+.embed-aspect-9x16 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 aspect ratio for TikTok */
+  background: #000;
+}
+
+.embed-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  /* Đảm bảo video có tiếng trên mobile */
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.embed-caption {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.embed-caption a {
+  color: #123f31;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.embed-caption a:hover {
+  color: #42a5f5;
+}
+
+.embed-caption i {
+  color: #42a5f5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .external-video-strip {
+    gap: 1rem;
+    padding: 0.5rem 0;
+    /* Ensure scrollbar is visible on mobile */
+    overflow-x: scroll !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Đảm bảo Facebook video có tiếng trên mobile */
+  .facebook-video-strip .embed-iframe {
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+    /* Tối ưu cho mobile */
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .embed-tile {
+    width: 240px;
+  }
+
+  .external-section-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .external-title {
+    font-size: 1.5rem;
+  }
+
+  /* Đảm bảo Facebook video có tiếng trên mobile nhỏ */
+  .facebook-video-strip .embed-iframe {
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+    /* Tối ưu cho mobile nhỏ */
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    /* Đảm bảo video không bị cắt */
+    min-height: 200px;
+  }
+
+  .cta-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Mobile scrollbar styling */
+  .external-video-strip::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .external-video-strip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+}
+
+/* Legacy styles for backward compatibility */
+.external-video-grid {
+  display: none; /* Hide old grid style */
+}
+
+.external-video-card {
+  display: none; /* Hide old card style */
+}
+
+.external-video-icon {
+  display: none;
+}
+
+.external-video-info {
+  display: none;
+}
+
+.platform-label {
+  display: none;
+}
+
+.external-video-title {
+  display: none;
+}

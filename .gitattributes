@@ -1,0 +1,27 @@
+# Font files
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.otf binary
+*.eot binary
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.ico binary
+*.webp binary
+
+# Videos
+*.mp4 binary
+*.webm binary
+*.ogg binary
+*.mov binary
+
+# Audio
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.m4a binary

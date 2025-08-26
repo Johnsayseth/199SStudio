@@ -1,0 +1,332 @@
+/* Critical CSS - Load First - Prevent FOUC */
+/* Variables are imported in layout.tsx - no need to re-import */
+
+/* ===== CRITICAL ROOT VARIABLES ===== */
+:root {
+  --primary-color: #123f31;
+  --secondary-color: #4ecdc4;
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
+  --bg-dark: rgba(0, 0, 0, 0.9);
+  --bg-darker: rgba(0, 0, 0, 0.95);
+}
+
+/* ===== CRITICAL BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* TỐI ƯU: Loại bỏ jQuery sticky plugin để tránh conflict */
+.sticky-wrapper {
+  display: none !important;
+}
+
+/* Prevent duplicate navbar */
+.navbar + .navbar,
+.navbar + .sticky-wrapper .navbar {
+  display: none !important;
+}
+
+/* Ensure navbar is always visible and properly positioned */
+.navbar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Force single navbar display */
+.navbar[data-no-sticky="true"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  background-color: transparent; /* ← LOẠI BỎ BACKGROUND ĐEN */
+  color: var(--text-white);
+  overflow-x: hidden;
+  font-display: swap;
+}
+
+/* ===== PREVENT LAYOUT SHIFTS ===== */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== TỐI ƯU: LOADING STATE STYLES - CẢI THIỆN PERFORMANCE ===== */
+.hero-section.loading {
+  /* TỐI ƯU: Hiển thị fallback background ngay lập tức */
+  opacity: 1 !important;
+  background: none !important;
+}
+
+.hero-section.loading .hero-slide-background {
+  /* TỐI ƯU: Hiển thị fallback background ngay lập tức */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.hero-section.loading .hero-content-container {
+  /* TỐI ƯU: Hiển thị content ngay lập tức */
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.hero-section.ready .hero-slide-background {
+  opacity: 1;
+}
+
+.hero-section.ready .hero-content-container {
+  opacity: 1;
+}
+
+/* ===== ENSURE CRITICAL ELEMENTS VISIBLE ===== */
+.about-section,
+.hero-section,
+.about-tabs,
+main,
+.contact-intro-section {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== TỐI ƯU: PREVENT VEGAS.JS FLASH - CẢI THIỆN LOADING ===== */
+.hero-section {
+  min-height: 65vh; /* Reduced from 100vh to 65vh */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide-background {
+  /* TỐI ƯU: Hiển thị fallback background ngay lập tức */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 0.2s ease; /* TỐI ƯU: Giảm transition time */
+}
+
+/* ===== TỐI ƯU: PREVENT LAYOUT SHIFT - CẢI THIỆN PERFORMANCE ===== */
+.hero-content-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  /* Centering handled by hero.css and Bootstrap flex utilities */
+  margin: 0 auto !important;
+}
+
+/* ===== CRITICAL NAVBAR STYLES ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-navbar);
+  background: var(--bg-dark);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  left: 0;
+  right: 0;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.navbar-brand {
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+  color: var(--text-white);
+}
+
+.navbar-brand:hover {
+  color: var(--secondary-color);
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-white);
+  font-weight: var(--font-weight-medium);
+  margin: 0 0.5rem;
+  transition: var(--transition-normal);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--secondary-color);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===== CRITICAL FOCUS STATES ===== */
+.navbar-nav .nav-link:focus,
+.btn:focus,
+.form-control:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* ===== CRITICAL TEXT UTILITIES ===== */
+.text-white {
+  color: var(--text-white);
+}
+
+.text-white-50 {
+  color: var(--text-white-50);
+}
+
+/* ===== CRITICAL SECTION PADDING ===== */
+.section-padding {
+  padding: var(--section-padding) 0;
+}
+
+/* ===== CRITICAL ACCESSIBILITY SUPPORT ===== */
+/* Support for high contrast mode - ENHANCED VISIBILITY */
+@media (prefers-contrast: high) {
+  :root {
+    --text-white: #ffffff;
+    --text-white-50: #ffffff;
+    --bg-black: #000000;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --border-accent: #ffffff;
+  }
+
+  /* Enhanced borders for better visibility */
+  .navbar,
+  .hero-section,
+  .about-section,
+  .team-section,
+  .contact-section {
+    border: 2px solid var(--border-accent);
+  }
+
+  /* Enhanced button visibility */
+  .btn,
+  .custom-btn,
+  .nav-link {
+    border: 2px solid currentColor;
+    background: transparent;
+  }
+
+  /* Enhanced text readability */
+  .text-white-50,
+  .text-white-70,
+  .text-white-80,
+  .text-white-90 {
+    color: var(--text-white) !important;
+  }
+}
+
+/* Support for forced colors mode */
+@media (forced-colors: active) {
+  :root {
+    --text-white: CanvasText;
+    --bg-black: Canvas;
+    --primary-color: CanvasText;
+    --secondary-color: Highlight;
+  }
+
+  /* Ensure proper contrast in forced colors mode */
+  .navbar,
+  .hero-section,
+  .about-section,
+  .team-section,
+  .contact-section {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* Enhanced focus states for keyboard navigation */
+.navbar-nav .nav-link:focus,
+.btn:focus,
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+}
+
+/* Smooth focus transitions */
+.navbar-nav .nav-link,
+.btn,
+.form-control,
+input,
+textarea,
+select {
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Enhanced button states for better visibility */
+.btn:hover,
+.custom-btn:hover,
+.nav-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Support for reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential animations but reduce intensity */
+  .hero-section,
+  .about-section,
+  .team-section {
+    animation: none;
+  }
+}
+
+/* Enhanced text selection for better readability */
+::selection {
+  background: var(--secondary-color);
+  color: var(--bg-black);
+}
+
+::-moz-selection {
+  background: var(--secondary-color);
+  color: var(--bg-black);
+}
+
+/* Ensure proper color scheme support */
+html,
+body {
+  color-scheme: dark;
+}
+
+/* Enhanced Bootstrap compatibility */
+:root {
+  --bs-body-color: var(--text-white);
+  --bs-body-bg: var(--bg-black);
+  --bs-primary: var(--primary-color);
+  --bs-secondary: var(--secondary-color);
+}
+
+/* Maintain existing design while enhancing accessibility */
+body[data-contrast],
+html[data-contrast],
+body[data-high-contrast],
+html[data-high-contrast] {
+  --bs-body-color: var(--text-white);
+  --bs-body-bg: var(--bg-black);
+}

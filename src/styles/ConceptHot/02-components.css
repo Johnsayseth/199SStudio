@@ -1,0 +1,331 @@
+/* Concept Hot Page Styles - Components Section */
+
+/* ===== Preview Grid (ported from gallery) ===== */
+.gallery-preview-grid {
+  margin: 2rem 0;
+  padding: 1rem 0;
+  min-height: 200px; /* Giảm từ 250px xuống 200px vì ảnh nhỏ hơn */
+}
+
+/* Đảm bảo Bootstrap grid hoạt động cho 5 ảnh preview */
+.gallery-preview-grid .row {
+  margin: 0;
+  min-height: 200px; /* Giảm từ 250px xuống 200px vì ảnh nhỏ hơn */
+}
+
+.gallery-preview-grid .col-lg-2,
+.gallery-preview-grid .col-md-4,
+.gallery-preview-grid .col-6 {
+  padding: 0.5rem;
+  min-height: 180px; /* Giảm từ 220px xuống 180px vì ảnh nhỏ hơn */
+}
+
+.preview-item {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative !important;
+  background: var(--bg-white-08);
+  border: 1px solid var(--bg-white-12);
+  /* Container cho 5 ảnh preview */
+  width: 100% !important;
+  height: 150px !important; /* Giảm từ 180px xuống 150px để nhỏ hơn */
+  /* Đảm bảo positioning cho Next.js fill */
+  display: block !important;
+  min-height: 150px !important; /* Giảm từ 180px xuống 150px */
+}
+
+.preview-overlay {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  z-index: 10 !important;
+}
+
+.preview-number {
+  color: white !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  z-index: 11 !important;
+}
+
+.preview-more {
+  color: var(--text-white-60) !important;
+  font-size: var(--font-size-sm) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-top: 1rem !important;
+  z-index: 5 !important;
+}
+
+.preview-item:hover {
+  transform: scale(1.05);
+}
+
+.preview-image {
+  width: 100% !important;
+  height: 150px !important; /* Giảm từ 180px xuống 150px để nhỏ hơn */
+  object-fit: contain !important; /* Thay đổi từ 'cover' sang 'contain' để hiển thị đầy đủ ảnh */
+  display: block !important;
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-black); /* Thêm background đen để lấp khoảng trống */
+  /* Đảm bảo ảnh hiển thị */
+  min-height: 150px !important; /* Giảm từ 180px xuống 150px */
+  /* Force visibility */
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* Override any conflicting styles */
+  max-width: none !important;
+  max-height: none !important;
+  min-width: auto !important;
+  /* Padding để ảnh không sát viền */
+  padding: 6px; /* Giảm từ 8px xuống 6px vì ảnh nhỏ hơn */
+  box-sizing: border-box;
+}
+
+/* ===== NAVBAR SAFETY OVERRIDE ===== */
+/* Ensure Concept page has enough spacing from navbar */
+.concept-gallery-section {
+  margin-top: 80px; /* Uniform margin like other sections */
+  padding-top: 80px; /* Uniform padding like other sections */
+}
+
+/* Ensure Concept page main content is not hidden */
+main .concept-gallery-section {
+  margin-top: 30px; /* Consistent margin with other sections */
+  padding-top: 30px; /* Consistent padding with other sections */
+}
+
+/* Responsive Design cho 5 ảnh preview */
+@media (max-width: 768px) {
+  /* Mobile preview grid - 3 ảnh mỗi hàng trên tablet */
+  .preview-grid .col-md-4 {
+    flex: 0 0 33.333%; /* 3 ảnh mỗi hàng trên tablet */
+    max-width: 33.333%;
+  }
+
+  .preview-image {
+    height: 140px; /* Giảm từ 200px xuống 140px cho tablet */
+    object-fit: contain !important; /* Đảm bảo tablet cũng hiển thị đầy đủ ảnh */
+    padding: 6px; /* Giảm padding trên tablet */
+  }
+
+  .preview-item {
+    height: 140px !important; /* Đồng bộ với preview-image */
+    min-height: 140px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small mobile preview grid - 2 ảnh mỗi hàng trên mobile nhỏ */
+  .preview-grid .col-6 {
+    flex: 0 0 50%; /* 2 ảnh mỗi hàng trên mobile nhỏ */
+    max-width: 50%;
+  }
+
+  .preview-image {
+    height: 120px; /* Giảm từ 180px xuống 120px cho mobile nhỏ */
+    object-fit: contain !important; /* Đảm bảo mobile nhỏ cũng hiển thị đầy đủ ảnh */
+    padding: 5px; /* Giảm padding trên mobile nhỏ */
+  }
+
+  .preview-item {
+    height: 120px !important; /* Đồng bộ với preview-image */
+    min-height: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .concept-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .concept-description {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ===== CTA SECTION STYLES ===== */
+.cta-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--bg-black) 100%
+  );
+  position: relative;
+}
+
+/* ===== NEW MODERN ALBUM MODAL DESIGN ===== */
+.simple-modal {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 1000 !important;
+  /* Layout properties */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(102, 126, 234, 0.15) 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Filter properties in correct order */
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  /* Animation */
+  animation: modalFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content {
+  position: relative !important;
+  /* Sizing properties */
+  width: 95vw !important;
+  max-width: 95vw !important;
+  max-height: 90vh !important;
+  /* Border properties */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(102, 126, 234, 0.1) 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Filter properties in correct order */
+  -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
+  /* Box properties */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5) !important;
+  /* Layout properties */
+  overflow: hidden !important;
+  /* Touch properties */
+  touch-action: pan-y pinch-zoom !important;
+  /* Animation */
+  animation: contentSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@keyframes contentSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-main-image {
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+  /* Force image visibility */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  z-index: 10 !important;
+}
+
+.modal-main-image:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-btn {
+  position: absolute !important;
+  top: 50% !important;
+  z-index: 20 !important;
+  /* Transform properties */
+  transform: translateY(-50%) !important;
+  /* Sizing properties */
+  padding: 16px 20px !important;
+  /* Border properties */
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.9) 0%,
+    rgba(118, 75, 162, 0.9) 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Filter properties in correct order */
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  /* Box properties */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  /* Typography properties */
+  color: white !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  /* Layout properties */
+  cursor: pointer !important;
+  /* Animation */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 1) 0%,
+    rgba(118, 75, 162, 1) 100%
+  ) !important;
+  transform: translateY(-50%) scale(1.15) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.nav-btn.prev {
+  left: 20px !important;
+}
+
+.nav-btn.next {
+  right: 20px !important;
+}

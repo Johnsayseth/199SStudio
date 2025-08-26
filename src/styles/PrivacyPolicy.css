@@ -1,0 +1,561 @@
+/* Privacy Policy Styles for 199S Studio */
+/* Modern, professional design with excellent readability */
+
+/* ===== HERO SECTION ===== */
+.privacy-hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.privacy-hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/Artboard 6.png") center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.privacy-hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.privacy-hero-content {
+  color: var(--text-white);
+}
+
+.privacy-category-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  padding: 8px 20px;
+  border-radius: var(--border-radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.privacy-hero-title {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 20px;
+  text-shadow: var(--shadow-lg);
+}
+
+.privacy-hero-subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--text-white-80);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.privacy-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.privacy-meta-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-white-80);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== CONTENT SECTION ===== */
+.privacy-content-section {
+  padding: 80px 0;
+  background: var(--bg-white);
+  color: var(--bg-dark);
+}
+
+.privacy-article {
+  max-width: 100%;
+}
+
+/* ===== INTRODUCTION ===== */
+.privacy-intro {
+  margin-bottom: 50px;
+}
+
+.privacy-intro-box {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
+  color: var(--text-white);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.privacy-intro-box h2 {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-3xl);
+  margin-bottom: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.privacy-intro-box p {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin: 0;
+  color: var(--text-white-90);
+}
+
+/* ===== TABLE OF CONTENTS ===== */
+.privacy-toc {
+  background: var(--bg-white-95);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  margin-bottom: 50px;
+  box-shadow: var(--shadow-md);
+}
+
+.privacy-toc h3 {
+  color: var(--primary-color);
+  font-size: var(--font-size-2xl);
+  margin-bottom: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.privacy-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-toc li {
+  margin-bottom: 12px;
+}
+
+.privacy-toc a {
+  display: flex;
+  align-items: center;
+  color: var(--bg-dark);
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-normal);
+  border-left: 4px solid transparent;
+}
+
+.privacy-toc a:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+  border-left-color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+.privacy-toc a::before {
+  content: "→";
+  margin-right: 12px;
+  font-weight: bold;
+  transition: transform var(--transition-normal);
+}
+
+.privacy-toc a:hover::before {
+  transform: translateX(5px);
+}
+
+/* ===== SECTIONS ===== */
+.privacy-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--bg-white-20);
+}
+
+.privacy-section h3 {
+  color: var(--primary-color);
+  font-size: var(--font-size-2xl);
+  margin-bottom: 25px;
+  font-weight: var(--font-weight-bold);
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.privacy-section h3::before {
+  content: "🔒";
+  margin-right: 15px;
+  font-size: 1.2em;
+}
+
+/* ===== PRIVACY CARDS ===== */
+.privacy-card {
+  background: var(--bg-white-95);
+  border: 1px solid var(--bg-white-20);
+  border-radius: var(--border-radius-md);
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: all var(--transition-normal);
+}
+
+.privacy-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.privacy-card h4 {
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  margin-bottom: 15px;
+  font-weight: var(--font-weight-semibold);
+  display: flex;
+  align-items: center;
+}
+
+.privacy-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--bg-dark);
+}
+
+.security-card {
+  border-left: 4px solid var(--accent-color);
+  background: linear-gradient(
+    135deg,
+    var(--bg-white-95) 0%,
+    var(--bg-white-98) 100%
+  );
+}
+
+/* ===== PRIVACY LISTS ===== */
+.privacy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.privacy-list-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 20px;
+  background: var(--bg-white-95);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--bg-white-20);
+  transition: all var(--transition-normal);
+}
+
+.privacy-list-item:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+  transform: translateX(5px);
+}
+
+.privacy-list-item i {
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  margin-right: 15px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  transition: color var(--transition-normal);
+}
+
+.privacy-list-item:hover i {
+  color: var(--accent-color);
+}
+
+.privacy-list-item span {
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ===== HIGHLIGHT BOXES ===== */
+.privacy-highlight {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--accent-light) 100%
+  );
+  color: var(--bg-dark);
+  padding: 25px;
+  border-radius: var(--border-radius-md);
+  margin: 25px 0;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.privacy-highlight p {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.6;
+}
+
+/* ===== CONTACT SECTION ===== */
+.privacy-contact {
+  background: var(--bg-white-95);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  text-align: center;
+}
+
+.privacy-contact p {
+  font-size: var(--font-size-lg);
+  margin-bottom: 25px;
+  color: var(--bg-dark);
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  background: var(--bg-white);
+  padding: 20px 25px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  min-width: 300px;
+}
+
+.contact-method:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-method i {
+  color: var(--primary-color);
+  font-size: var(--font-size-2xl);
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.contact-method div {
+  text-align: left;
+}
+
+.contact-method strong {
+  display: block;
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-method a {
+  color: var(--bg-dark);
+  text-decoration: none;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-normal);
+}
+
+.contact-method a:hover {
+  color: var(--primary-color);
+}
+
+/* ===== PRIVACY FOOTER ===== */
+.privacy-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-white-95);
+  border-top: 2px solid var(--primary-color);
+  padding: 25px 30px;
+  margin-top: 40px;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+.last-updated,
+.privacy-version {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.last-updated i,
+.privacy-version i {
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .privacy-hero-section {
+    padding: 100px 0 60px;
+  }
+
+  .privacy-hero-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .privacy-hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .privacy-meta {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .privacy-content-section {
+    padding: 60px 0;
+  }
+
+  .privacy-section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .privacy-intro-box {
+    padding: 30px 20px;
+  }
+
+  .privacy-toc {
+    padding: 20px;
+  }
+
+  .contact-methods {
+    gap: 15px;
+  }
+
+  .contact-method {
+    min-width: 100%;
+    padding: 15px 20px;
+  }
+
+  .privacy-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .privacy-hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .privacy-hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .privacy-intro-box h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .privacy-section h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .privacy-card {
+    padding: 20px;
+  }
+
+  .privacy-highlight {
+    padding: 20px;
+  }
+
+  .privacy-contact {
+    padding: 20px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-contrast: high) {
+  .privacy-card,
+  .privacy-section,
+  .privacy-toc {
+    border-width: 2px;
+  }
+
+  .privacy-highlight {
+    border: 2px solid var(--bg-dark);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-card,
+  .privacy-list-item,
+  .contact-method,
+  .privacy-toc a {
+    transition: none;
+  }
+
+  .privacy-toc a:hover {
+    transform: none;
+  }
+
+  .privacy-list-item:hover {
+    transform: none;
+  }
+
+  .contact-method:hover {
+    transform: none;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .privacy-hero-section {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0;
+  }
+
+  .privacy-hero-section::before {
+    display: none;
+  }
+
+  .privacy-category-badge,
+  .privacy-meta {
+    display: none;
+  }
+
+  .privacy-content-section {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0;
+  }
+
+  .privacy-card,
+  .privacy-section,
+  .privacy-toc {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  .privacy-footer {
+    display: none;
+  }
+}

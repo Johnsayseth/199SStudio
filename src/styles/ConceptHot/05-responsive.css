@@ -1,0 +1,715 @@
+/* Concept Hot Page Styles - Responsive Section */
+
+/* SAFE HOVER: Remove drop-shadow on concept title text hover */
+.concept-title-text:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 50%,
+    #ffffff 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 1.5s ease-in-out infinite !important;
+  transform: scale(1.05) !important;
+  /* REMOVED: filter: drop-shadow(0 0 20px rgba(18, 63, 49, 0.6)) !important; */
+  filter: none !important;
+}
+
+/* SAFE PSEUDO-ELEMENT: Remove blur from concept title text pseudo-element */
+.concept-title-text::before {
+  /* DISABLED: content: attr(data-text) !important; - This causes X2 issue */
+  content: none !important;
+  display: none !important;
+  /* Remove all other properties to prevent any side effects */
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  filter: none !important;
+  opacity: 0 !important;
+  z-index: auto !important;
+  animation: none !important;
+}
+
+/* SAFE CONCEPT CARD HOVER: Remove drop-shadow on concept card hover */
+.concept-card:hover .concept-title-text {
+  animation: gradientShift 1s ease-in-out infinite !important;
+  /* Remove drop-shadow completely */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* SAFE MODAL: Remove any blur effects from modal elements */
+.simple-modal .concept-title,
+.simple-modal .concept-title *,
+.simple-modal .concept-title::before,
+.simple-modal .concept-title::after {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* SAFE RESPONSIVE: Ensure no blur effects on mobile/tablet */
+@media (max-width: 768px) {
+  .concept-title,
+  .concept-title *,
+  .concept-title::before,
+  .concept-title::after {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    -webkit-filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-title,
+  .concept-title *,
+  .concept-title::before,
+  .concept-title::after {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    -webkit-filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ===== FINAL NUCLEAR OPTION - COMPLETE BLUR REMOVAL ===== */
+/* This rule will remove ANY remaining blur effects from ANY source */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited,
+.concept-gallery-section .concept-title,
+.concept-gallery-section .concept-title *,
+.concept-gallery-section .concept-title::before,
+.concept-gallery-section .concept-title::after,
+.concept-gallery-section .concept-title:hover,
+.concept-gallery-section .concept-title:focus,
+.concept-gallery-section .concept-title:active,
+.concept-gallery-section .concept-title:visited,
+.concept-title-text,
+.concept-title-text *,
+.concept-title-text::before,
+.concept-title-text::after,
+.concept-title-text:hover,
+.concept-title-text:focus,
+.concept-title-text:active,
+.concept-title-text:visited,
+.concept-card:hover .concept-title-text,
+.concept-card:hover .concept-title-text *,
+.concept-card:hover .concept-title-text::before,
+.concept-card:hover .concept-title-text::after {
+  /* Remove ALL possible blur effects from ALL sources */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  drop-shadow: none !important;
+  /* Remove any remaining blur effects */
+  -webkit-mask: none !important;
+  mask: none !important;
+  /* Ensure clean display */
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Remove any transform blur */
+  transform: none !important;
+  /* Remove any transition blur */
+  transition: none !important;
+  /* Remove any overflow blur */
+  overflow: visible !important;
+  /* Remove any clip blur */
+  clip: auto !important;
+  clip-path: none !important;
+  /* Remove any mask blur */
+  mask: none !important;
+  -webkit-mask: none !important;
+  /* Remove any remaining CSS properties that might cause blur */
+  -webkit-transform: none !important;
+  -webkit-transition: none !important;
+  -webkit-overflow: visible !important;
+  -webkit-clip: auto !important;
+  -webkit-clip-path: none !important;
+}
+
+/* ===== FINAL DROP-SHADOW REMOVAL ===== */
+/* Ensure ALL drop-shadow effects are completely removed */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited,
+.concept-title-text,
+.concept-title-text *,
+.concept-title-text::before,
+.concept-title-text::after,
+.concept-title-text:hover,
+.concept-title-text:focus,
+.concept-title-text:active,
+.concept-title-text:visited,
+.concept-gallery-section .concept-title,
+.concept-gallery-section .concept-title *,
+.concept-gallery-section .concept-title::before,
+.concept-gallery-section .concept-title::after,
+.concept-gallery-section .concept-title:hover,
+.concept-gallery-section .concept-title:focus,
+.concept-gallery-section .concept-title:active,
+.concept-gallery-section .concept-title:visited,
+.concept-card:hover .concept-title-text,
+.concept-card:hover .concept-title-text *,
+.concept-card:hover .concept-title-text::before,
+.concept-card:hover .concept-title-text::after {
+  /* Remove ALL drop-shadow effects permanently */
+  filter: none !important;
+  -webkit-filter: none !important;
+  /* Remove any potential drop-shadow from other sources */
+  box-shadow: none !important;
+  text-shadow: none !important;
+  /* Ensure no blur effects */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ===== GRADIENT PRESERVATION ===== */
+/* Keep the beautiful gradient effects but remove blur/drop-shadow */
+.concept-title,
+.concept-title:hover {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: gradientShift 4s ease-in-out infinite !important;
+  /* NO BLUR, NO DROP-SHADOW */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+}
+
+.concept-title-text,
+.concept-title-text:hover {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+  /* NO BLUR, NO DROP-SHADOW */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* ===== COMPLETE GRADIENT REMOVAL - TEST SOLUTION ===== */
+/* Remove ALL gradient effects to test if blur disappears */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited {
+  /* COMPLETE REMOVAL: No gradient, no blur, no effects */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  /* Remove ALL filters and effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  /* Force simple text display */
+  color: #ffffff !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* COMPLETE REMOVAL: Remove gradient from concept-gallery-section titles */
+.concept-gallery-section .concept-title,
+.concept-gallery-section .concept-title *,
+.concept-gallery-section .concept-title::before,
+.concept-gallery-section .concept-title::after,
+.concept-gallery-section .concept-title:hover,
+.concept-gallery-section .concept-title:focus,
+.concept-gallery-section .concept-title:active,
+.concept-gallery-section .concept-title:visited {
+  /* COMPLETE REMOVAL: No gradient, no blur, no effects */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  /* Remove ALL filters and effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  /* Force simple text display */
+  color: #ffffff !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* COMPLETE REMOVAL: Remove gradient from concept-title-text */
+.concept-title-text,
+.concept-title-text *,
+.concept-title-text::before,
+.concept-title-text::after,
+.concept-title-text:hover,
+.concept-title-text:focus,
+.concept-title-text:active,
+.concept-title-text:visited {
+  /* COMPLETE REMOVAL: No gradient, no blur, no effects */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  /* Remove ALL filters and effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  /* Force simple text display */
+  color: #ffffff !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-xs) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* COMPLETE REMOVAL: Remove gradient from concept card hover */
+.concept-card:hover .concept-title-text,
+.concept-card:hover .concept-title-text *,
+.concept-card:hover .concept-title-text::before,
+.concept-card:hover .concept-title-text::after {
+  /* COMPLETE REMOVAL: No gradient, no blur, no effects */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  /* Remove ALL filters and effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  /* Force simple text display */
+  color: #ffffff !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-xs) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* NUCLEAR OPTION: Override ALL CSS from ALL files */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited {
+  /* Force override ALL CSS */
+  all: unset !important;
+  /* Then apply simple, clean styles */
+  display: block !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  color: #ffffff !important;
+  /* NO GRADIENT, NO BLUR, NO EFFECTS */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  position: relative !important;
+  z-index: 999 !important;
+  /* GUARANTEE: No effects whatsoever */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* ===== FINAL X2 ISSUE FIX ===== */
+/* Ensure NO concept title duplication from any pseudo-elements */
+.concept-title-text::before,
+.concept-title-text::after,
+.concept-title::before,
+.concept-title::after,
+.concept-card .concept-title-text::before,
+.concept-card .concept-title-text::after,
+.concept-card .concept-title::before,
+.concept-card .concept-title::after {
+  /* COMPLETELY DISABLE all pseudo-elements that could cause X2 */
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  /* Remove all positioning and effects */
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: 0 !important;
+  height: 0 !important;
+  /* Remove all styling */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  /* Remove all effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  drop-shadow: none !important;
+  /* Remove animations */
+  animation: none !important;
+  transition: none !important;
+  /* Ensure no text content */
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  /* Remove from layout */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  /* Force no interaction */
+  pointer-events: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  /* Nuclear option - completely remove */
+  all: unset !important;
+}
+
+/* ===== ENHANCED GRADIENT TITLES ===== */
+/* Beautiful gradient for main title and album names */
+.concept-title {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+}
+
+/* Enhanced gradient for concept title text (album names) */
+.concept-title-text {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 2.5s ease-in-out infinite !important;
+}
+
+/* Hover effects for album names */
+.concept-title-text:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #ffffff 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 1.5s ease-in-out infinite !important;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== BROWSER COMPATIBILITY & RESPONSIVE ===== */
+/* Ensure gradient works on all browsers */
+.concept-title,
+.concept-title-text {
+  /* Fallback for older browsers */
+  color: #ffffff !important;
+  /* Modern gradient support with 65% blue, 35% white ratio */
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  /* Ensure text is visible */
+  font-weight: var(--font-weight-bold) !important;
+  text-shadow: none !important;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .concept-title,
+  .concept-title-text {
+    /* Slightly slower animation on mobile for better performance */
+    animation: gradientShift 4s ease-in-out infinite !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-title,
+  .concept-title-text {
+    /* Even slower on small devices */
+    animation: gradientShift 5s ease-in-out infinite !important;
+  }
+}
+
+/* ===== OVERRIDE ALL OTHER CSS FILES ===== */
+/* Force gradient to work by overriding utilities.css and components.css */
+.concept-gallery-section .concept-title,
+.concept-gallery-section h2.concept-title,
+.concept-gallery-section .concept-title.text-white {
+  /* Override utilities.css and components.css */
+  color: transparent !important;
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+  /* Force override */
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+}
+
+/* ===== NUCLEAR OVERRIDE FOR GRADIENT ===== */
+/* Ensure gradient works on ALL concept-title instances */
+.concept-title,
+h2.concept-title,
+.concept-title.text-white,
+.concept-gallery-section .concept-title,
+.concept-gallery-section h2.concept-title,
+.concept-gallery-section .concept-title.text-white {
+  /* Nuclear override - force gradient */
+  color: transparent !important;
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+  /* Override all other styles */
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  /* Remove any conflicting styles */
+  text-shadow: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* ===== RESPONSIVE BACKGROUND OPTIMIZATION ===== */
+/* Mobile optimization for background image */
+@media (max-width: 768px) {
+  .concept-gallery-section {
+    background-attachment: scroll !important; /* Better mobile performance */
+    background-position: center center !important;
+  }
+
+  .concept-gallery-section::before {
+    background: rgba(
+      0,
+      0,
+      0,
+      0.7
+    ) !important; /* Darker overlay on mobile for better readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-gallery-section {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .concept-gallery-section::before {
+    background: rgba(
+      0,
+      0,
+      0,
+      0.8
+    ) !important; /* Even darker overlay on small screens */
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "199s-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-with-network.js",
+    "dev:network": "node scripts/dev-with-network.js",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "lint": "next lint",
+    "compress-videos": "node scripts/video-compression.js",
+    "check-videos": "node scripts/check-video-compression.js",
+    "cdn:health": "node -e \"console.log('CDN Health Check - Use CDNManagement component in browser')\"",
+    "cdn:setup": "echo 'Copy env.example to .env.local and configure Cloudflare credentials'",
+    "pre-deploy": "node scripts/pre-deploy-check.js",
+    "deploy:check": "pnpm pre-deploy",
+    "deploy:vercel": "vercel --prod"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.32",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "critters": "^0.0.25",
+    "dotenv": "^17.2.1",
+    "google-auth-library": "^10.2.1",
+    "googleapis": "^156.0.0",
+    "googleapis-common": "^8.0.0",
+    "jquery": "^3.7.1",
+    "next": "14.2.5",
+    "node-fetch": "^3.3.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "styled-jsx": "^5.1.7",
+    "vegas": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1",
+    "eslint": "^9.33.0",
+    "typescript": "5.3.3"
+  },
+  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
+}

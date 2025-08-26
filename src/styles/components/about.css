@@ -1,0 +1,1077 @@
+/* ===== ABOUT SECTION COMPONENT STYLES ===== */
+
+/* About Section Base */
+.about-section {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.85),
+    rgba(18, 63, 49, 0.4),
+    rgba(0, 0, 0, 0.8)
+  );
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding) 0;
+  /* Navbar safety - ensure content is visible */
+  scroll-margin-top: 120px;
+  /* Uniform spacing like Concept page */
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+/* Brand primary color for icons/text marked as primary inside About */
+.about-section .text-primary {
+  color: #123f31 !important;
+}
+
+/* Background Image Layer */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/Final 199S-1817.JPG") center/cover;
+  opacity: 0.25;
+  z-index: -2;
+  filter: brightness(0.7) contrast(1.2);
+}
+
+/* Overlay Layer */
+.about-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(18, 63, 49, 0.15),
+    rgba(0, 0, 0, 0.35),
+    rgba(18, 63, 49, 0.1)
+  );
+  z-index: -1;
+}
+
+/* About Tabs */
+.about-tabs {
+  width: 100%;
+  overflow-x: visible;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  /* Bootstrap Pills active color override */
+  --bs-nav-pills-link-active-bg: #123f31;
+  --bs-nav-pills-link-active-color: #ffffff;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+/* Ensure container has enough space */
+.about-tabs .container,
+.about-tabs .row,
+.about-tabs .col-12 {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* Tab Navigation Container */
+.about-tabs .nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Đảm bảo mỗi tab có width tự động vừa với nội dung */
+.about-tabs .nav > * {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.about-tabs .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: none;
+  border-radius: 15px;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  min-width: auto;
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-tabs .nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.about-tabs .nav-link.active,
+.about-tabs .nav-pills .nav-link.active,
+.about-tabs .nav .nav-link.active {
+  color: #fff !important;
+  background: #123f31 !important;
+  border-color: #123f31 !important;
+  box-shadow: 0 5px 20px rgba(18, 63, 49, 0.4) !important;
+  width: auto !important;
+  min-width: auto !important;
+  max-width: none !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+/* Pressed/Focus states use the same brand green */
+.about-tabs .nav-link:active,
+.about-tabs .nav-link:focus,
+.about-tabs .nav-link:focus-visible,
+.about-tabs .nav-link[aria-selected="true"] {
+  color: #fff !important;
+  background: #123f31 !important;
+  border-color: #123f31 !important;
+  box-shadow: 0 5px 20px rgba(18, 63, 49, 0.45) !important;
+  outline: none;
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: 400px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-pane {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.tab-pane.show.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Story Content */
+.story-content-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Story Content Background - Bảng mờ đơn giản */
+.story-content-background {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Làm cho chữ bật lên rõ ràng hơn */
+.story-content-background p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 300;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover để chữ càng bật lên */
+.story-content-background p:hover {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  transform: translateY(-1px);
+}
+
+.story-content-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.story-content-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.story-content-scroll::-webkit-scrollbar-thumb {
+  background: rgba(78, 205, 196, 0.5);
+  border-radius: 3px;
+}
+
+.story-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(78, 205, 196, 0.7);
+}
+
+/* About Image */
+.about-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* About Content */
+.about-content {
+  width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-text {
+  width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 0 10px;
+}
+
+/* About Highlight */
+.about-highlight {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #4ecdc4;
+  padding: 1rem;
+  border-radius: 0 10px 10px 0;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Core Values */
+.value-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(78, 205, 196, 0.3);
+}
+
+.value-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.value-icon-wrapper i {
+  font-size: 1.5rem;
+}
+
+.value-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.value-description {
+  line-height: 1.6;
+}
+
+/* Mission */
+.mission-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+
+.mission-icon i {
+  color: #123f31 !important;
+}
+
+.mission-highlight {
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(18, 63, 49, 0.2) !important;
+  border-color: rgba(18, 63, 49, 0.3) !important;
+}
+
+.feature-icon i {
+  color: #123f31 !important;
+}
+
+/* Value cards icon color */
+.value-card i {
+  color: #123f31 !important;
+}
+
+/* Meaning Section */
+.meaning-section {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+/* ===== FEEDBACK GRID ===== */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 10px; /* base row for masonry sizing */
+  gap: 16px;
+}
+
+.feedback-item {
+  grid-column: span 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Masonry-like varying spans */
+.feedback-item:nth-child(10n + 1) {
+  grid-column: span 6;
+}
+.feedback-item:nth-child(10n + 3) {
+  grid-column: span 3;
+}
+.feedback-item:nth-child(10n + 6) {
+  grid-column: span 5;
+}
+.feedback-item:nth-child(10n + 8) {
+  grid-column: span 4;
+}
+
+/* ===== TỐI ƯU: SKELETON LOADING STYLES - CẢI THIỆN PERFORMANCE ===== */
+/* Skeleton loading cho feedback images */
+.skeleton-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative;
+  overflow: hidden;
+  /* TỐI ƯU: Cải thiện performance */
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  /* TỐI ƯU: Giảm animation time để cải thiện performance */
+  animation: shimmer 1s infinite; /* Thay đổi từ 1.5s xuống 1s */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-badge {
+  background: rgba(18, 63, 49, 0.3) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: none !important;
+}
+
+/* ===== TỐI ƯU: FEEDBACK IMAGE PERFORMANCE - CẢI THIỆN TỐI ĐA ===== */
+.feedback-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.025);
+  /* TỐI ƯU: Giảm transition time để cải thiện performance */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Thay đổi từ 0.6s xuống 0.3s */
+  background: transparent !important;
+  filter: none !important;
+  /* TỐI ƯU: Cải thiện performance */
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* TỐI ƯU: Thêm image-rendering để cải thiện quality */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.feedback-item:hover .feedback-image {
+  transform: scale(1.06);
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.feedback-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(18, 63, 49, 0.85);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 20px rgba(18, 63, 49, 0.4);
+}
+
+/* ===== FEEDBACK COVERFLOW (3D) ===== */
+.feedback-coverflow {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 10px 6vw;
+  scroll-snap-type: x mandatory;
+  /* Ensure images are above any external overlays */
+  z-index: var(--z-hero-content);
+}
+
+.coverflow-item {
+  position: relative;
+  flex: 0 0 clamp(260px, 38vw, 520px);
+  height: clamp(180px, 26vw, 360px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent !important; /* prevent any tint */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  scroll-snap-align: center;
+}
+
+/* Hard reset any unintended overlay/tint on coverflow items */
+.coverflow-item::before,
+.coverflow-item::after {
+  background: transparent !important;
+}
+
+/* Ensure Next.js Image wrapper fills item (exclude badge span) */
+.coverflow-item > span:not(.feedback-badge) {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure feedback badge keeps its natural size */
+.coverflow-item > .feedback-badge {
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+}
+
+/* Ensure the actual image never inherits any blend/tint */
+.coverflow-item img,
+.feedback-image {
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* ===== SIMPLE LIGHTBOX (ABOUT) ===== */
+.simple-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-main-image {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Extra hardening: ensure the immediate wrappers carry no tint/blur */
+.coverflow-item,
+.coverflow-item > span {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.coverflow-item:nth-child(odd) {
+  transform: rotateY(-18deg) translateZ(-20px);
+}
+.coverflow-item:nth-child(even) {
+  transform: rotateY(18deg) translateZ(-20px);
+}
+.coverflow-item:hover {
+  transform: rotateY(0deg) translateZ(0);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation arrows */
+.coverflow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(18, 63, 49, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: var(--z-overlay);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.coverflow-nav:hover {
+  background: rgba(18, 63, 49, 0.85);
+  transform: translateY(-50%) scale(1.05);
+}
+.coverflow-prev {
+  left: 12px;
+}
+.coverflow-next {
+  right: 12px;
+}
+
+@media (max-width: 575.98px) {
+  .feedback-coverflow {
+    gap: 14px;
+    padding: 10px 5vw;
+  }
+  .coverflow-item {
+    flex-basis: clamp(220px, 80vw, 380px);
+    height: clamp(160px, 50vw, 260px);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .feedback-item {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .feedback-grid {
+    gap: 10px;
+  }
+  .feedback-item {
+    grid-column: span 12;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-tabs {
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0;
+  }
+
+  /* Ensure active tab doesn't stretch on mobile */
+  .about-tabs .nav-link.active {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .about-tabs .nav {
+    gap: 0.3rem;
+    padding: 0 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.4rem 0.7rem;
+    font-size: 12px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .story-content-scroll {
+    max-height: 300px;
+    padding: 0 15px;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+  }
+
+  .tab-content {
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .value-card {
+    padding: 1rem;
+  }
+
+  .mission-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-tabs .nav {
+    gap: 0.25rem;
+    padding: 0 0.25rem;
+  }
+
+  /* Ensure active tab doesn't stretch on mobile */
+  .about-tabs .nav-link.active {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.3rem 0.5rem;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .story-content-scroll {
+    max-height: 250px;
+    padding: 0 12px;
+    margin: 0 8px;
+    width: calc(100% - 16px);
+  }
+
+  .tab-content {
+    padding: 0 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 480px) {
+  .about-tabs .nav {
+    gap: 0.25rem;
+    padding: 0 0.25rem;
+  }
+
+  /* Ensure active tab doesn't stretch on mobile */
+  .about-tabs .nav-link.active {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.25rem 0.4rem;
+    font-size: 10px;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .story-content-scroll {
+    max-height: 220px;
+    padding: 0 10px;
+    margin: 0 6px;
+    width: calc(100% - 12px);
+  }
+
+  .tab-content {
+    padding: 0 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile Very Small */
+@media (max-width: 375px) {
+  .about-tabs .nav {
+    gap: 0.05rem;
+    padding: 0 0.05rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Ensure active tab doesn't stretch on mobile */
+  .about-tabs .nav-link.active {
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.2rem 0.3rem;
+    font-size: 9px;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .story-content-scroll {
+    max-height: 180px;
+    padding: 0 6px;
+    margin: 0 4px;
+    width: calc(100% - 8px);
+  }
+
+  .tab-content {
+    padding: 0 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* iPhone 15 and similar devices */
+@media (max-width: 390px) {
+  .about-tabs .nav {
+    gap: 0.05rem;
+    padding: 0 0.05rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.15rem 0.25rem;
+    font-size: 8px;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    white-space: normal;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .story-content-scroll {
+    max-height: 170px;
+    padding: 0 5px;
+    margin: 0 3px;
+    width: calc(100% - 6px);
+  }
+
+  .tab-content {
+    padding: 0 3px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-text {
+    padding: 0 4px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+}
+
+/* iPhone SE and similar small devices */
+@media (max-width: 360px) {
+  .about-tabs .nav {
+    gap: 0.02rem;
+    padding: 0 0.02rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.1rem 0.2rem;
+    font-size: 7px;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    white-space: normal;
+    text-align: center;
+    line-height: 0.9;
+  }
+
+  .story-content-scroll {
+    max-height: 160px;
+    padding: 0 4px;
+    margin: 0 2px;
+    width: calc(100% - 4px);
+  }
+
+  .tab-content {
+    padding: 0 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-text {
+    padding: 0 3px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+}
+
+/* Mobile Extra Extra Small */
+@media (max-width: 320px) {
+  .about-tabs .nav {
+    gap: 0.01rem;
+    padding: 0 0.01rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.08rem 0.15rem;
+    font-size: 6px;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    white-space: normal;
+    text-align: center;
+    line-height: 0.8;
+  }
+
+  .story-content-scroll {
+    max-height: 150px;
+    padding: 0 2px;
+    margin: 0 1px;
+    width: calc(100% - 2px);
+  }
+
+  .tab-content {
+    padding: 0 1px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-text {
+    padding: 0 2px;
+    font-size: 0.75rem;
+    line-height: 1.1;
+  }
+}
+
+/* ===== TỐI ƯU: MOBILE PERFORMANCE ===== */
+@media (max-width: 768px) {
+  /* TỐI ƯU: Giảm kích thước ảnh trên mobile */
+  .coverflow-item {
+    flex: 0 0 clamp(200px, 45vw, 300px);
+    height: clamp(140px, 32vw, 210px);
+    gap: 16px;
+  }
+
+  /* TỐI ƯU: Giảm padding và margin trên mobile */
+  .feedback-coverflow {
+    padding: 8px 4vw;
+    gap: 16px;
+    min-height: 240px;
+  }
+
+  /* TỐI ƯU: Cải thiện navigation trên mobile */
+  .coverflow-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  /* TỐI ƯU: Skeleton loading trên mobile */
+  .skeleton-item {
+    flex: 0 0 clamp(200px, 45vw, 300px);
+    height: clamp(140px, 32vw, 210px);
+  }
+}
+
+@media (max-width: 576px) {
+  /* TỐI ƯU: Tối ưu cho mobile nhỏ */
+  .coverflow-item {
+    flex: 0 0 200px;
+    height: 140px;
+    gap: 12px;
+  }
+
+  .feedback-coverflow {
+    padding: 6px 3vw;
+    gap: 12px;
+    min-height: 200px;
+  }
+
+  /* TỐI ƯU: Ẩn navigation trên mobile nhỏ để tiết kiệm không gian */
+  .coverflow-nav {
+    display: none;
+  }
+
+  /* TỐI ƯU: Cho phép scroll tự nhiên trên mobile */
+  .feedback-coverflow {
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== TỐI ƯU: PERFORMANCE ENHANCEMENTS ===== */
+/* Sử dụng transform thay vì position để cải thiện performance */
+.coverflow-item {
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* TỐI ƯU: Giảm transition time trên mobile */
+@media (max-width: 768px) {
+  .coverflow-item,
+  .feedback-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  }
+}
+
+/* TỐI ƯU: Lazy loading animation */
+.coverflow-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.coverflow-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.coverflow-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.coverflow-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.coverflow-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.coverflow-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.coverflow-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

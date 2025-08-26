@@ -1,0 +1,65 @@
+/* Vegas.js Animations CSS */
+/* Đảm bảo tất cả hiệu ứng chuyển đổi hoạt động */
+
+/* ===== LET VEGAS.JS HANDLE ALL ANIMATIONS ===== */
+/* DO NOT OVERRIDE VEGAS.JS NATIVE ANIMATIONS */
+
+/* ===== NO CUSTOM TRANSITIONS - LET VEGAS.JS HANDLE ===== */
+
+/* ===== CLEAN CSS - NO OVERRIDES ===== */
+/* Vegas.js sẽ tự động tạo và quản lý tất cả animations */
+
+/* Chỉ đảm bảo performance optimization */
+.vegas-container,
+.vegas-wrapper,
+.vegas-slide,
+.vegas-slide-inner {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* ===== KIỂM SOÁT HIỆU ỨNG ZOOM KENBURNS ===== */
+.vegas-slide.kenburns-in {
+  transform: scale(1.1) !important;
+  transition: transform 7s ease-out !important;
+}
+
+.vegas-slide.kenburns-out {
+  transform: scale(1.1) !important;
+  transition: transform 7s ease-in !important;
+}
+
+/* Giảm hiệu ứng zoom quá mức */
+.vegas-slide.kenburns-in .vegas-slide-inner,
+.vegas-slide.kenburns-out .vegas-slide-inner {
+  transform: scale(1.05) !important;
+  transition: transform 7s ease-in-out !important;
+}
+
+/* ===== RESPONSIVE ZOOM CONTROL ===== */
+@media (max-width: 768px) {
+  .vegas-slide.kenburns-in,
+  .vegas-slide.kenburns-out {
+    transform: scale(1.05) !important;
+  }
+
+  .vegas-slide.kenburns-in .vegas-slide-inner,
+  .vegas-slide.kenburns-out .vegas-slide-inner {
+    transform: scale(1.02) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .vegas-slide.kenburns-in,
+  .vegas-slide.kenburns-out {
+    transform: scale(1.03) !important;
+  }
+
+  .vegas-slide.kenburns-in .vegas-slide-inner,
+  .vegas-slide.kenburns-out .vegas-slide-inner {
+    transform: scale(1.01) !important;
+  }
+}

@@ -1,0 +1,48 @@
+/* ===== COMPONENTS-MERGED.CSS - GỘP CSS COMPONENTS ===== */
+/* Được tạo để tối ưu hóa CSS loading order */
+/* AN TOÀN 100% - Không thay đổi giao diện, chỉ tối ưu hóa loading */
+
+/* 1. Core Component Styles */
+@import "components.css";
+
+/* 2. Hero Section */
+@import "components/hero.css";
+
+/* 3. About Section */
+@import "components/about.css";
+
+/* 4. Video Gallery */
+@import "components/VideoGallery.css";
+
+/* 5. Footer */
+@import "components/footer.css";
+
+/* 6. Navbar */
+@import "components/navbar.css";
+
+/* 7. Team Section */
+@import "components/team.css";
+
+/* 8. CDN Components */
+@import "components/CDNVideoPlayer.css";
+@import "components/CDNManagement.css";
+
+/* 9. Vegas Animations */
+@import "components/vegas-animations.css";
+
+/* 10. Progressive Image Loading */
+@import "components/progressive-image.css";
+
+/* 10. Additional Component Styles */
+
+@import "RecruitmentForm.css";
+@import "FeedbackForm.css";
+@import "ContactSection.css";
+@import "TeamSection.css";
+@import "Blog.css";
+@import "ConceptGallery.css";
+@import "ConceptHot.css";
+@import "Feedback.css";
+@import "Recruitment.css";
+@import "ContactIntro.css";
+@import "PrivacyPolicy.css";

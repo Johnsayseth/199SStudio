@@ -1,0 +1,290 @@
+/* Utility Classes and Component Styles for 199S Studio */
+/* Import variables first */
+@import "./variables.css";
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Color Palette Styles */
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.color-item {
+  background: var(--bg-white-05);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--bg-white-10);
+  transition: var(--transition-normal);
+}
+
+.color-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color);
+  background: var(--bg-white-08);
+}
+
+.color-swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-circle);
+  margin: 0 auto 15px;
+  border: 3px solid var(--bg-white-20);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.color-item:hover .color-swatch {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.color-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-white);
+  margin-bottom: 8px;
+  font-size: var(--font-size-lg);
+}
+
+.color-hex {
+  font-family: var(--font-family-mono);
+  color: var(--text-white-70);
+  font-size: var(--font-size-sm);
+}
+
+/* ===== COMPARISON TABLE STYLES ===== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: var(--bg-white-02);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--bg-white-10);
+  box-shadow: var(--shadow-lg);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--bg-white-10);
+}
+
+.comparison-table th {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--secondary-color);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}
+
+.comparison-table td {
+  color: var(--text-white-90);
+}
+
+.comparison-table tr:hover {
+  background: var(--bg-white-03);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== TIP BOX STYLES ===== */
+.tip-box {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 193, 7, 0.1) 0%,
+    rgba(255, 152, 0, 0.1) 100%
+  );
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 25px;
+  margin: 25px 0;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.tip-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 193, 7, 0.2);
+  border-color: rgba(255, 193, 7, 0.5);
+}
+
+.tip-box::before {
+  content: "💡";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  font-size: 24px;
+  background: var(--bg-black);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.tip-title {
+  color: #ffc107;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 15px;
+  font-size: var(--font-size-xl);
+}
+
+.tip-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tip-box li {
+  margin-bottom: 8px;
+  color: var(--text-white-90);
+}
+
+/* ===== HIGHLIGHT BOX STYLES ===== */
+.highlight-box {
+  background: linear-gradient(
+    135deg,
+    rgba(78, 205, 196, 0.1) 0%,
+    rgba(18, 63, 49, 0.2) 100%
+  );
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 25px;
+  margin: 25px 0;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.highlight-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-secondary);
+  border-color: var(--secondary-color);
+}
+
+.highlight-box::before {
+  content: "✨";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  font-size: 24px;
+  background: var(--bg-black);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.highlight-box h3 {
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  font-size: var(--font-size-2xl);
+}
+
+.highlight-box p {
+  color: var(--text-white-90);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== RELATED POSTS STYLES ===== */
+.related-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.related-post-card {
+  background: var(--bg-white-03);
+  border-radius: var(--border-radius-lg);
+  padding: 25px;
+  border: 1px solid var(--bg-white-10);
+  transition: var(--transition-normal);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.related-post-card:hover {
+  transform: translateY(-8px);
+  background: var(--bg-white-05);
+  border-color: var(--secondary-color);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-xl);
+}
+
+.related-post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20px;
+  transition: var(--transition-normal);
+}
+
+.related-post-card:hover .related-post-image {
+  transform: scale(1.05);
+}
+
+.related-post-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+
+.related-post-excerpt {
+  color: var(--text-white-70);
+  line-height: 1.6;
+}
+
+/* ===== CONCEPT ITEM STYLES ===== */
+.concept-item {
+  margin-bottom: 30px;
+}
+
+.concept-title {
+  color: var(--secondary-color);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 15px;
+}
+
+.concept-item p {
+  color: var(--text-white-90);
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+}
+
+.section-title {
+  color: var(--secondary-color);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 20px;
+}
+
+/* ===== CUSTOM BUTTON STYLES ===== */
+.custom-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: var(--border-radius-pill);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+}
+
+.custom-border-btn {
+  background: transparent;
+  border-color: var(--bg-white-50);
+  color: var(--text-white-80);
+}
+
+.custom-border-btn:hover {
+  background: var(--bg-white-10);
+  border-color: var(--bg-white-80);
+  color: var(--text-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}

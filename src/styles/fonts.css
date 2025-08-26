@@ -1,0 +1,236 @@
+/* ===== AGENCY FB FONT DEFINITIONS ===== */
+/* Custom font loading for 199S Studio */
+
+@font-face {
+  font-family: "Agency FB";
+  src: url("/fonts/AgencyFB-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agency FB";
+  src: url("/fonts/AgencyFB-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback fonts for better compatibility */
+@font-face {
+  font-family: "Agency FB Fallback";
+  src: local("Arial Black"), local("Arial"), local("sans-serif");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== FONT UTILITY CLASSES ===== */
+.font-agency-regular {
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.font-agency-bold {
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* ===== 199S STUDIO TITLE FONT ===== */
+.hero-title-agency {
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: var(--font-weight-199s-title) !important;
+  font-style: normal !important;
+  font-display: swap !important;
+
+  /* ===== GRADIENT EFFECT ===== */
+  background: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ===== OVERRIDE BOOTSTRAP & OTHER CSS ===== */
+/* Sử dụng specificity cao hơn để override mọi CSS khác */
+.hero-section .hero-content-container .hero-title-agency,
+.hero-section .hero-content-container h1.hero-title-agency,
+.hero-section h1.hero-title-agency,
+h1.hero-title-agency {
+  /* Font */
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: var(--font-weight-199s-title) !important;
+  font-style: normal !important;
+  font-display: swap !important;
+
+  /* Gradient với specificity cao nhất */
+  background: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+
+  /* Override mọi color khác */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-fill-color: transparent !important;
+}
+
+/* ===== RESPONSIVE GRADIENT ===== */
+@media (max-width: 768px) {
+  .hero-section .hero-content-container .hero-title-agency,
+  .hero-section .hero-content-container h1.hero-title-agency,
+  .hero-section h1.hero-title-agency,
+  h1.hero-title-agency {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-199s-green) 0%,
+      var(--gradient-199s-green) 55%,
+      var(--gradient-199s-white) 55%,
+      var(--gradient-199s-white) 100%
+    ) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section .hero-content-container .hero-title-agency,
+  .hero-section .hero-content-container h1.hero-title-agency,
+  .hero-section h1.hero-title-agency,
+  h1.hero-title-agency {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-199s-green) 0%,
+      var(--gradient-199s-green) 45%,
+      var(--gradient-199s-white) 45%,
+      var(--gradient-199s-white) 100%
+    ) !important;
+  }
+}
+
+/* ===== FALLBACK FOR GRADIENT ===== */
+@supports not (background-clip: text) {
+  .hero-section .hero-content-container .hero-title-agency,
+  .hero-section .hero-content-container h1.hero-title-agency,
+  .hero-section h1.hero-title-agency,
+  h1.hero-title-agency {
+    background: none !important;
+    color: var(--gradient-199s-green) !important;
+    -webkit-text-fill-color: var(--gradient-199s-green) !important;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE SUPPORT ===== */
+@media (prefers-contrast: high) {
+  .hero-section .hero-content-container .hero-title-agency,
+  .hero-section .hero-content-container h1.hero-title-agency,
+  .hero-section h1.hero-title-agency,
+  h1.hero-title-agency {
+    background: none !important;
+    color: var(--gradient-199s-green) !important;
+    -webkit-text-fill-color: var(--gradient-199s-green) !important;
+  }
+}
+
+/* ===== OVERRIDE BOOTSTRAP DIRECTLY ===== */
+/* Sử dụng specificity cao nhất để override Bootstrap */
+.hero-section .hero-content-container h1.hero-title-agency,
+.hero-section h1.hero-title-agency,
+h1.hero-title-agency {
+  /* Font size nhỏ hơn */
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1rem !important;
+
+  /* Override mọi color từ Bootstrap */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-fill-color: transparent !important;
+
+  /* Đảm bảo gradient hiển thị */
+  background: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* ===== ULTIMATE OVERRIDE - SPECIFICITY CAO NHẤT ===== */
+/* Sử dụng specificity cao nhất có thể để override mọi CSS */
+html body .hero-section .hero-content-container h1.hero-title-agency,
+html body .hero-section h1.hero-title-agency,
+html body h1.hero-title-agency,
+body .hero-section .hero-content-container h1.hero-title-agency,
+body .hero-section h1.hero-title-agency,
+body h1.hero-title-agency {
+  /* Font size nhỏ hơn */
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1rem !important;
+
+  /* Override mọi color từ Bootstrap và CSS khác */
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-fill-color: transparent !important;
+
+  /* Đảm bảo gradient hiển thị với specificity cao nhất */
+  background: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+
+  /* Override mọi background khác */
+  background-image: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+}
+
+/* ===== INLINE STYLE OVERRIDE ===== */
+/* Sử dụng inline style để đảm bảo gradient hoạt động */
+.hero-title-agency[style*="background"] {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-199s-green) 0%,
+    var(--gradient-199s-green) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) var(--gradient-199s-breakpoint),
+    var(--gradient-199s-white) 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}

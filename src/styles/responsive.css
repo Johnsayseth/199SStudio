@@ -1,0 +1,244 @@
+/* Responsive Design for 199S Studio */
+/* Import variables first */
+@import "./variables.css";
+
+/* ===== MOBILE RESPONSIVE DESIGN ===== */
+/* Mobile First Approach */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+  /* Hero Section Mobile */
+  .hero-section {
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    /* Không override gradient */
+    color: inherit !important;
+    background: inherit !important;
+  }
+
+  /* Đảm bảo gradient không bị override */
+  .hero-section h1.hero-title-agency {
+    color: transparent !important;
+    background: inherit !important;
+  }
+
+  .hero-section p {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-section .small-text {
+    font-size: 16px;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Hero social buttons mobile */
+  .hero-social-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+    margin: 0 0.3rem;
+  }
+
+  /* About Section Mobile */
+  .about-section {
+    padding: var(--section-padding-sm) 0;
+  }
+
+  .about-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0;
+  }
+
+  .about-tabs .nav {
+    gap: 0.3rem;
+    padding: 0 0.5rem;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.6rem 1rem;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Contact Section Mobile */
+  .contact-intro-section {
+    padding: var(--section-padding-sm) 0;
+  }
+
+  .contact-intro-section h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .contact-intro-section p {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .custom-btn,
+  .custom-border-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 767.98px) {
+  /* Hero Section Tablet */
+  .hero-section {
+    min-height: 80vh;
+  }
+
+  .hero-section h1 {
+    font-size: 64px;
+    /* Không override gradient */
+    color: inherit !important;
+    background: inherit !important;
+  }
+
+  .hero-section p {
+    font-size: 20px;
+  }
+
+  /* About Section Tablet */
+  .about-section {
+    padding: var(--section-padding-md) 0;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 15px;
+  }
+
+  /* Contact Section Tablet */
+  .contact-intro-section {
+    padding: var(--section-padding-md) 0;
+  }
+
+  .contact-intro-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .custom-btn,
+  .custom-border-btn {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Large devices (desktops, 992px and down) */
+@media (max-width: 991.98px) {
+  /* Hero Section Desktop */
+  .hero-section {
+    min-height: 90vh;
+  }
+
+  .hero-section h1 {
+    font-size: 72px;
+  }
+
+  /* Đảm bảo gradient không bị override */
+  .hero-section h1.hero-title-agency {
+    color: transparent !important;
+    background: inherit !important;
+  }
+
+  /* About Section Desktop */
+  .about-section {
+    padding: var(--section-padding-md) 0;
+  }
+
+  .about-tabs .nav-link {
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1199.98px) {
+  .hero-section h1 {
+    font-size: 76px;
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 10px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Đảm bảo gradient không bị override */
+  .hero-section h1.hero-title-agency {
+    color: transparent !important;
+    background: inherit !important;
+  }
+
+  .hero-section p {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero-section .small-text {
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-section p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hero-social-btn:hover {
+    transform: none;
+  }
+
+  .about-tabs .nav-link:hover {
+    transform: none;
+  }
+
+  .custom-btn:hover,
+  .custom-border-btn:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .hero-section {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+
+  .about-section {
+    page-break-inside: avoid;
+  }
+
+  .contact-intro-section {
+    page-break-inside: avoid;
+  }
+}

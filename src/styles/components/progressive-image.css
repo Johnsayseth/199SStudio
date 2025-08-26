@@ -1,0 +1,140 @@
+/* Progressive Image Container */
+.progressive-image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+/* Blur Placeholder */
+.blur-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+}
+
+/* Progressive Image */
+.progressive-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.progressive-image.loading {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.progressive-image.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Loading Indicator */
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Error Fallback */
+.error-fallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: #6c757d;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-fallback i {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+/* Hover Effects */
+.progressive-image-container:hover .progressive-image {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .progressive-image-container {
+    border-radius: 6px;
+  }
+  
+  .blur-placeholder {
+    border-radius: 6px;
+  }
+  
+  .progressive-image {
+    border-radius: 6px;
+  }
+}
+
+/* Animation for loading states */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.progressive-image.loaded {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Skeleton loading animation */
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.blur-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeletonLoading 1.5s infinite;
+}
+
+/* High performance optimizations */
+.progressive-image-container {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.progressive-image {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

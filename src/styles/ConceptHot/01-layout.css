@@ -1,0 +1,696 @@
+/* Concept Hot Page Styles - Layout Section */
+@import "@/styles/variables.css";
+
+.concept-gallery-section {
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 100vh;
+  padding: var(--section-padding) 0;
+  /* Navbar safety - ensure content is visible */
+  scroll-margin-top: 240px;
+  padding-top: 240px; /* Further increased padding to prevent navbar overlap */
+  /* Background properties in correct order */
+  background-image: url("/images/phaohoa/Final 199S-3218.JPG") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+/* Add overlay to ensure text readability */
+.concept-gallery-section::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  z-index: -1 !important;
+}
+
+/* Ensure content is above the overlay */
+.concept-gallery-section .container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.concept-subtitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.concept-title {
+  position: relative !important;
+  z-index: 1 !important;
+  /* Typography properties */
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  /* Text properties */
+  color: transparent !important;
+  text-shadow: var(--shadow-text, 0 2px 8px rgba(0, 0, 0, 0.4)) !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 200% 200% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  /* Filter properties in correct order */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  /* Animation */
+  animation: gradientShift 4s ease-in-out infinite !important;
+}
+
+/* CRITICAL: Remove any blur effects from concept-title */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after {
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* ULTRA CRITICAL: Override ALL CSS from other files */
+.concept-title {
+  /* Force override all other CSS */
+  color: transparent !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: gradientShift 4s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 999 !important;
+  /* Override all other properties */
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-xs) !important;
+  text-align: center !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* NUCLEAR OPTION: Override ALL CSS from ALL files */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited {
+  /* Force override ALL CSS */
+  all: unset !important;
+  /* Then apply simple, clean styles */
+  display: block !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  color: #ffffff !important;
+  /* NO GRADIENT, NO BLUR, NO EFFECTS */
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  position: relative !important;
+  z-index: 999 !important;
+  /* GUARANTEE: No effects whatsoever */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* ===== FINAL OVERRIDE - REMOVE FROM ALL SOURCES ===== */
+/* This will override ANY CSS from ANY file that might still be causing issues */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited,
+.concept-gallery-section .concept-title,
+.concept-gallery-section .concept-title *,
+.concept-gallery-section .concept-title::before,
+.concept-gallery-section .concept-title::after,
+.concept-gallery-section .concept-title:hover,
+.concept-gallery-section .concept-title:focus,
+.concept-gallery-section .concept-title:active,
+.concept-gallery-section .concept-title:visited,
+.concept-title-text,
+.concept-title-text *,
+.concept-title-text::before,
+.concept-title-text::after,
+.concept-title-text:hover,
+.concept-title-text:focus,
+.concept-title-text:active,
+.concept-title-text:visited,
+.concept-card:hover .concept-title-text,
+.concept-card:hover .concept-title-text *,
+.concept-card:hover .concept-title-text::before,
+.concept-card:hover .concept-title-text::after {
+  /* COMPLETE OVERRIDE: Remove everything */
+  all: unset !important;
+  /* Force simple white text */
+  display: block !important;
+  color: #ffffff !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  /* NO BACKGROUND, NO GRADIENT, NO EFFECTS */
+  background: transparent !important;
+  background-image: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  /* NO ANIMATION */
+  animation: none !important;
+  /* NO FILTERS, NO BLUR, NO DROP-SHADOW */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  /* NO SHADOWS */
+  text-shadow: none !important;
+  box-shadow: none !important;
+  /* NO TRANSFORMS */
+  -webkit-transform: none !important;
+  transform: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+  /* NO OVERFLOW ISSUES */
+  -webkit-overflow: visible !important;
+  overflow: visible !important;
+  -webkit-clip: auto !important;
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  /* NO BORDERS */
+  border: none !important;
+  /* FORCE VISIBILITY */
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* ===== SPECIFIC OVERRIDE FOR UTILITIES.CSS ===== */
+/* Override the concept-title from utilities.css */
+.concept-title {
+  color: #ffffff !important;
+  background: none !important;
+  background-image: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== SPECIFIC OVERRIDE FOR COMPONENTS.CSS ===== */
+/* Override the concept-title from components.css */
+.concept-title {
+  color: #ffffff !important;
+  background: none !important;
+  background-image: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover effect for album titles */
+.concept-title:hover {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 2s ease-in-out infinite !important;
+  /* Loại bỏ drop-shadow để không có lớp mờ */
+}
+
+/* Special glow effect for album titles - DISABLED to remove blur layer */
+/* .concept-title::before {
+  content: attr(data-text) !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  filter: blur(10px) !important;
+  opacity: 0.6 !important;
+  z-index: -1 !important;
+  animation: gradientShift 4s ease-in-out infinite reverse !important;
+} */
+
+/* Album detail page title - 50% xanh đậm, 50% trắng */
+.concept-gallery-section .concept-title {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+}
+
+.concept-gallery-section .concept-title:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 50%,
+    #ffffff 100%
+  ) !important;
+  filter: none !important;
+}
+
+/* Album detail page title - 50% xanh đậm, 50% trắng */
+.concept-gallery-section .concept-title {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+}
+
+.concept-gallery-section .concept-title:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 50%,
+    #ffffff 100%
+  ) !important;
+  filter: none !important;
+}
+
+/* Disabled blur effect for album detail page */
+/* .concept-gallery-section .concept-title::before {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+} */
+
+.concept-description {
+  font-size: var(--font-size-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.concept-card {
+  position: relative !important;
+  height: 100% !important;
+  /* Border properties */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Filter properties in correct order */
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  /* Box properties */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  /* Layout properties */
+  overflow: hidden !important;
+  /* Animation */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.concept-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(118, 75, 162, 0.1) 100%
+  ) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+  z-index: 0 !important;
+}
+
+.concept-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.concept-card:hover::before {
+  opacity: 1 !important;
+}
+
+/* Special effect for concept cards when hovering */
+.concept-card:hover .concept-title-text {
+  animation: gradientShift 1s ease-in-out infinite !important;
+  filter: none !important;
+}
+
+.concept-image {
+  position: relative !important;
+  z-index: 1 !important;
+  /* Layout properties */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Sizing properties */
+  width: 100% !important;
+  height: 280px !important;
+  box-sizing: border-box !important;
+  /* Border properties */
+  border-radius: 16px 16px 0 0 !important;
+  /* Background properties in correct order */
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(118, 75, 162, 0.1) 100%
+  ) !important;
+  background-position: 0% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+  /* Layout properties */
+  overflow: hidden !important;
+  padding: 16px !important;
+}
+
+.concept-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.concept-card:hover .concept-image img {
+  transform: scale(1.05);
+}
+
+/* ===== Concept Album Section ===== */
+.concept-album-section {
+  background: var(--bg-white-05);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--bg-white-12);
+}
+
+/* ===== NEW MODERN ALBUM DESIGN ===== */
+.concept-image .preview-grid {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 8px !important;
+  height: 100% !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+  background: var(--bg-white-05) !important;
+  border: 1px solid var(--bg-white-12) !important;
+}
+
+/* Generic cell styles */
+.concept-image .preview-grid > * {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Collage mapping: 1 large left, 4 small on the right */
+.concept-image .preview-grid > *:nth-child(1) {
+  grid-column: 1 / 2 !important; /* left column */
+  grid-row: 1 / 3 !important; /* span 2 rows */
+}
+.concept-image .preview-grid > *:nth-child(2) {
+  grid-column: 2 / 3 !important;
+  grid-row: 1 / 2 !important;
+}
+.concept-image .preview-grid > *:nth-child(3) {
+  grid-column: 3 / 4 !important;
+  grid-row: 1 / 2 !important;
+}
+.concept-image .preview-grid > *:nth-child(4) {
+  grid-column: 2 / 3 !important;
+  grid-row: 2 / 3 !important;
+}
+.concept-image .preview-grid > *:nth-child(5) {
+  grid-column: 3 / 4 !important;
+  grid-row: 2 / 3 !important;
+}
+
+/* Image fit */
+.concept-image .preview-grid img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal) !important;
+}
+
+/* Hover polish */
+.concept-image .preview-grid > *:hover img {
+  transform: scale(1.05) !important;
+}
+.concept-image .preview-grid > *:hover {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Responsive: stack to equal tiles on mobile */
+@media (max-width: 768px) {
+  .concept-image {
+    height: 240px !important;
+  }
+  .concept-image .preview-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+  }
+  .concept-image .preview-grid > *:nth-child(1) {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 / 3 !important;
+  }
+  .concept-image .preview-grid > *:nth-child(2) {
+    grid-column: 3 / 4 !important;
+    grid-row: 1 / 2 !important;
+  }
+  .concept-image .preview-grid > *:nth-child(3) {
+    grid-column: 3 / 4 !important;
+    grid-row: 2 / 3 !important;
+  }
+  .concept-image .preview-grid > *:nth-child(4) {
+    display: none !important;
+  }
+  .concept-image .preview-grid > *:nth-child(5) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-image {
+    height: 200px !important;
+  }
+}
+
+.concept-header-title {
+  color: var(--text-white);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+.concept-header-description {
+  color: var(--text-white-60);
+  font-size: var(--font-size-lg);
+  margin-bottom: 1.5rem;
+}
+
+.concept-view-btn {
+  background: var(--secondary-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--border-radius-pill);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-normal);
+}
+
+.concept-view-btn:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-secondary);
+}
+
+.concept-info {
+  padding: 20px !important;
+  text-align: center !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.concept-title-text {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-xs) !important;
+  text-shadow: none !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Gradient animation for concept titles */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hover effect for concept titles */
+.concept-title-text:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 50%,
+    #ffffff 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  animation: gradientShift 1.5s ease-in-out infinite !important;
+  transform: scale(1.05) !important;
+  filter: none !important;
+}
+
+/* Special glow effect for concept titles - DISABLED TO FIX X2 ISSUE */
+.concept-title-text::before {
+  /* DISABLED: content: attr(data-text) !important; - This causes X2 issue */
+  content: none !important;
+  display: none !important;
+  /* Remove all other properties to prevent any side effects */
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  background-size: auto !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  filter: none !important;
+  opacity: 0 !important;
+  z-index: auto !important;
+  animation: none !important;
+}
+
+.concept-description-text {
+  color: var(--text-white-80);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  margin: 0;
+}

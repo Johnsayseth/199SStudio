@@ -1,0 +1,214 @@
+/* Base Styles for 199S Studio */
+/* Variables are imported in layout.tsx - no need to re-import */
+
+/* ===== CRITICAL CSS - LOAD FIRST ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== NAVBAR SAFETY SPACING ===== */
+/* Ensure content is not hidden behind fixed navbar */
+main {
+  padding-top: 120px; /* Base padding for all pages */
+}
+
+/* ===== FIXED BACKGROUND FOR NAVBAR AREA ===== */
+/* Create a fixed background that matches navbar area */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px; /* Match main padding-top */
+  background: #123f31; /* Same color as navbar */
+  z-index: calc(var(--z-navbar) - 1); /* Below navbar but above content */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Specific sections that need navbar spacing */
+.hero-section,
+.about-section,
+.video-gallery-section,
+.team-section,
+.contact-intro-section,
+.concept-gallery-section,
+.contact-section {
+  scroll-margin-top: 120px; /* For smooth scrolling to sections */
+}
+
+/* ===== UNIFORM SECTION SPACING ===== */
+/* Ensure all sections have consistent spacing like Concept page */
+main .hero-section,
+main .about-section,
+main .video-gallery-section,
+main .team-section,
+main .contact-intro-section,
+main .concept-gallery-section,
+main .contact-section {
+  margin-top: 30px !important; /* Consistent margin for all sections */
+  padding-top: 30px !important; /* Consistent padding for all sections */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  background-color: transparent; /* ← LOẠI BỎ BACKGROUND ĐEN */
+  color: var(--text-white);
+  overflow-x: hidden;
+  font-display: swap;
+}
+
+/* ===== PREVENT LAYOUT SHIFTS ===== */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== ENSURE CRITICAL ELEMENTS VISIBLE ===== */
+.about-section,
+.hero-section,
+.about-tabs,
+main,
+.contact-intro-section {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  min-height: 65vh; /* Reduced from 100vh to 65vh */
+  overflow: hidden;
+}
+
+.hero-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-base);
+}
+
+.hero-slide-background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: linear-gradient(
+    135deg,
+    var(--bg-darker),
+    var(--bg-primary-light)
+  );
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding) 0;
+}
+
+/* ===== TEAM SECTION ===== */
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/images/hero-bg.jpg") center/cover;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* ===== ABOUT TABS ===== */
+.about-tabs {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.about-tabs .nav {
+  flex-wrap: nowrap;
+  min-width: max-content;
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.about-tabs .nav-link {
+  color: var(--text-white-70);
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+.about-tabs .nav-link:hover {
+  color: var(--text-white);
+  background: var(--bg-white-10);
+  transform: translateY(-2px);
+}
+
+.about-tabs .nav-link.active {
+  color: var(--text-white);
+  background: #123f31; /* brand green */
+  box-shadow: 0 5px 20px rgba(18, 63, 49, 0.4);
+}
+
+.about-tabs .nav-link:active,
+.about-tabs .nav-link:focus,
+.about-tabs .nav-link:focus-visible,
+.about-tabs .nav-link[aria-selected="true"] {
+  color: var(--text-white);
+  background: #123f31;
+  box-shadow: 0 5px 20px rgba(18, 63, 49, 0.45);
+  outline: none;
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content {
+  min-height: 400px;
+  position: relative;
+}
+
+.tab-pane {
+  transition: opacity var(--transition-normal);
+}
+
+/* ===== SECTION PADDING ===== */
+.section-padding {
+  padding: var(--section-padding) 0;
+}
+
+/* ===== TEXT UTILITIES ===== */
+.text-white {
+  color: var(--text-white);
+}
+
+.text-white-50 {
+  color: var(--text-white-50);
+}
+
+/* ===== FOCUS STATE FOR ACCESSIBILITY ===== */
+.navbar-nav .nav-link:focus,
+.btn:focus,
+.form-control:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}

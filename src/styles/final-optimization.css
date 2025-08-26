@@ -1,0 +1,288 @@
+/* Final Optimization and Fixes for 199S Studio */
+/* Import variables first */
+@import "./variables.css";
+
+/* ===== FINAL CSS OPTIMIZATIONS ===== */
+
+/* Ensure all critical elements are visible */
+.hero-section,
+.about-section,
+.team-section,
+.concept-gallery-section,
+.contact-section,
+.footer {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix any remaining z-index conflicts */
+.navbar {
+  z-index: var(--z-navbar) !important;
+}
+
+.modal,
+.simple-modal {
+  z-index: var(--z-overlay) !important;
+}
+
+.dropdown-menu {
+  z-index: var(--z-dropdown) !important;
+}
+
+/* Ensure proper text colors */
+.text-white {
+  color: var(--text-white) !important;
+}
+
+/* Video titles should use primary color */
+.video-title,
+.video-description,
+.video-info-below {
+  color: #123f31 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.nav-link {
+  color: var(--text-white) !important;
+}
+
+/* Fix button colors */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--text-white) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+/* Fix form elements */
+.form-control:focus {
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25) !important;
+}
+
+/* Ensure proper spacing */
+.section-padding {
+  padding: var(--section-padding) 0 !important;
+}
+
+/* Fix any remaining background colors */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Ensure proper shadows */
+.shadow-primary {
+  box-shadow: var(--shadow-primary) !important;
+}
+
+.shadow-secondary {
+  box-shadow: var(--shadow-secondary) !important;
+}
+
+/* Fix any remaining border radius */
+.rounded {
+  border-radius: var(--border-radius-md) !important;
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.rounded-xl {
+  border-radius: var(--border-radius-xl) !important;
+}
+
+/* Ensure proper transitions */
+.transition {
+  transition: var(--transition-normal) !important;
+}
+
+.transition-fast {
+  transition: var(--transition-fast) !important;
+}
+
+/* Fix any remaining font weights */
+.font-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+
+/* Ensure proper font sizes */
+.text-lg {
+  font-size: var(--font-size-lg) !important;
+}
+
+.text-xl {
+  font-size: var(--font-size-xl) !important;
+}
+
+.text-2xl {
+  font-size: var(--font-size-2xl) !important;
+}
+
+.text-3xl {
+  font-size: var(--font-size-3xl) !important;
+}
+
+/* Fix any remaining margins and paddings */
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.m-1 {
+  margin: var(--spacing-xs) !important;
+}
+.p-1 {
+  padding: var(--spacing-xs) !important;
+}
+
+.m-2 {
+  margin: var(--spacing-sm) !important;
+}
+.p-2 {
+  padding: var(--spacing-sm) !important;
+}
+
+.m-3 {
+  margin: var(--spacing-md) !important;
+}
+.p-3 {
+  padding: var(--spacing-md) !important;
+}
+
+.m-4 {
+  margin: var(--spacing-lg) !important;
+}
+.p-4 {
+  padding: var(--spacing-lg) !important;
+}
+
+.m-5 {
+  margin: var(--spacing-xl) !important;
+}
+.p-5 {
+  padding: var(--spacing-xl) !important;
+}
+
+/* Ensure proper display properties */
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-grid {
+  display: grid !important;
+}
+.d-none {
+  display: none !important;
+}
+
+/* Fix any remaining position properties */
+.position-relative {
+  position: relative !important;
+}
+.position-absolute {
+  position: absolute !important;
+}
+.position-fixed {
+  position: fixed !important;
+}
+
+/* Ensure proper overflow handling */
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.overflow-auto {
+  overflow: auto !important;
+}
+
+/* Fix any remaining text alignment */
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+/* Ensure proper flexbox properties */
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+
+/* Fix any remaining grid properties */
+.grid {
+  display: grid !important;
+  gap: var(--spacing-md) !important;
+}
+
+/* Ensure proper backdrop filters */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Fix any remaining transforms */
+.transform-hover:hover {
+  transform: translateY(-2px) !important;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Ensure proper cursor properties */
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* Fix any remaining user select */
+.user-select-none {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Ensure proper pointer events */
+.pointer-events-none {
+  pointer-events: none !important;
+}
+
+.pointer-events-auto {
+  pointer-events: auto !important;
+}

@@ -1,0 +1,65 @@
+/* Loading Optimization CSS - Load First to Prevent FOUC */
+/* TỐI ƯU: Cải thiện loading performance cho 199S Studio */
+
+/* ===== CRITICAL LOADING STATES ===== */
+/* Prevent flash of unstyled content */
+.hero-section,
+.hero-slide-background,
+.hero-content-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ===== FAST FALLBACK BACKGROUND ===== */
+/* Ensure fallback background shows immediately */
+.hero-slide-background {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  z-index: 1 !important;
+}
+
+/* ===== OPTIMIZED TRANSITIONS ===== */
+/* Reduce transition times for better performance */
+.hero-section,
+.hero-slide-background,
+.hero-content-container {
+  transition: opacity 0.2s ease !important;
+}
+
+/* ===== PREVENT LAYOUT SHIFTS ===== */
+/* Ensure content is positioned correctly from start */
+.hero-content-container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* ===== FAST NAVBAR RENDERING ===== */
+/* Ensure navbar shows immediately */
+.navbar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* ===== OPTIMIZED IMAGE LOADING ===== */
+/* Prevent image layout shifts */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* ===== FAST CONTENT VISIBILITY ===== */
+/* Ensure all critical content shows immediately */
+.about-section,
+.team-section,
+.contact-intro-section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}

@@ -1,0 +1,511 @@
+/* Concept Hot Page Styles - Utilities Section */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* PHASE 3: Loading States */
+.preview-image.loading,
+.thumbnail-image.loading {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+/* PHASE 3: Smooth Image Transitions */
+.modal-image-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.modal-image-container.transitioning {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.modal-main-image {
+  transition: all 0.3s ease;
+}
+
+.modal-main-image.transitioning {
+  transform: scale(0.95);
+  filter: blur(1px);
+}
+
+/* PHASE 3: Loading Overlay */
+.modal-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--border-radius-md);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--bg-white-16);
+  border-top: 3px solid var(--secondary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* PHASE 3: Enhanced Navigation Buttons */
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.nav-btn:not(:disabled):hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* PHASE 3: Keyboard Navigation Hints */
+.modal-content::before {
+  content: "💡 Sử dụng phím mũi tên để di chuyển, Home/End để về đầu/cuối, ESC để đóng";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-white);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-pill);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.modal-content:hover::before {
+  opacity: 1;
+}
+
+/* PHASE 3: Enhanced Thumbnail Interactions */
+.thumbnail {
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail.active {
+  border: 3px solid var(--secondary-color);
+  box-shadow: 0 0 20px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+/* PHASE 3: Performance Optimizations */
+.preview-item,
+.thumbnail {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* PHASE 3: Accessibility Improvements */
+.nav-btn:focus,
+.thumbnail:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* PHASE 3: Mobile Touch Optimizations */
+@media (max-width: 768px) {
+  .modal-content::before {
+    display: none; /* Ẩn keyboard hints trên mobile */
+  }
+
+  .nav-btn {
+    padding: 15px 20px; /* Tăng touch target */
+  }
+
+  .thumbnail {
+    min-width: 100px; /* Đảm bảo touch target đủ lớn */
+    min-height: 75px;
+  }
+
+  /* Mobile close button */
+  .modal-close-btn {
+    top: 15px !important;
+    right: 15px !important;
+    padding: 10px 14px !important;
+    font-size: 16px !important;
+  }
+
+  /* Mobile back button */
+  .modal-back-btn {
+    top: 15px !important;
+    left: 15px !important;
+    padding: 10px 14px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-close-btn {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .modal-back-btn {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ===== PHASE 5: ULTRA-FAST IMAGE LOADING ===== */
+
+/* PHASE 5: Instant image transitions */
+.modal-main-image {
+  transition: none !important; /* Loại bỏ transition để instant loading */
+  will-change: transform !important;
+  transform: translateZ(0) !important; /* Hardware acceleration */
+  backface-visibility: hidden !important;
+  perspective: 1000px !important;
+}
+
+/* PHASE 5: Ultra-fast thumbnail loading */
+.thumbnail-image {
+  transition: none !important; /* Instant thumbnail switching */
+  will-change: transform, opacity !important;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
+/* PHASE 5: Instant preview image loading */
+.preview-image {
+  transition: none !important; /* Instant preview loading */
+  will-change: transform !important;
+  transform: translateZ(0) !important;
+}
+
+/* PHASE 5: Performance optimizations */
+.modal-content {
+  will-change: scroll-position !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-behavior: auto !important; /* Instant scrolling */
+}
+
+/* PHASE 5: Hardware acceleration cho tất cả images */
+.preview-image,
+.thumbnail-image,
+.modal-main-image {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-perspective: 1000px !important;
+  perspective: 1000px !important;
+}
+
+/* PHASE 5: Instant loading states */
+.modal-main-image.loading {
+  opacity: 0.8 !important;
+  transition: opacity 0.1s ease !important; /* Very fast fade */
+}
+
+.thumbnail-image.loading {
+  opacity: 0.6 !important;
+  transition: opacity 0.05s ease !important; /* Ultra-fast fade */
+}
+
+/* PHASE 5: Smooth instant navigation */
+.modal-image-container {
+  transition: none !important;
+  will-change: transform !important;
+}
+
+/* PHASE 5: Performance hints */
+.thumbnails {
+  scroll-behavior: auto !important; /* Instant scrolling */
+  -webkit-overflow-scrolling: touch !important;
+  will-change: scroll-position !important;
+}
+
+/* PHASE 5: Mobile touch optimizations */
+@media (max-width: 768px) {
+  .modal-main-image,
+  .thumbnail-image,
+  .preview-image {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+}
+
+/* ===== CRITICAL IMAGE VISIBILITY FIX ===== */
+.modal-main-image[src],
+.thumbnail-image[src],
+.concept-image .preview-grid img[src] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  background: transparent !important;
+  z-index: 999 !important;
+  position: relative !important;
+}
+
+/* Clean image display for all images */
+.modal-main-image[src]:not([src=""]),
+.thumbnail-image[src]:not([src=""]),
+.concept-image .preview-grid img[src]:not([src=""]) {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Force image loading */
+img[src]:not([src=""]) {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Responsive Design cho concept cards */
+@media (max-width: 768px) {
+  .concept-gallery-section {
+    padding-top: 180px !important; /* Increased padding for tablet */
+  }
+
+  .concept-image {
+    height: 240px !important;
+    padding: 12px !important;
+  }
+
+  .concept-image .preview-grid {
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+
+  .concept-image .preview-grid img {
+    border-radius: 10px !important;
+  }
+
+  .concept-card {
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-gallery-section {
+    padding-top: 160px !important; /* Increased padding for small mobile */
+  }
+
+  .concept-image {
+    height: 200px !important;
+    padding: 8px !important;
+  }
+
+  .concept-image .preview-grid {
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  .concept-image .preview-grid img {
+    border-radius: 8px !important;
+  }
+
+  .concept-info {
+    padding: 16px !important;
+  }
+
+  /* Mobile back button */
+  .back-to-list-btn {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    margin-top: 50px !important; /* Increased margin for mobile */
+  }
+
+  .back-icon {
+    font-size: 16px !important;
+  }
+
+  .back-text {
+    font-size: 12px !important;
+  }
+}
+
+/* ===== REMOVE BLUR EFFECTS - SAFE AND PROFESSIONAL ===== */
+/* CRITICAL: Remove all blur effects from concept title area */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited {
+  /* Remove ALL blur and shadow effects */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  drop-shadow: none !important;
+  /* Remove any potential pseudo-element blur */
+  -webkit-mask: none !important;
+  mask: none !important;
+  /* Ensure no background blur */
+  background-attachment: scroll !important;
+  background-clip: border-box !important;
+}
+
+/* SAFE OVERRIDE: Remove any potential background blur from parent elements */
+.concept-gallery-section .concept-title,
+.concept-gallery-section .concept-title *,
+.concept-gallery-section .concept-title::before,
+.concept-gallery-section .concept-title::after {
+  /* Remove ALL blur effects safely */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  /* Remove any gradient blur */
+  background-image: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  /* Keep only the gradient text effect, remove blur */
+  animation: gradientShift 4s ease-in-out infinite !important;
+}
+
+/* NUCLEAR OPTION: Override ALL CSS from ALL files for concept title */
+.concept-title,
+.concept-title *,
+.concept-title::before,
+.concept-title::after,
+.concept-title:hover,
+.concept-title:focus,
+.concept-title:active,
+.concept-title:visited {
+  /* Force override ALL CSS */
+  all: unset !important;
+  /* Then apply our clean styles */
+  display: block !important;
+  font-size: var(--font-size-4xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  text-align: center !important;
+  margin-bottom: var(--spacing-xs) !important;
+  color: transparent !important;
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #123f31 35%,
+    #ffffff 50%,
+    #123f31 65%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: gradientShift 4s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 999 !important;
+  /* Remove ALL blur effects permanently */
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* SAFE HOVER EFFECT: Remove drop-shadow on hover */
+.concept-gallery-section .concept-title:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #123f31 50%,
+    #ffffff 100%
+  ) !important;
+  /* Remove drop-shadow completely */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* SAFE CONCEPT TITLE TEXT: Remove any blur effects */
+.concept-title-text {
+  background: linear-gradient(
+    135deg,
+    #123f31 0%,
+    #ffffff 50%,
+    #123f31 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-xs) !important;
+  text-shadow: none !important;
+  animation: gradientShift 3s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 1 !important;
+  /* Remove ALL blur effects */
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: none !important;
+  transition: none !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
