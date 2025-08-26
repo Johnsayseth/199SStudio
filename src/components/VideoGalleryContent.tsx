@@ -240,7 +240,7 @@ export default function VideoGalleryContent() {
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 100 : 100; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {
@@ -350,7 +350,7 @@ export default function VideoGalleryContent() {
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 100 : 100; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {
@@ -446,7 +446,7 @@ export default function VideoGalleryContent() {
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 100 : 100; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {

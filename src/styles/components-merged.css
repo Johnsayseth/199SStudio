@@ -2,6 +2,9 @@
 /* Được tạo để tối ưu hóa CSS loading order */
 /* AN TOÀN 100% - Không thay đổi giao diện, chỉ tối ưu hóa loading */
 
+/* 0. Fonts - Phải import đầu tiên để override tất cả */
+@import "fonts.css";
+
 /* 1. Core Component Styles */
 @import "components.css";
 

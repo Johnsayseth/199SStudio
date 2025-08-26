@@ -108,6 +108,7 @@ h1.hero-title-agency {
       var(--gradient-199s-white) 55%,
       var(--gradient-199s-white) 100%
     ) !important;
+    font-size: 2.8rem !important;
   }
 }
 
@@ -123,6 +124,7 @@ h1.hero-title-agency {
       var(--gradient-199s-white) 45%,
       var(--gradient-199s-white) 100%
     ) !important;
+    font-size: 2.4rem !important;
   }
 }
 
@@ -186,8 +188,8 @@ html body h1.hero-title-agency,
 body .hero-section .hero-content-container h1.hero-title-agency,
 body .hero-section h1.hero-title-agency,
 body h1.hero-title-agency {
-  /* Font size nhỏ hơn */
-  font-size: 2.5rem !important;
+  /* Font size lớn hơn */
+  font-size: 3.2rem !important;
   line-height: 1.2 !important;
   margin-bottom: 1rem !important;
 
@@ -233,4 +235,100 @@ body h1.hero-title-agency {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
+}
+
+/* ===== RESPONSIVE NAVBAR OVERRIDE ===== */
+/* Mobile responsive cho navbar */
+@media (max-width: 575.98px) {
+  html body .navbar .navbar-brand-text,
+  body .navbar .navbar-brand-text {
+    font-size: calc(var(--font-size-lg) * 1.2) !important;
+    letter-spacing: 2px !important;
+  }
+
+  html body .navbar .navbar-nav .nav-link,
+  body .navbar .navbar-nav .nav-link {
+    font-size: calc(var(--font-size-base) * 1.1) !important;
+    letter-spacing: 1.5px !important;
+  }
+}
+
+/* ===== TẤT CẢ TIÊU ĐỀ SỬ DỤNG FONT AGENCY FB ===== */
+/* Áp dụng font AgencyFB-Regular.ttf cho tất cả tiêu đề */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* Tiêu đề chính (h1, h2) sử dụng font weight cao hơn */
+h1,
+h2 {
+  font-weight: 700 !important;
+}
+
+/* Tiêu đề phụ (h3, h4, h5, h6) sử dụng font weight thường */
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400 !important;
+}
+
+/* ===== OVERRIDE BOOTSTRAP CLASSES ===== */
+/* Đảm bảo Bootstrap classes cũng sử dụng font Agency FB */
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Agency FB", "Agency FB Fallback", "Arial Black", Arial,
+    sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.display-1,
+.display-2,
+.h1,
+.h2 {
+  font-weight: 700 !important;
+}
+
+/* ===== RESPONSIVE FONT SIZES ===== */
+/* Đảm bảo font size phù hợp trên mobile */
+@media (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem) !important;
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: clamp(1rem, 3.5vw, 2rem) !important;
+    line-height: 1.4 !important;
+  }
 }
