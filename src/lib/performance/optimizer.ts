@@ -14,7 +14,7 @@ export const addResourceHints = () => {
 
   // Preload critical resources
   const criticalResources = [
-    "/images/Artboard 6.png", // Logo
+    "/images/artboard-6.png", // Logo
     "/images/1.jpg", // Hero image
     "/images/Final 199S-1817.JPG", // About image
   ];

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://199sstudio.com/dieu-khoan-su-dung",
     images: [
       {
-        url: "/images/Artboard 6.png",
+        url: "/images/artboard-6.png",
         width: 1200,
         height: 630,
         alt: "199S Studio - Điều khoản sử dụng",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Điều khoản sử dụng | 199S Studio",
     description: "Điều khoản sử dụng dịch vụ của 199S Studio",
-    images: ["/images/Artboard 6.png"],
+    images: ["/images/artboard-6.png"],
   },
   alternates: {
     canonical: "https://199sstudio.com/dieu-khoan-su-dung",

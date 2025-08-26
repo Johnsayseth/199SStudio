@@ -310,6 +310,12 @@ export default function RootLayout({
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
               }
               
+              .vg-item:focus-visible {
+                outline: 3px solid rgba(255, 255, 255, 0.8) !important;
+                outline-offset: 2px !important;
+                transform: translateY(-4px) !important;
+              }
+              
               /* Video Container - Auto-playing videos */
               .vg-video-container {
                 position: relative !important;
@@ -320,11 +326,13 @@ export default function RootLayout({
                 background: rgba(0, 0, 0, 0.4) !important;
                 border: 2px solid rgba(255, 255, 255, 0.2) !important;
                 margin-bottom: 16px !important;
+                pointer-events: none !important; /* không chặn click (container) */
               }
               
               .vg-video {
                 width: 100% !important;
                 height: 100% !important;
+                pointer-events: none !important; /* không chặn click (video) */
                 object-fit: cover !important;
                 border-radius: 16px !important;
               }
@@ -336,6 +344,64 @@ export default function RootLayout({
               
               .vg-video::-webkit-media-controls-panel {
                 display: none !important;
+              }
+              
+              /* Loading Overlay */
+              .vg-loading-overlay {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: rgba(0, 0, 0, 0.7) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 10 !important;
+                border-radius: 16px !important;
+              }
+              
+              .vg-loading-spinner {
+                width: 40px !important;
+                height: 40px !important;
+                border: 3px solid rgba(255, 255, 255, 0.3) !important;
+                border-top: 3px solid white !important;
+                border-radius: 50% !important;
+                animation: vg-spin 1s linear infinite !important;
+              }
+              
+              @keyframes vg-spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+              
+              /* Error Overlay */
+              .vg-error-overlay {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: rgba(220, 53, 69, 0.9) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 10 !important;
+                border-radius: 16px !important;
+                color: white !important;
+                text-align: center !important;
+                padding: 20px !important;
+              }
+              
+              .vg-error-overlay i {
+                font-size: 24px !important;
+                margin-bottom: 8px !important;
+              }
+              
+              .vg-error-overlay span {
+                font-size: 14px !important;
+                font-weight: 500 !important;
               }
               
               /* Video Info */
@@ -522,64 +588,67 @@ export default function RootLayout({
                 font-weight: 500 !important;
               }
               
-              /* Video Modal */
+              /* VIDEO MODAL - CSS MỚI HOÀN TOÀN */
               .vg-modal {
                 position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                z-index: 9999 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.9) !important;
+                z-index: 2147483647 !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
                 padding: 20px !important;
-              }
-              
-              .vg-embed-modal {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                z-index: 9999 !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding: 20px !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                backdrop-filter: blur(5px) !important;
+                -webkit-backdrop-filter: blur(5px) !important;
               }
               
               .vg-modal-content {
                 background: #123f31 !important;
-                border-radius: 20px !important;
+                border-radius: 15px !important;
                 max-width: 90vw !important;
                 max-height: 90vh !important;
-                width: 100% !important;
-                overflow: hidden !important;
-                border: 2px solid rgba(255, 255, 255, 0.3) !important;
-                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5) !important;
+                width: auto !important;
+                padding: 20px !important;
                 position: relative !important;
+                border: 2px solid rgba(255, 255, 255, 0.2) !important;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5) !important;
+                animation: vg-modal-fade-in 0.3s ease-out !important;
+              }
+              
+              @keyframes vg-modal-fade-in {
+                from {
+                  opacity: 0 !important;
+                  transform: scale(0.9) translateY(-20px) !important;
+                }
+                to {
+                  opacity: 1 !important;
+                  transform: scale(1) translateY(0) !important;
+                }
               }
               
               .vg-close-button {
                 position: absolute !important;
-                top: 16px !important;
-                right: 16px !important;
-                background: rgba(255, 255, 255, 0.1) !important;
-                border: none !important;
+                top: 15px !important;
+                right: 20px !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                border: 2px solid rgba(255, 255, 255, 0.3) !important;
                 color: white !important;
                 font-size: 28px !important;
+                font-weight: bold !important;
                 cursor: pointer !important;
-                padding: 8px !important;
-                border-radius: 8px !important;
-                transition: all 0.2s ease !important;
                 width: 40px !important;
                 height: 40px !important;
+                border-radius: 50% !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
+                transition: all 0.3s ease !important;
+                z-index: 10 !important;
               }
               
               .vg-close-button:hover {
@@ -587,24 +656,68 @@ export default function RootLayout({
                 transform: scale(1.1) !important;
               }
               
+              .vg-close-button:focus-visible {
+                outline: 3px solid rgba(255, 255, 255, 0.8) !important;
+                outline-offset: 2px !important;
+                background: rgba(255, 255, 255, 0.2) !important;
+              }
+              
+              .vg-modal video {
+                width: 100% !important;
+                max-height: 70vh !important;
+                border-radius: 10px !important;
+                background: #000 !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+                border: 2px solid rgba(255, 255, 255, 0.1) !important;
+              }
+              
               .vg-modal-title {
                 color: white !important;
-                font-size: 20px !important;
+                font-size: 18px !important;
                 font-weight: 600 !important;
-                margin: 16px 0 8px 0 !important;
+                margin: 15px 0 10px 0 !important;
                 text-align: center !important;
               }
               
               .vg-modal-description {
                 color: rgba(255, 255, 255, 0.8) !important;
-                font-size: 16px !important;
-                line-height: 1.5 !important;
+                font-size: 14px !important;
                 text-align: center !important;
-                margin: 0 0 16px 0 !important;
+                margin: 0 !important;
               }
               
-              /* Responsive */
+              /* MOBILE RESPONSIVE */
               @media (max-width: 768px) {
+                .vg-modal {
+                  padding: 10px !important;
+                }
+                
+                .vg-modal-content {
+                  max-width: 95vw !important;
+                  max-height: 95vh !important;
+                  padding: 15px !important;
+                }
+                
+                .vg-modal video {
+                  max-height: 60vh !important;
+                }
+                
+                .vg-modal-title {
+                  font-size: 16px !important;
+                }
+                
+                .vg-modal-description {
+                  font-size: 13px !important;
+                }
+                
+                .vg-close-button {
+                  top: 10px !important;
+                  right: 15px !important;
+                  width: 35px !important;
+                  height: 35px !important;
+                  font-size: 24px !important;
+                }
+                
                 .vg-grid {
                   gap: 16px !important;
                   padding: 16px 0 !important;
@@ -678,6 +791,26 @@ export default function RootLayout({
                   width: 18px !important;
                   height: 18px !important;
                 }
+                
+                /* Mobile loading/error states */
+                .vg-loading-spinner {
+                  width: 32px !important;
+                  height: 32px !important;
+                  border-width: 2px !important;
+                }
+                
+                .vg-error-overlay {
+                  padding: 16px !important;
+                }
+                
+                .vg-error-overlay i {
+                  font-size: 20px !important;
+                  margin-bottom: 6px !important;
+                }
+                
+                .vg-error-overlay span {
+                  font-size: 12px !important;
+                }
               }
             `,
           }}
@@ -705,7 +838,7 @@ export default function RootLayout({
         <link rel="preload" href="/js/vegas.min.js" as="script" />
 
         {/* Preload critical images */}
-        <link rel="preload" href="/images/Artboard 6.png" as="image" />
+        <link rel="preload" href="/images/artboard-6.png" as="image" />
         <link rel="preload" href="/images/1.jpg" as="image" />
         <link rel="preload" href="/images/Final 199S-1817.JPG" as="image" />
 
@@ -734,7 +867,7 @@ export default function RootLayout({
           content="Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội"
         />
         <meta property="og:url" content="https://199sstudio.com" />
-        <meta property="og:image" content="/images/Artboard 6.png" />
+        <meta property="og:image" content="/images/artboard-6.png" />
         <meta property="og:site_name" content="199S Studio" />
 
         {/* Twitter Card Meta Tags */}
@@ -744,7 +877,7 @@ export default function RootLayout({
           name="twitter:description"
           content="Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội"
         />
-        <meta name="twitter:image" content="/images/Artboard 6.png" />
+        <meta name="twitter:image" content="/images/artboard-6.png" />
 
         {/* Additional Meta Tags */}
         <meta name="robots" content="index, follow" />

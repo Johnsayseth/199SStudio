@@ -12,7 +12,7 @@ export const addStructuredData = () => {
     name: "199S Studio",
     description: "Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội",
     url: "https://199sstudio.com",
-    logo: "https://199sstudio.com/images/Artboard%206.png",
+    logo: "https://199sstudio.com/images/artboard-6.png",
     image: "https://199sstudio.com/images/Final%20199S-1817.JPG",
     address: {
       "@type": "PostalAddress",
@@ -192,7 +192,7 @@ export const enhanceMetaTags = () => {
       { name: "apple-mobile-web-app-status-bar-style", content: "default" },
       { name: "apple-mobile-web-app-title", content: "199S Studio" },
       { name: "application-name", content: "199S Studio" },
-      { name: "msapplication-TileImage", content: "/images/Artboard%206.png" },
+      { name: "msapplication-TileImage", content: "/images/artboard-6.png" },
     ];
 
     additionalTags.forEach((tag) => {
@@ -325,7 +325,7 @@ export const addPerformanceHints = () => {
   // Add preload for critical resources
   const addPreloads = () => {
     const preloads = [
-      { href: "/images/Artboard%206.png", as: "image" },
+      { href: "/images/artboard-6.png", as: "image" },
       { href: "/images/1.jpg", as: "image" },
       { href: "/images/Final%20199S-1817.JPG", as: "image" },
     ];

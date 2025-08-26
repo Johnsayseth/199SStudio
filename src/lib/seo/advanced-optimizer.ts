@@ -270,7 +270,7 @@ export class AdvancedSEOOptimizer {
       // Images
       image: [
         "https://199sstudio.vn/images/logo/logo199s.jpg",
-        "https://199sstudio.vn/images/Artboard 6.png",
+        "https://199sstudio.vn/images/artboard-6.png",
       ],
 
       // Logo
@@ -355,7 +355,7 @@ export class AdvancedSEOOptimizer {
       description: "Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội",
       url: "https://199sstudio.vn",
       logo: "https://199sstudio.vn/images/logo/logo199s.jpg",
-      image: "https://199sstudio.vn/images/Artboard 6.png",
+      image: "https://199sstudio.vn/images/artboard-6.png",
       foundingDate: "2018",
       address: {
         "@type": "PostalAddress",

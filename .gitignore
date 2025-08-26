@@ -117,10 +117,10 @@ coverage/
 public/videos/compressed/
 public/videos/original/
 
-# Video files - GitHub limit 100MB (Tạm thời bỏ ignore để upload)
-# public/videos/*.mp4
-# public/videos/*.mov
-# public/videos/*.avi
+# Video files - GitHub limit 100MB
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.avi
 
 # Additional Vercel/Turbopack cache
 .vercel/

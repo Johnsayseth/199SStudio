@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { tiktokVideos } from "../data/tiktokVideos";
 
 interface Video {
@@ -24,12 +25,20 @@ export default function VideoGalleryContent() {
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [videoLoadingStates, setVideoLoadingStates] = useState<
+    Record<string, boolean>
+  >({});
+  const [videoErrorStates, setVideoErrorStates] = useState<
+    Record<string, boolean>
+  >({});
 
   // Refs riêng biệt cho từng phần
   const gridRef = useRef<HTMLDivElement>(null);
   const tiktokGridRef = useRef<HTMLDivElement>(null);
   const facebookGridRef = useRef<HTMLDivElement>(null);
   const isUserInteractingRef = useRef(false);
+  // Lưu vị trí cuộn trước khi mở modal để khôi phục sau khi đóng
+  const scrollYBeforeOpenRef = useRef<number>(0);
 
   const videos: Video[] = [
     {
@@ -117,14 +126,94 @@ export default function VideoGalleryContent() {
   }, []);
 
   const openModal = (video: Video) => {
+    // Đảm bảo modal mở đúng cách
     setCurrentVideo(video);
     setIsModalOpen(true);
+
+    // Khóa scroll của body nhưng giữ nguyên vị trí cuộn hiện tại
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      const currentScrollY = window.scrollY || window.pageYOffset || 0;
+      scrollYBeforeOpenRef.current = currentScrollY;
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${currentScrollY}px`;
+      document.body.style.width = "100%";
+    }
+  };
+
+  const handleVideoLoad = (videoId: string) => {
+    setVideoLoadingStates((prev) => ({ ...prev, [videoId]: false }));
+  };
+
+  const handleVideoError = (videoId: string) => {
+    setVideoLoadingStates((prev) => ({ ...prev, [videoId]: false }));
+    setVideoErrorStates((prev) => ({ ...prev, [videoId]: true }));
+  };
+
+  const handleVideoLoadStart = (videoId: string) => {
+    setVideoLoadingStates((prev) => ({ ...prev, [videoId]: true }));
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setCurrentVideo(null);
+
+    // Khôi phục scroll của body
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      const storedScrollY = scrollYBeforeOpenRef.current || 0;
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      // Khôi phục lại vị trí cuộn trước khi mở modal
+      window.scrollTo(0, storedScrollY);
+    }
   };
+
+  // Thêm keyboard navigation cho modal
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+      // Thêm Tab trap để giữ focus trong modal
+      if (e.key === "Tab") {
+        const focusableElements = document.querySelectorAll(
+          "[role='dialog'] button, [role='dialog'] video, [role='dialog'] h3, [role='dialog'] p"
+        );
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Focus vào close button khi modal mở
+    const closeButton = document.querySelector(
+      "[role='dialog'] button"
+    ) as HTMLElement;
+    if (closeButton) {
+      closeButton.focus();
+    }
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
 
   const getEmbedUrl = (video: ExternalVideo) => {
     if (video.platform === "facebook") {
@@ -142,10 +231,12 @@ export default function VideoGalleryContent() {
     const container = gridRef.current;
     if (!container) return;
 
-    // Debug: Kiểm tra container
-    console.log("Concept videos container:", container);
-    console.log("Container scrollWidth:", container.scrollWidth);
-    console.log("Container clientWidth:", container.clientWidth);
+    // Debug: Kiểm tra container (chỉ trong development)
+    if (process.env.NODE_ENV === "development") {
+      console.log("Concept videos container:", container);
+      console.log("Container scrollWidth:", container.scrollWidth);
+      console.log("Container clientWidth:", container.clientWidth);
+    }
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
@@ -164,8 +255,12 @@ export default function VideoGalleryContent() {
         const deltaPx = (speedPxPerSec * deltaMs) / 1000;
         const maxScroll = container.scrollWidth - container.clientWidth;
 
-        // Debug: Kiểm tra scroll
-        if (rafId && rafId % 60 === 0) {
+        // Debug: Kiểm tra scroll (chỉ trong development)
+        if (
+          process.env.NODE_ENV === "development" &&
+          rafId &&
+          rafId % 60 === 0
+        ) {
           // Log mỗi 60 frames
           console.log("Concept auto-scroll:", {
             isPaused,
@@ -180,8 +275,9 @@ export default function VideoGalleryContent() {
           let next = container.scrollLeft + deltaPx;
           if (next >= maxScroll) {
             container.scrollLeft = 0;
+          } else {
+            container.scrollLeft = next;
           }
-          container.scrollLeft = next;
         }
       }
 
@@ -451,16 +547,45 @@ export default function VideoGalleryContent() {
                 <div
                   key={video.id}
                   className="vg-item"
+                  role="button"
+                  tabIndex={0}
                   onClick={() => openModal(video)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openModal(video);
+                    }
+                  }}
+                  aria-label={`Xem video ${video.title}`}
                 >
                   <div className="vg-video-container">
+                    {/* Loading State */}
+                    {videoLoadingStates[video.id] && (
+                      <div className="vg-loading-overlay">
+                        <div className="vg-loading-spinner"></div>
+                      </div>
+                    )}
+
+                    {/* Error State */}
+                    {videoErrorStates[video.id] && (
+                      <div className="vg-error-overlay">
+                        <i className="bi bi-exclamation-triangle"></i>
+                        <span>Video không thể tải</span>
+                      </div>
+                    )}
+
                     <video
                       src={video.src}
+                      poster={video.poster}
                       muted
                       autoPlay
                       loop
                       playsInline
                       className="vg-video"
+                      preload="metadata"
+                      onLoadStart={() => handleVideoLoadStart(video.id)}
+                      onLoadedData={() => handleVideoLoad(video.id)}
+                      onError={() => handleVideoError(video.id)}
                     />
                   </div>
                   <h4 className="vg-title">{video.title}</h4>
@@ -582,22 +707,156 @@ export default function VideoGalleryContent() {
 
       {/* Video Modal */}
       {isModalOpen && currentVideo && (
-        <div className="vg-modal" onClick={closeModal}>
+        <div
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="vg-modal-title"
+          aria-describedby="vg-modal-description"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0, 0, 0, 0.9)",
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: window.innerWidth <= 768 ? "10px" : "20px",
+          }}
+        >
           <div
-            className="vg-modal-content"
             onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#123f31",
+              borderRadius: "15px",
+              maxWidth: window.innerWidth <= 768 ? "95vw" : "90vw",
+              maxHeight: window.innerWidth <= 768 ? "95vh" : "90vh",
+              width: "auto",
+              padding: window.innerWidth <= 768 ? "15px" : "20px",
+              position: "relative",
+              border: "2px solid rgba(255, 255, 255, 0.2)",
+              boxShadow: "0 25px 50px rgba(0, 0, 0, 0.5)",
+            }}
           >
-            <button className="vg-close-button" onClick={closeModal}>
+            {/* Nút tắt đặt ở ngoài khung video */}
+            <button
+              onClick={closeModal}
+              aria-label="Đóng video"
+              style={{
+                position: "absolute",
+                top: "-20px",
+                right: "-20px",
+                background: "rgba(255, 255, 255, 0.15)",
+                border: "2px solid rgba(255, 255, 255, 0.3)",
+                color: "white",
+                fontSize: window.innerWidth <= 768 ? "24px" : "28px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                width: window.innerWidth <= 768 ? "35px" : "40px",
+                height: window.innerWidth <= 768 ? "35px" : "40px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                outline: "none",
+                zIndex: 10000,
+              }}
+              onFocus={(e) => {
+                (e.target as HTMLElement).style.outline =
+                  "3px solid rgba(255, 255, 255, 0.8)";
+                (e.target as HTMLElement).style.outlineOffset = "2px";
+                (e.target as HTMLElement).style.background =
+                  "rgba(255, 255, 255, 0.2)";
+              }}
+              onBlur={(e) => {
+                (e.target as HTMLElement).style.outline = "none";
+                (e.target as HTMLElement).style.background =
+                  "rgba(255, 255, 255, 0.15)";
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.background =
+                  "rgba(255, 255, 255, 0.2)";
+                (e.target as HTMLElement).style.transform = "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.background =
+                  "rgba(255, 255, 255, 0.15)";
+                (e.target as HTMLElement).style.transform = "scale(1)";
+              }}
+            >
               ×
             </button>
             <video
               controls
+              autoPlay
+              muted
               poster={currentVideo.poster}
               src={currentVideo.src}
-              style={{ width: "100%", maxHeight: "80vh" }}
+              style={{
+                width: "100%",
+                maxHeight: window.innerWidth <= 768 ? "60vh" : "80vh",
+                borderRadius: "10px",
+                background: "#000",
+              }}
+              onLoadedMetadata={(e) => {
+                // Tự động unmute sau khi video load xong
+                const video = e.target as HTMLVideoElement;
+                if (video) {
+                  // Delay nhỏ để đảm bảo video đã sẵn sàng
+                  setTimeout(() => {
+                    video.muted = false;
+                  }, 100);
+                }
+              }}
             />
-            <h3 className="vg-modal-title">{currentVideo.title}</h3>
-            <p className="vg-modal-description">{currentVideo.description}</p>
+            <h3
+              id="vg-modal-title"
+              style={{
+                color: "white",
+                fontSize: window.innerWidth <= 768 ? "16px" : "18px",
+                fontWeight: "600",
+                margin: "15px 0 10px 0",
+                textAlign: "center",
+              }}
+            >
+              {currentVideo.title}
+            </h3>
+            {/* Thông báo về âm thanh */}
+            <div
+              style={{
+                background: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "8px",
+                padding: "8px 12px",
+                margin: "8px 0",
+                textAlign: "center",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+              }}
+            >
+              <span
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: window.innerWidth <= 768 ? "11px" : "12px",
+                  fontStyle: "italic",
+                }}
+              >
+                🔊 Click vào nút âm thanh trên video để bật âm thanh
+              </span>
+            </div>
+            <p
+              id="vg-modal-description"
+              style={{
+                color: "rgba(255, 255, 255, 0.8)",
+                fontSize: window.innerWidth <= 768 ? "13px" : "14px",
+                textAlign: "center",
+                margin: "0",
+              }}
+            >
+              {currentVideo.description}
+            </p>
           </div>
         </div>
       )}

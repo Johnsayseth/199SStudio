@@ -20,7 +20,7 @@ const STATIC_ASSETS = [
   "/fonts/AgencyFB-Regular.ttf",
   "/fonts/AgencyFB-Bold.ttf",
   "/images/logo/logo199s.jpg",
-  "/images/Artboard 6.png",
+  "/images/artboard-6.png",
 ];
 
 // Install event - cache static assets

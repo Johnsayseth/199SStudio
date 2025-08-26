@@ -152,7 +152,7 @@ export const enhancePerformanceBestPractices = () => {
   // Add resource hints
   const addResourceHints = () => {
     const hints = [
-      { rel: "preload", href: "/images/Artboard%206.png", as: "image" },
+      { rel: "preload", href: "/images/artboard-6.png", as: "image" },
       { rel: "preload", href: "/images/1.jpg", as: "image" },
       { rel: "prefetch", href: "/concept-hot" },
     ];

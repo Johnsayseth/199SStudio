@@ -11,8 +11,7 @@
 /* 3. About Section */
 @import "components/about.css";
 
-/* 4. Video Gallery */
-@import "components/VideoGallery.css";
+/* 4. Video Gallery - Inline styles used */
 
 /* 5. Footer */
 @import "components/footer.css";

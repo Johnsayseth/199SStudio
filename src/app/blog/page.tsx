@@ -6,13 +6,15 @@ import Footer from "@/components/Footer";
 import "@/styles/Blog.css";
 
 export const metadata: Metadata = {
-  title: "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
+  title:
+    "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
   description:
     "Chụp ảnh kỷ yếu là kỷ niệm tuổi học trò. Tìm hiểu 8 nỗi lo thường gặp khi chọn studio và giải pháp để có bộ ảnh kỷ yếu đẹp, ý nghĩa nhất.",
   keywords:
     "chụp ảnh kỷ yếu, studio kỷ yếu, kinh nghiệm chọn studio, chụp ảnh kỷ yếu Hà Nội",
   openGraph: {
-    title: "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
+    title:
+      "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
     description:
       "Chụp ảnh kỷ yếu là kỷ niệm tuổi học trò. Tìm hiểu 8 nỗi lo thường gặp khi chọn studio và giải pháp để có bộ ảnh kỷ yếu đẹp, ý nghĩa nhất.",
     type: "article",
@@ -28,7 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
+    title:
+      "Những nỗi lo khi chọn studio chụp ảnh kỷ yếu và cách khắc phục | 199S Studio",
     description:
       "Chụp ảnh kỷ yếu là kỷ niệm tuổi học trò. Tìm hiểu 8 nỗi lo thường gặp khi chọn studio và giải pháp để có bộ ảnh kỷ yếu đẹp, ý nghĩa nhất.",
     images: ["/images/Final 199S-01901.JPG"],
@@ -512,13 +515,20 @@ export default function BlogPage() {
                     <ul className="concept-preview-list">
                       <li>🎭 Thanh Xuân Hàn Quốc – High Teen vibes</li>
                       <li>🇹🇭 Đồng Phục Thái Lan – Mới lạ, vui nhộn</li>
-                      <li>🇺🇸 Phong Cách Preppy Mỹ – Thanh lịch & thời thượng</li>
-                      <li>📷 Retro/Vintage – Về lại thời thanh xuân của ba mẹ</li>
+                      <li>
+                        🇺🇸 Phong Cách Preppy Mỹ – Thanh lịch & thời thượng
+                      </li>
+                      <li>
+                        📷 Retro/Vintage – Về lại thời thanh xuân của ba mẹ
+                      </li>
                       <li>🎬 Concept Điện Ảnh – Ánh sáng đẹp như phim</li>
                       <li>🇻🇳 Việt Phục – Tự hào truyền thống</li>
                       <li>✨ Cá Nhân Hóa – Lớp bạn muốn gì, cũng có</li>
                     </ul>
-                    <Link href="/concept-hot" className="btn btn-primary w-100 mt-3">
+                    <Link
+                      href="/concept-hot"
+                      className="btn btn-primary w-100 mt-3"
+                    >
                       <i className="bi bi-eye me-2"></i>
                       Xem Chi Tiết Concept
                     </Link>

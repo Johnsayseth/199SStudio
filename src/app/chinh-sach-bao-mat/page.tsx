@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://199sstudio.com/chinh-sach-bao-mat",
     images: [
       {
-        url: "/images/Artboard 6.png",
+        url: "/images/artboard-6.png",
         width: 1200,
         height: 630,
         alt: "199S Studio - Chính sách bảo mật",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chính sách bảo mật | 199S Studio",
     description: "Chính sách bảo mật thông tin cá nhân của 199S Studio",
-    images: ["/images/Artboard 6.png"],
+    images: ["/images/artboard-6.png"],
   },
   alternates: {
     canonical: "https://199sstudio.com/chinh-sach-bao-mat",
