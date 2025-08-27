@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "199S Studio",
     images: [
       {
-        url: "https://199sstudio.vn/images/slides/openmeta.JPG",
+        url: "https://www.199sstudio.vn/images/slides/openmeta.JPG",
         width: 1200,
         height: 630,
         alt: "199S Studio - Chụp ảnh kỷ yếu chuyên nghiệp với concept độc đáo",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
       "Không chỉ là KỶ YẾU 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung.",
     description:
       "199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung. tại Hà Nội. Chụp ảnh kỷ yếu, concept độc đáo, make-up, trang phục.",
-    images: ["https://199sstudio.vn/images/slides/openmeta.JPG"],
+    images: ["https://www.199sstudio.vn/images/slides/openmeta.JPG"],
     creator: "@199sstudio",
     site: "@199sstudio",
   },
