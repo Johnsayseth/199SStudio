@@ -26,15 +26,6 @@ export const metadata: Metadata = {
   description:
     "199S Studio - Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội. Chụp ảnh kỷ yếu, concept độc đáo, make-up, trang phục. You Need - I'm Here.",
   authors: [{ name: "199S Studio" }],
-  keywords: [
-    "studio chụp ảnh",
-    "chụp ảnh kỷ yếu",
-    "concept độc đáo",
-    "make-up",
-    "trang phục",
-    "Hà Nội",
-    "199S Studio",
-  ],
   openGraph: {
     title: "199S Studio - Studio Chụp Ảnh Kỷ Yếu Chuyên Nghiệp",
     description:
@@ -43,9 +34,9 @@ export const metadata: Metadata = {
     siteName: "199S Studio",
     images: [
       {
-        url: "/images/slides/Final 199S-1817.JPG",
-        width: 1920,
-        height: 1080,
+        url: "/images/slides/openmeta.JPG",
+        width: 1200,
+        height: 630,
         alt: "199S Studio - Chụp ảnh kỷ yếu chuyên nghiệp với concept độc đáo",
       },
     ],
@@ -57,20 +48,9 @@ export const metadata: Metadata = {
     title: "199S Studio - Studio Chụp Ảnh Kỷ Yếu Chuyên Nghiệp",
     description:
       "199S Studio - Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội. Chụp ảnh kỷ yếu, concept độc đáo, make-up, trang phục.",
-    images: ["/images/slides/Final 199S-1817.JPG"],
+    images: ["/images/slides/openmeta.JPG"],
     creator: "@199sstudio",
     site: "@199sstudio",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   icons: {
     icon: [
