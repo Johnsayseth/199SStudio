@@ -388,7 +388,7 @@ export class AdvancedSEOOptimizer {
       "@id": "https://199sstudio.vn/#website",
       name: "199S Studio",
       description:
-        "Website chính thức của 199S Studio - Studio chụp ảnh kỷ yếu chuyên nghiệp tại Hà Nội",
+        "Website chính thức của 199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung.",
       url: "https://199sstudio.vn",
       publisher: {
         "@type": "Organization",
