@@ -30,6 +30,7 @@ body::before {
 .hero-section,
 .about-section,
 .video-gallery-section,
+.vg-section, /* Video Gallery section */
 .team-section,
 .contact-intro-section,
 .concept-gallery-section,
@@ -63,11 +64,17 @@ body {
 
 /* ===== PREVENT LAYOUT SHIFTS ===== */
 img,
-video,
-iframe {
+video {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* ===== IFRAME RESPONSIVE ===== */
+iframe {
+  max-width: 100%;
+  display: block;
+  /* height: auto; - Bỏ để không đè lên TikTok */
 }
 
 /* ===== ENSURE CRITICAL ELEMENTS VISIBLE ===== */

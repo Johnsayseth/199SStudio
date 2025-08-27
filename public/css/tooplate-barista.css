@@ -710,7 +710,7 @@ strong {
   gap: 1rem;
   padding-bottom: 0.5rem;
   width: 100%;
-  scroll-behavior: auto;
+  /* Remove conflicting scroll-behavior to use critical.css settings */
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;

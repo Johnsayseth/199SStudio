@@ -34,16 +34,18 @@ export default function Navbar() {
     // Client-side: check actual pathname directly
     if (!pathname) return false;
 
-    // Debug logs
-    console.log(`🔍 Navbar isActive check:`, {
-      path,
-      pathname,
-      result: pathname === path,
-    });
+    // Navbar active state check completed
 
-    // Handle hash links
+    // Handle hash links - Check if we're on home page and hash matches
     if (path.includes("#")) {
-      return pathname === path;
+      // For hash links like /#video, check if we're on home page
+      if (pathname === "/") {
+        // Check if the hash part matches current hash
+        const currentHash = window.location.hash;
+        const targetHash = path.split("#")[1];
+        return currentHash === `#${targetHash}`;
+      }
+      return false;
     }
 
     // Handle regular paths

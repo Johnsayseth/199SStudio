@@ -238,8 +238,8 @@
   -webkit-filter: none !important;
 }
 
-/* ===== COMPLETE GRADIENT REMOVAL - TEST SOLUTION ===== */
-/* Remove ALL gradient effects to test if blur disappears */
+/* ===== COMPLETE GRADIENT REMOVAL ===== */
+/* Remove ALL gradient effects to eliminate blur */
 .concept-title,
 .concept-title *,
 .concept-title::before,

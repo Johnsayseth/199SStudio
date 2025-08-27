@@ -180,8 +180,7 @@
   backdrop-filter: blur(10px) !important;
   /* Layout properties */
   overflow: auto !important;
-  /* Enhanced scrolling */
-  scroll-behavior: smooth !important;
+  /* Enhanced scrolling - Remove conflicting scroll-behavior */
   -webkit-overflow-scrolling: touch !important;
   will-change: scroll-position !important;
 }

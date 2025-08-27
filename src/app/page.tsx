@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
 
-      <VideoGallery />
+      <VideoGallery id="video" />
       <TeamSection />
 
       {/* Contact Introduction Section */}

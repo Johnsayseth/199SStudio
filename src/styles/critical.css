@@ -286,7 +286,7 @@ select {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    scroll-behavior: auto !important; /* Chỉ disable smooth scroll khi user prefer reduced motion */
   }
 
   /* Keep essential animations but reduce intensity */
@@ -295,6 +295,17 @@ select {
   .team-section {
     animation: none;
   }
+}
+
+/* Enable smooth scrolling by default for better navigation experience */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Account for fixed navbar */
+}
+
+/* Ensure smooth scrolling works for all navigation */
+a[href^="#"] {
+  scroll-behavior: smooth;
 }
 
 /* Enhanced text selection for better readability */

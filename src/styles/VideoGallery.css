@@ -1,0 +1,319 @@
+/* Video Gallery Responsive CSS - 199S Studio */
+
+/* ===== TIKTOK EMBED OPTIMIZATION ===== */
+.tiktok-embed {
+  /* Desktop: Khung tự động điều chỉnh theo nội dung */
+  width: 400px;
+  height: auto !important; /* Tự động điều chỉnh chiều cao */
+  min-width: 400px;
+  min-height: 600px; /* Chiều cao tối thiểu */
+  max-height: none; /* Không giới hạn chiều cao tối đa */
+  aspect-ratio: auto; /* Cho phép tự động điều chỉnh */
+}
+
+/* Mobile: Khung tự động điều chỉnh theo nội dung */
+@media (max-width: 768px) {
+  .tiktok-embed {
+    width: 100% !important;
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-width: 100% !important;
+    min-height: 600px !important; /* Chiều cao tối thiểu */
+    max-height: none !important; /* Không giới hạn chiều cao tối đa */
+    max-width: 100% !important;
+    aspect-ratio: auto !important; /* Cho phép tự động điều chỉnh */
+  }
+
+  /* Đảm bảo container responsive */
+  .vg-embed-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important; /* Container cũng tự động điều chỉnh */
+  }
+
+  /* Tối ưu TikTok card trên mobile */
+  .tiktok-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    height: auto !important; /* Card tự động điều chỉnh */
+  }
+}
+
+/* Small mobile: Khung tự động điều chỉnh theo nội dung */
+@media (max-width: 480px) {
+  .tiktok-embed {
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-height: 500px !important; /* Chiều cao tối thiểu nhỏ hơn */
+    max-height: none !important; /* Không giới hạn chiều cao tối đa */
+    aspect-ratio: auto !important; /* Cho phép tự động điều chỉnh */
+  }
+}
+
+/* ===== FACEBOOK EMBED OPTIMIZATION ===== */
+.facebook-embed {
+  /* Desktop: Giữ nguyên kích thước gốc */
+  width: 400px;
+  height: 400px;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+/* Mobile: Tối ưu hóa Facebook */
+@media (max-width: 768px) {
+  .facebook-embed {
+    width: 100% !important;
+    height: 400px !important;
+    min-width: 100% !important;
+    min-height: 400px !important;
+    max-width: 100% !important;
+  }
+
+  /* Tối ưu Facebook card trên mobile */
+  .facebook-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+  }
+}
+
+/* ===== EXTERNAL ROW OPTIMIZATION ===== */
+.vg-external-row {
+  /* Đảm bảo auto-scroll hoạt động tốt */
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* ===== EXTERNAL CARD OPTIMIZATION ===== */
+.vg-external-card {
+  /* Desktop: Giữ nguyên kích thước */
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* Tối ưu hóa khi không có title và badge */
+  padding-bottom: 0;
+}
+
+.vg-external-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile: Tối ưu hóa row */
+@media (max-width: 768px) {
+  .vg-external-row {
+    gap: 15px;
+    padding: 15px 0;
+    /* Đảm bảo scroll ngang hoạt động tốt trên mobile */
+    scroll-snap-type: x mandatory;
+  }
+
+  /* Snap scroll cho từng card */
+  .vg-external-card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    /* Mobile: Tối ưu hóa kích thước */
+    min-width: 280px;
+    max-width: 100%;
+  }
+}
+
+/* Small mobile: Tối ưu hóa thêm */
+@media (max-width: 480px) {
+  .vg-external-card {
+    min-width: 250px;
+    margin: 0 5px;
+  }
+
+  .vg-external-row {
+    gap: 10px;
+    padding: 10px 0;
+  }
+}
+
+/* ===== EMBED CONTAINER OPTIMIZATION ===== */
+.vg-embed-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  /* Đảm bảo iframe responsive */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CARD INFO OPTIMIZATION ===== */
+.vg-card-info {
+  padding: 0; /* Không còn padding khi không có nội dung */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0; /* Không còn chiều cao tối thiểu */
+}
+
+/* Mobile: Tối ưu hóa */
+@media (max-width: 768px) {
+  .vg-card-info {
+    padding: 0;
+    min-height: 0;
+  }
+}
+
+/* ===== PLATFORM BADGE OPTIMIZATION ===== */
+/* Đã bỏ hoàn toàn - không còn sử dụng */
+
+/* ===== AUTO-SCROLL COMPATIBILITY ===== */
+/* Đảm bảo auto-scroll không bị ảnh hưởng bởi responsive changes */
+.vg-external-row {
+  /* Giữ nguyên auto-scroll behavior */
+  scroll-behavior: auto;
+}
+
+/* ===== PERFORMANCE OPTIMIZATION ===== */
+/* Tối ưu hóa rendering cho iframe */
+.tiktok-embed,
+.facebook-embed {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+/* Cải thiện accessibility cho iframe */
+.tiktok-embed:focus,
+.facebook-embed:focus {
+  outline: 2px solid #4ecdc4;
+  outline-offset: 2px;
+}
+
+/* ===== LOADING AND ERROR STATES ===== */
+.vg-loading-overlay,
+.vg-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 10;
+  border-radius: 12px;
+}
+
+.vg-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.vg-loading-overlay span,
+.vg-error-overlay span {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.vg-error-overlay i {
+  font-size: 24px;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+}
+
+.vg-error-overlay button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vg-error-overlay button:hover {
+  background: white;
+  color: black;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (max-width: 1200px) {
+  .tiktok-embed {
+    width: 350px;
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-height: 600px;
+    max-height: none;
+  }
+
+  .facebook-embed {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .tiktok-embed {
+    width: 300px;
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-height: 600px;
+    max-height: none;
+  }
+
+  .facebook-embed {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tiktok-embed {
+    width: 100%;
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-height: 600px !important;
+    max-height: none !important;
+  }
+
+  .facebook-embed {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiktok-embed {
+    height: auto !important; /* Tự động điều chỉnh chiều cao */
+    min-height: 500px !important;
+    max-height: none !important;
+  }
+
+  .facebook-embed {
+    height: 350px;
+  }
+}

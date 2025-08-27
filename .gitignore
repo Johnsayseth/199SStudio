@@ -113,14 +113,20 @@ coverage/
 *.log
 *.sqlite
 
-# Video compression temporary files
-public/videos/compressed/
-public/videos/original/
-
-# Video files - GitHub limit 100MB
+# Video files - CHỈ LOẠI TRỪ VIDEO QUÁ LỚN (>50MB)
+# Giữ lại video đã nén và video nhỏ để web hoạt động đầy đủ
 public/videos/*.mp4
 public/videos/*.mov
 public/videos/*.avi
+
+# NHƯNG GIỮ LẠI video đã nén và video nhỏ
+!public/videos/compressed/
+!public/videos/small-*.mp4
+!public/videos/thumb-*.mp4
+!public/videos/concept-*.mp4
+
+# Video compression temporary files
+public/videos/original/
 
 # Additional Vercel/Turbopack cache
 .vercel/

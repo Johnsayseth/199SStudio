@@ -211,7 +211,7 @@
 .modal-content {
   will-change: scroll-position !important;
   -webkit-overflow-scrolling: touch !important;
-  scroll-behavior: auto !important; /* Instant scrolling */
+  scroll-behavior: auto !important; /* Instant scrolling cho modal content */
 }
 
 /* PHASE 5: Hardware acceleration cho tất cả images */
@@ -243,9 +243,8 @@
   will-change: transform !important;
 }
 
-/* PHASE 5: Performance hints */
+/* PHASE 5: Performance hints - Remove conflicting scroll-behavior */
 .thumbnails {
-  scroll-behavior: auto !important; /* Instant scrolling */
   -webkit-overflow-scrolling: touch !important;
   will-change: scroll-position !important;
 }

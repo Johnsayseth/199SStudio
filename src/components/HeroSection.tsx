@@ -64,7 +64,7 @@ export default function HeroSection() {
               }
             }, 500);
           } catch (error) {
-            console.log(`Deep link ${index + 1} failed:`, error);
+            // Deep link failed
           }
         }
       });

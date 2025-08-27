@@ -9,6 +9,10 @@ const VideoGalleryContent = dynamic(() => import("./VideoGalleryContent"), {
   loading: () => <div>Loading video gallery...</div>,
 });
 
-export default function VideoGallery() {
-  return <VideoGalleryContent />;
+interface VideoGalleryProps {
+  id?: string; // Thêm prop id để có thể truyền ID từ parent
+}
+
+export default function VideoGallery({ id }: VideoGalleryProps) {
+  return <VideoGalleryContent id={id} />;
 }

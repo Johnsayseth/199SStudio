@@ -17,6 +17,9 @@ import "../styles/main.css";
 /* 5. Component CSS - Load Fifth - Optimized Component Styles */
 import "../styles/components-merged.css";
 
+/* 6. Video Gallery CSS - Load Sixth - TikTok & Facebook Optimization */
+import "../styles/VideoGallery.css";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://199sstudio.vn"),
   title: "199S Studio",
@@ -945,7 +948,7 @@ export default function RootLayout({
                     if (typeof caches !== 'undefined' && caches.keys) {
                       caches.keys().then(function(names){ names.forEach(function(n){ caches.delete(n); }); });
                     }
-                    console.log('[DEV] Service worker unregistered and caches cleared');
+                    // Service worker unregistered and caches cleared
                   });
                 })();
               `,
@@ -962,7 +965,7 @@ export default function RootLayout({
                     navigator.serviceWorker.getRegistration().then(function(existing){
                       if (existing) { return; }
                       navigator.serviceWorker.register('/sw.js')
-                        .then(function(reg) { console.log('SW registered with scope:', reg.scope); })
+                        .then(function(reg) { /* SW registered with scope: */ })
                         .catch(function(err) { console.warn('SW registration failed:', err); });
                     });
                   });
@@ -984,7 +987,7 @@ export default function RootLayout({
                     var $stickyWrappers = $('.sticky-wrapper');
                     if ($stickyWrappers.length > 0) {
                       $stickyWrappers.remove();
-                      console.log('Sticky wrappers removed');
+                      // Sticky wrappers removed
                     }
                     
                     // Loại bỏ duplicate navbars
@@ -994,7 +997,7 @@ export default function RootLayout({
                     if ($navbars.length > 1 && $mainNavbar.length > 0) {
                       $navbars.not('[data-no-sticky="true"]').remove();
                       $mainNavbar.show();
-                      console.log('Duplicate navbars removed, main navbar shown');
+                      // Duplicate navbars removed, main navbar shown
                     }
                   }
                 }, 1000); // Tăng delay để đảm bảo hydration hoàn tất
