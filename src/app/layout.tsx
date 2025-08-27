@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   authors: [{ name: "199S Studio" }],
   openGraph: {
     title:
-      "199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung. ",
+      "Không chỉ là KỶ YẾU 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung.",
     description:
       "199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung. tại Hà Nội. Chụp ảnh kỷ yếu, concept độc đáo, make-up, trang phục. You Need - I'm Here.",
     url: "https://199sstudio.vn",
     siteName: "199S Studio",
     images: [
       {
-        url: "/images/slides/openmeta.JPG",
+        url: "https://199sstudio.vn/images/slides/openmeta.JPG",
         width: 1200,
         height: 630,
         alt: "199S Studio - Chụp ảnh kỷ yếu chuyên nghiệp với concept độc đáo",
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung.",
+      "Không chỉ là KỶ YẾU 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung.",
     description:
       "199S Studio - Không chỉ là KỶ YẾU – 199S muốn mỗi thành viên đều xứng đáng được hiện diện TRỌN VẸN NHẤT trong câu chuyện chung. tại Hà Nội. Chụp ảnh kỷ yếu, concept độc đáo, make-up, trang phục.",
-    images: ["/images/slides/openmeta.JPG"],
+    images: ["https://199sstudio.vn/images/slides/openmeta.JPG"],
     creator: "@199sstudio",
     site: "@199sstudio",
   },
