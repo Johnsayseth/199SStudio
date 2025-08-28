@@ -99,9 +99,9 @@ export default function Navbar() {
             About
           </Link>
           <Link
-            className={`nav-link ${isActive("/#video") ? "active" : ""}`}
-            href="/#video"
-            aria-label="Go to Video section"
+            className={`nav-link ${isActive("/video") ? "active" : ""}`}
+            href="/video"
+            aria-label="Go to Video page"
           >
             Video
           </Link>
@@ -179,9 +179,9 @@ export default function Navbar() {
             </li>
             <li className="nav-item" onClick={closeMobileMenu}>
               <Link
-                className={`nav-link ${isActive("/#video") ? "active" : ""}`}
-                href="/#video"
-                aria-label="Go to Video section"
+                className={`nav-link ${isActive("/video") ? "active" : ""}`}
+                href="/video"
+                aria-label="Go to Video page"
               >
                 Video
               </Link>
