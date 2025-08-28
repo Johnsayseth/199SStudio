@@ -10,6 +10,8 @@ export default function VideoPage() {
     <ClientOnly>
       <>
         <Navbar />
+        {/* Spacer to prevent navbar overlap */}
+        <div style={{ height: "160px" }} aria-hidden="true" />
         {/* Reuse existing VideoGallery with same UI/logic */}
         <VideoGallery id="video" />
         <Footer />
