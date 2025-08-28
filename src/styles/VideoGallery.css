@@ -1,5 +1,52 @@
 /* Video Gallery Responsive CSS - 199S Studio */
 
+/* Video placeholder styles for lazy loading */
+.vg-video-placeholder {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.vg-video-placeholder:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Optimize video loading */
+.vg-video {
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.vg-video:not([src]) {
+  opacity: 0;
+}
+
+.vg-video[src] {
+  opacity: 1;
+}
+
+/* Optimize iframe loading */
+.vg-embed {
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Loading spinner optimization */
+.vg-loading-spinner {
+  animation: spin 1s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ===== TIKTOK EMBED OPTIMIZATION ===== */
 .tiktok-embed {
   /* Desktop: Khung tự động điều chỉnh theo nội dung */

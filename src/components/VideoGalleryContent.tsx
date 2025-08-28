@@ -21,7 +21,7 @@ interface ExternalVideo {
 }
 
 interface VideoGalleryContentProps {
-  id?: string; // Thêm prop id để có thể truyền ID từ parent
+  id?: string;
 }
 
 export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
@@ -41,14 +41,15 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
   const [iframeErrorStates, setIframeErrorStates] = useState<
     Record<string, boolean>
   >({});
+  const [visibleVideos, setVisibleVideos] = useState<Set<string>>(new Set());
 
   // Refs riêng biệt cho từng phần
   const gridRef = useRef<HTMLDivElement>(null);
   const tiktokGridRef = useRef<HTMLDivElement>(null);
   const facebookGridRef = useRef<HTMLDivElement>(null);
   const isUserInteractingRef = useRef(false);
-  // Lưu vị trí cuộn trước khi mở modal để khôi phục sau khi đóng
   const scrollYBeforeOpenRef = useRef<number>(0);
+  const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
   const videos: Video[] = [
     {
@@ -124,6 +125,32 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
     thumbnail: video.thumbnail,
   }));
 
+  // Intersection Observer để lazy load video
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const videoId = entry.target.getAttribute('data-video-id');
+            if (videoId) {
+              setVisibleVideos(prev => new Set([...prev, videoId]));
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '50px', // Load video khi còn cách 50px
+        threshold: 0.1
+      }
+    );
+
+    // Observe tất cả video containers
+    const videoContainers = document.querySelectorAll('[data-video-id]');
+    videoContainers.forEach(container => observer.observe(container));
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -136,11 +163,9 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
   }, []);
 
   const openModal = (video: Video) => {
-    // Đảm bảo modal mở đúng cách
     setCurrentVideo(video);
     setIsModalOpen(true);
 
-    // Khóa scroll của body nhưng giữ nguyên vị trí cuộn hiện tại
     if (typeof window !== "undefined" && typeof document !== "undefined") {
       const currentScrollY = window.scrollY || window.pageYOffset || 0;
       scrollYBeforeOpenRef.current = currentScrollY;
@@ -168,14 +193,12 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
     setIsModalOpen(false);
     setCurrentVideo(null);
 
-    // Khôi phục scroll của body
     if (typeof window !== "undefined" && typeof document !== "undefined") {
       const storedScrollY = scrollYBeforeOpenRef.current || 0;
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      // Khôi phục lại vị trí cuộn trước khi mở modal
       window.scrollTo(0, storedScrollY);
     }
   };
@@ -188,7 +211,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
       if (e.key === "Escape") {
         closeModal();
       }
-      // Thêm Tab trap để giữ focus trong modal
       if (e.key === "Tab") {
         const focusableElements = document.querySelectorAll(
           "[role='dialog'] button, [role='dialog'] video, [role='dialog'] h3, [role='dialog'] p"
@@ -214,7 +236,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
 
     document.addEventListener("keydown", handleKeyDown);
 
-    // Focus vào close button khi modal mở
     const closeButton = document.querySelector(
       "[role='dialog'] button"
     ) as HTMLElement;
@@ -241,11 +262,9 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
     const container = gridRef.current;
     if (!container) return;
 
-    // Container check completed
-
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79;
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {
@@ -259,9 +278,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
       if (!isPaused && !isUserInteractingRef.current) {
         const deltaPx = (speedPxPerSec * deltaMs) / 1000;
         const maxScroll = container.scrollWidth - container.clientWidth;
-
-        // Debug: Kiểm tra scroll (chỉ trong development)
-        // Auto-scroll check completed
 
         if (maxScroll > 0) {
           let next = container.scrollLeft + deltaPx;
@@ -342,7 +358,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79;
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {
@@ -360,7 +376,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
         if (maxScroll > 0) {
           let next = container.scrollLeft + deltaPx;
 
-          // Logic đơn giản hơn, không dừng ở cuối
           if (next >= maxScroll) {
             container.scrollLeft = 0;
           } else {
@@ -382,7 +397,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
       }
       resumeTimer = window.setTimeout(() => {
         isUserInteractingRef.current = false;
-      }, 500); // Giảm thời gian pause
+      }, 500);
     };
 
     const handleMouseEnter = () => setIsPaused(true);
@@ -438,7 +453,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
 
     let rafId: number | null = null;
     let lastTs: number | null = null;
-    const speedPxPerSec = isMobile ? 79 : 79; // Tốc độ hợp lý 100px/s
+    const speedPxPerSec = isMobile ? 79 : 79;
     let resumeTimer: number | null = null;
 
     const tick = (ts: number) => {
@@ -456,7 +471,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
         if (maxScroll > 0) {
           let next = container.scrollLeft + deltaPx;
 
-          // Logic đơn giản hơn, không dừng ở cuối
           if (next >= maxScroll) {
             container.scrollLeft = 0;
           } else {
@@ -478,7 +492,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
       }
       resumeTimer = window.setTimeout(() => {
         isUserInteractingRef.current = false;
-      }, 500); // Giảm thời gian pause
+      }, 500);
     };
 
     const handleMouseEnter = () => setIsPaused(true);
@@ -541,6 +555,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                   className="vg-item"
                   role="button"
                   tabIndex={0}
+                  data-video-id={video.id}
                   onClick={() => openModal(video)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
@@ -566,19 +581,37 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       </div>
                     )}
 
-                    <video
-                      src={video.src}
-                      poster={video.poster}
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
-                      className="vg-video"
-                      preload="none"
-                      onLoadStart={() => handleVideoLoadStart(video.id)}
-                      onLoadedData={() => handleVideoLoad(video.id)}
-                      onError={() => handleVideoError(video.id)}
-                    />
+                    {/* Lazy load video chỉ khi visible */}
+                    {visibleVideos.has(video.id) ? (
+                                              <video
+                          ref={(el) => {
+                            if (el) videoRefs.current.set(video.id, el);
+                          }}
+                          src={video.src}
+                          poster={video.poster}
+                          muted
+                          autoPlay
+                          loop
+                          playsInline
+                          className="vg-video"
+                          preload="none"
+                          onLoadStart={() => handleVideoLoadStart(video.id)}
+                          onLoadedData={() => handleVideoLoad(video.id)}
+                          onError={() => handleVideoError(video.id)}
+                        />
+                    ) : (
+                      <div 
+                        className="vg-video-placeholder"
+                        style={{
+                          backgroundImage: `url(${video.poster})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          width: '100%',
+                          height: '100%',
+                          borderRadius: '8px'
+                        }}
+                      />
+                    )}
                   </div>
                   <h4 className="vg-title">{video.title}</h4>
                   <p className="vg-description">{video.description}</p>
@@ -636,7 +669,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                               ...prev,
                               [video.id]: true,
                             }));
-                            // Reload iframe
                             const iframe = document.querySelector(
                               `iframe[title="${video.title}"]`
                             ) as HTMLIFrameElement;
@@ -672,7 +704,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       }
                     />
                   </div>
-                  <div className="vg-card-info">{/* TikTok Badge đã bỏ */}</div>
+                  <div className="vg-card-info"></div>
                 </div>
               ))}
             </div>
@@ -727,7 +759,6 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                               ...prev,
                               [video.id]: true,
                             }));
-                            // Reload iframe
                             const iframe = document.querySelector(
                               `iframe[title="${video.title}"]`
                             ) as HTMLIFrameElement;
@@ -763,9 +794,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       }
                     />
                   </div>
-                  <div className="vg-card-info">
-                    {/* Facebook Title và Badge đã bỏ */}
-                  </div>
+                  <div className="vg-card-info"></div>
                 </div>
               ))}
             </div>
@@ -871,10 +900,8 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                 background: "#000",
               }}
               onLoadedMetadata={(e) => {
-                // Tự động unmute sau khi video load xong
                 const video = e.target as HTMLVideoElement;
                 if (video) {
-                  // Delay nhỏ để đảm bảo video đã sẵn sàng
                   setTimeout(() => {
                     video.muted = false;
                   }, 100);
