@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import VideoGallery from "@/components/VideoGallery";
+
 import TeamSection from "@/components/TeamSection";
 
 import Footer from "@/components/Footer";
@@ -18,8 +18,6 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-
-      <VideoGallery id="video" />
       <TeamSection />
 
       {/* Contact Introduction Section */}
