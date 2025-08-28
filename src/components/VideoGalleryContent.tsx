@@ -528,7 +528,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
   }, [isMobile, isPaused]);
 
   return (
-    <section className="vg-section" id={id}>
+    <section className="vg-section" id={id} style={{ paddingTop: "120px" }}>
       <div className="container">
         {/* Local Videos */}
         <div className="row">
@@ -574,7 +574,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       loop
                       playsInline
                       className="vg-video"
-                      preload="metadata"
+                      preload="none"
                       onLoadStart={() => handleVideoLoadStart(video.id)}
                       onLoadedData={() => handleVideoLoad(video.id)}
                       onError={() => handleVideoError(video.id)}
@@ -656,6 +656,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       className="vg-embed tiktok-embed"
                       frameBorder="0"
                       allowFullScreen
+                      loading="lazy"
                       title={video.title}
                       onLoad={() =>
                         setIframeLoadingStates((prev) => ({
@@ -746,6 +747,7 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
                       className="vg-embed facebook-embed"
                       frameBorder="0"
                       allowFullScreen
+                      loading="lazy"
                       title={video.title}
                       onLoad={() =>
                         setIframeLoadingStates((prev) => ({
