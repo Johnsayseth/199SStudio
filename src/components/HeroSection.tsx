@@ -137,7 +137,7 @@ export default function HeroSection() {
         <div
           className="hero-slide-background"
           style={{
-            backgroundImage: 'url("/images/slides/Final 199S-1817.JPG")',
+            backgroundImage: 'url("/images/slides/1-72 copy.jpg")',
           }}
         />
 

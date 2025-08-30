@@ -871,7 +871,7 @@ export default function RootLayout({
         {/* Preload critical images */}
         <link rel="preload" href="/images/artboard-6.png" as="image" />
         <link rel="preload" href="/images/1.jpg" as="image" />
-        <link rel="preload" href="/images/Final 199S-1817.JPG" as="image" />
+        <link rel="preload" href="/images/slides/1-72 copy.jpg" as="image" />
 
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="https://www.facebook.com" />

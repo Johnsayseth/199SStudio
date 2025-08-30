@@ -54,7 +54,7 @@ export const useHeroSlides = () => {
 
         $(heroSlidesRef.current).vegas({
           slides: [
-            { src: "/images/slides/Final 199S-1817.JPG" },
+            { src: "/images/slides/1-72 copy.jpg" },
             { src: "/images/Final 199S-5822.JPG" },
             { src: "/images/mocchau-07114.JPG" },
           ],

@@ -131,22 +131,22 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const videoId = entry.target.getAttribute('data-video-id');
+            const videoId = entry.target.getAttribute("data-video-id");
             if (videoId) {
-              setVisibleVideos(prev => new Set([...prev, videoId]));
+              setVisibleVideos((prev) => new Set([...prev, videoId]));
             }
           }
         });
       },
       {
-        rootMargin: '50px', // Load video khi còn cách 50px
-        threshold: 0.1
+        rootMargin: "50px", // Load video khi còn cách 50px
+        threshold: 0.1,
       }
     );
 
     // Observe tất cả video containers
-    const videoContainers = document.querySelectorAll('[data-video-id]');
-    videoContainers.forEach(container => observer.observe(container));
+    const videoContainers = document.querySelectorAll("[data-video-id]");
+    videoContainers.forEach((container) => observer.observe(container));
 
     return () => observer.disconnect();
   }, []);
@@ -583,32 +583,32 @@ export default function VideoGalleryContent({ id }: VideoGalleryContentProps) {
 
                     {/* Lazy load video chỉ khi visible */}
                     {visibleVideos.has(video.id) ? (
-                                              <video
-                          ref={(el) => {
-                            if (el) videoRefs.current.set(video.id, el);
-                          }}
-                          src={video.src}
-                          poster={video.poster}
-                          muted
-                          autoPlay
-                          loop
-                          playsInline
-                          className="vg-video"
-                          preload="none"
-                          onLoadStart={() => handleVideoLoadStart(video.id)}
-                          onLoadedData={() => handleVideoLoad(video.id)}
-                          onError={() => handleVideoError(video.id)}
-                        />
+                      <video
+                        ref={(el) => {
+                          if (el) videoRefs.current.set(video.id, el);
+                        }}
+                        src={video.src}
+                        poster={video.poster}
+                        muted
+                        autoPlay
+                        loop
+                        playsInline
+                        className="vg-video"
+                        preload="none"
+                        onLoadStart={() => handleVideoLoadStart(video.id)}
+                        onLoadedData={() => handleVideoLoad(video.id)}
+                        onError={() => handleVideoError(video.id)}
+                      />
                     ) : (
-                      <div 
+                      <div
                         className="vg-video-placeholder"
                         style={{
                           backgroundImage: `url(${video.poster})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          width: '100%',
-                          height: '100%',
-                          borderRadius: '8px'
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "8px",
                         }}
                       />
                     )}
