@@ -71,7 +71,7 @@ export default function Navbar() {
           className="flag-image"
         />
       </div>
-      
+
       {/* Second layer of falling stars */}
       <div className="falling-stars-2"></div>
       <div className="container">
@@ -249,7 +249,7 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      
+
       {/* CSS cho lá cờ ở góc trái */}
       <style jsx>{`
         .vietnam-flag-corner {
@@ -258,11 +258,11 @@ export default function Navbar() {
           left: 0;
           z-index: 10;
           pointer-events: none;
-          width: 60px;
-          height: 45px;
+          width: 80px;
+          height: 60px;
           overflow: hidden;
         }
-        
+
         .flag-image {
           width: 100%;
           height: 100%;
@@ -270,7 +270,7 @@ export default function Navbar() {
           opacity: 0.8;
           border-radius: 0 0 6px 0;
         }
-        
+
         /* Đảm bảo Navbar có position relative để absolute hoạt động */
         .navbar {
           position: relative;
