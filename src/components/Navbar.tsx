@@ -258,8 +258,8 @@ export default function Navbar() {
           left: 0;
           z-index: 10;
           pointer-events: none;
-          width: 80px;
-          height: 60px;
+          width: 100px;
+          height: 75px;
           overflow: hidden;
         }
 
