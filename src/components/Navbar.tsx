@@ -1,166 +1,279 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState, useCallback } from "react";
+// CSS đã được gộp vào components-merged.css trong layout.tsx
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const ariaExpanded = isMenuOpen ? 'true' : 'false';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const pathname: string | null = usePathname();
 
-  const isActive = (href: string) => {
-    if (href.startsWith("/")) {
-      return pathname === href;
+  // Close mobile menu when path changes
+  useEffect(() => {
+    if (pathname && typeof pathname === "string") {
+      setIsMobileMenuOpen(false);
     }
-    return pathname === href;
+  }, [pathname]);
+
+  // Also close mobile menu on hash changes (e.g., #about, #video)
+  useEffect(() => {
+    const handleHashChange = () => setIsMobileMenuOpen(false);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Close menu immediately when a mobile nav item is clicked
+  const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+
+  const isActive = (path: string): boolean => {
+    // Server-side: always return false to prevent hydration mismatch
+    if (typeof window === "undefined") return false;
+
+    // Client-side: check actual pathname directly
+    if (!pathname) return false;
+
+    // Navbar active state check completed
+
+    // Handle hash links - Check if we're on home page and hash matches
+    if (path.includes("#")) {
+      // For hash links like /#video, check if we're on home page
+      if (pathname === "/") {
+        // Check if the hash part matches current hash
+        const currentHash = window.location.hash;
+        const targetHash = path.split("#")[1];
+        return currentHash === `#${targetHash}`;
+      }
+      return false;
+    }
+
+    // Handle regular paths
+    return pathname === path;
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const toggleMobileMenu = (): void => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark"
+      role="navigation"
+      aria-label="Main navigation"
+      data-no-sticky="true"
+    >
+      {/* Lá cờ Việt Nam ở góc trái - không ảnh hưởng layout */}
+      <div className="vietnam-flag-corner">
+        <img
+          src="/images/laco/vietnam.png"
+          alt="Lá cờ Việt Nam"
+          className="flag-image"
+        />
+      </div>
+      
+      {/* Second layer of falling stars */}
+      <div className="falling-stars-2"></div>
       <div className="container">
-        {/* Logo và tên */}
-        <Link className="navbar-brand" href="/" onClick={closeMenu}>
-          <div className="d-flex align-items-center">
-            {/* Lá cờ Việt Nam với hiệu ứng ticker */}
-            <div className="vietnam-flag-ticker me-2">
-              <img
-                src="/images/laco/vietnam.png"
-                alt="Lá cờ Việt Nam"
-                className="flag-image"
-                style={{
-                  width: "24px",
-                  height: "16px",
-                  objectFit: "cover",
-                  borderRadius: "2px",
-                  animation: "flagWave 3s ease-in-out infinite"
-                }}
-              />
-            </div>
-            <span className="brand-text">199S Studio</span>
-          </div>
+        <Link
+          className="navbar-brand d-flex align-items-center"
+          href="/"
+          aria-label="199S Studio Home"
+        >
+          <Image
+            src="/images/logo/logo199s.jpg"
+            className="navbar-brand-image img-fluid"
+            alt="199S Studio Logo"
+            width={40}
+            height={40}
+            priority
+          />
+          <span className="navbar-brand-text">199S</span>
         </Link>
 
-        {/* Toggle button cho mobile */}
+        {/* Desktop Navigation - Always visible on large screens */}
+        <div className="navbar-nav d-none d-lg-flex flex-row">
+          <Link
+            className={`nav-link ${isActive("/") ? "active" : ""}`}
+            href="/"
+            aria-label="Go to Home page"
+          >
+            Home
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/#about") ? "active" : ""}`}
+            href="/#about"
+            aria-label="Go to About section"
+          >
+            About
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/video") ? "active" : ""}`}
+            href="/video"
+            aria-label="Go to Video page"
+          >
+            Video
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/concept-hot") ? "active" : ""}`}
+            href="/concept-hot"
+            aria-label="View Concept Hot"
+          >
+            Concept
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/blog") ? "active" : ""}`}
+            href="/blog"
+            aria-label="Go to Blog page"
+          >
+            Blog
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/feedback") ? "active" : ""}`}
+            href="/feedback"
+            aria-label="Go to Feedback page"
+          >
+            Feedback
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/datlichkyyeu") ? "active" : ""}`}
+            href="/datlichkyyeu"
+            aria-label="Go to Book Now page"
+          >
+            Đặt Lịch
+          </Link>
+          <Link
+            className={`nav-link ${isActive("/tuyen-dung") ? "active" : ""}`}
+            href="/tuyen-dung"
+            aria-label="Go to Tuyển Dụng page"
+          >
+            Tuyển Dụng
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button - Only visible on small screens */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler d-lg-none"
           type="button"
-          onClick={toggleMenu}
-          aria-expanded={ariaExpanded}
           aria-label="Toggle navigation"
+          onClick={toggleMobileMenu}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navigation menu */}
-        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
+        {/* Mobile Navigation - Only visible when toggled */}
+        <div
+          className={`navbar-collapse d-lg-none ${
+            isMobileMenuOpen ? "show" : ""
+          }`}
+        >
+          <ul className="navbar-nav">
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
                 className={`nav-link ${isActive("/") ? "active" : ""}`}
                 href="/"
-                onClick={closeMenu}
+                aria-label="Go to Home page"
               >
-                Trang chủ
+                Home
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
-                className={`nav-link ${isActive("/concept-hot") ? "active" : ""}`}
-                href="/concept-hot"
-                onClick={closeMenu}
+                className={`nav-link ${isActive("/#about") ? "active" : ""}`}
+                href="/#about"
+                aria-label="Go to About section"
               >
-                Concept
+                About
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
                 className={`nav-link ${isActive("/video") ? "active" : ""}`}
                 href="/video"
-                onClick={closeMenu}
+                aria-label="Go to Video page"
               >
                 Video
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={closeMobileMenu}>
+              <Link
+                className={`nav-link ${
+                  isActive("/concept-hot") ? "active" : ""
+                }`}
+                href="/concept-hot"
+                aria-label="View Concept Hot"
+              >
+                Concept
+              </Link>
+            </li>
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
                 className={`nav-link ${isActive("/blog") ? "active" : ""}`}
                 href="/blog"
-                onClick={closeMenu}
+                aria-label="Go to Blog page"
               >
                 Blog
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
                 className={`nav-link ${isActive("/feedback") ? "active" : ""}`}
                 href="/feedback"
-                onClick={closeMenu}
+                aria-label="Go to Feedback page"
               >
                 Feedback
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={closeMobileMenu}>
               <Link
-                className={`nav-link ${isActive("/tuyen-dung") ? "active" : ""}`}
-                href="/tuyen-dung"
-                onClick={closeMenu}
+                className={`nav-link ${
+                  isActive("/datlichkyyeu") ? "active" : ""
+                }`}
+                href="/datlichkyyeu"
+                aria-label="Go to Book Now page"
               >
-                Tuyển dụng
+                Đặt Lịch
+              </Link>
+            </li>
+            <li className="nav-item" onClick={closeMobileMenu}>
+              <Link
+                className={`nav-link ${
+                  isActive("/tuyen-dung") ? "active" : ""
+                }`}
+                href="/tuyen-dung"
+                aria-label="Go to Tuyển Dụng page"
+              >
+                Tuyển Dụng
               </Link>
             </li>
           </ul>
         </div>
       </div>
-
-      {/* CSS cho hiệu ứng ticker */}
+      
+      {/* CSS cho lá cờ ở góc trái */}
       <style jsx>{`
-        .vietnam-flag-ticker {
-          position: relative;
+        .vietnam-flag-corner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 10;
+          pointer-events: none;
+          width: 60px;
+          height: 45px;
           overflow: hidden;
-          border-radius: 2px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+        
         .flag-image {
-          transition: transform 0.3s ease;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.8;
+          border-radius: 0 0 6px 0;
         }
-
-        .vietnam-flag-ticker:hover .flag-image {
-          transform: scale(1.1);
-        }
-
-        @keyframes flagWave {
-          0%, 100% {
-            transform: rotate(0deg) scale(1);
-          }
-          25% {
-            transform: rotate(2deg) scale(1.05);
-          }
-          50% {
-            transform: rotate(0deg) scale(1.1);
-          }
-          75% {
-            transform: rotate(-2deg) scale(1.05);
-          }
-        }
-
-        .brand-text {
-          font-weight: 600;
-          color: white;
-          font-size: 1.2rem;
-        }
-
-        .navbar-brand:hover .flag-image {
-          animation-play-state: paused;
+        
+        /* Đảm bảo Navbar có position relative để absolute hoạt động */
+        .navbar {
+          position: relative;
         }
       `}</style>
     </nav>
